@@ -1,0 +1,3517 @@
+{
+ "works": [
+  {
+   "slug": "s001",
+   "who": "sw",
+   "sort": 1,
+   "title_en": "full moon __ past : present : future",
+   "title_cn": "明月 ：傳承 / 香港瑰麗酒店 x 香港故宮文化博物館",
+   "year": 2024,
+   "year_text": "",
+   "category_en": "packaging",
+   "category_cn": "包裝",
+   "categories": [
+    "packaging"
+   ],
+   "statement_en": "unlike all mooncake packagings in market, this full moon story is imaginary and inspiring which created by ai with scientific datas.\nit blends transitional and contemporary chinese art and culture.\ndesigner has joined hands with local artist with the world’s first artificial intelligence ink painter a.i. gemini,\nto create a dialogue across time and space and reimagine the harvest moon through ink painting and state-of- the-art technology.\nthe design approach certainly reflects the both rosewood and hong kong palaces museum’s spirit,\nprompting and embracing creative culture with spectrum from traditional to contemporary.",
+   "statement_cn": "與所有在市場出現之中秋節月餅禮盒設計方向截然不同... 這個副想像力之㘣月故事是由 AI 跟科學數據而創造出來的。\n設計糅合嶄新，並傳承中國文化的精神。平面設計師跟本地視覺藝術家及他的 a.i. gemini ，\n以中國傳統的水墨畫概念，融入古人對中秋滿月的想像及嫦娥四號完成世界首次月球背面軟着陸的相關數據。\n利用由創新的人工智能所輔助的設計及跨越時空的對話，重新詮釋現代水墨畫的傳承。\n這個設計的方向，正正反映香港瑰麗酒店和香港故宮文化博物館雙方的精神，\n推廣和擁抱創意文化在傳統、傳承和未來的探索。",
+   "credits": [
+    {
+     "label": "client",
+     "value_en": "rosewood × hong kong palace museum",
+     "value_cn": "香港瑰麗酒店 × 香港故宮文化博物館"
+    },
+    {
+     "label": "collaboration",
+     "value_en": "victor wong × a.i. gemini",
+     "value_cn": "黃宏達 × 人工智能水墨畫家 a.i. gemini"
+    },
+    {
+     "label": "award",
+     "value_en": "dfa design for asia award 2024 / bronze award",
+     "value_cn": "亞洲設計大獎 2024 / 銅獎"
+    }
+   ],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg"
+   ],
+   "video": "",
+   "video_poster": "s001-poster.jpg",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.89
+       ],
+       "top": 1.9,
+       "imgs": [
+        5
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        6.0
+       ],
+       "imgs": [
+        2
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      1.89
+     ],
+     "cells": [
+      {
+       "imgs": [
+        4
+       ]
+      }
+     ],
+     "top": 0.08
+    },
+    {
+     "type": "row",
+     "span": [
+      1.03,
+      6.0
+     ],
+     "cells": [
+      {
+       "imgs": [
+        8
+       ]
+      }
+     ],
+     "top": 0.25
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "imgs": [
+        6
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "imgs": [
+        10
+       ]
+      }
+     ],
+     "top": 0.59
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "imgs": [
+        9
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "imgs": [
+        7
+       ]
+      }
+     ],
+     "top": 0.13
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      4.98
+     ],
+     "cells": [
+      {
+       "imgs": [
+        1
+       ]
+      }
+     ],
+     "top": 0.47
+    },
+    {
+     "type": "video",
+     "span": [
+      0.0,
+      3.95
+     ],
+     "top": 0.17
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": "https://vimeo.com/977511137"
+  },
+  {
+   "slug": "s002",
+   "who": "sw",
+   "sort": 2,
+   "title_en": "human interaction /\nart basel hong kong 2021",
+   "title_cn": "人際互動 / 香港巴塞爾藝術展",
+   "year": 2021,
+   "year_text": "",
+   "category_en": "photography / promotion",
+   "category_cn": "攝影 / 宣傳",
+   "categories": [
+    "photography",
+    "advertising"
+   ],
+   "statement_en": "during covid 19, hong kong city were almost stopped and people were isolated with health policy for most of daily routine…\ncertainly, art was a meaningful drive to bring people together, again…\na poster / advertisement campaign was captured the key people from art,\ncultural scenes including art lovers, cheerfully blending together,\nto celebrate the special art basel hong kong 2021 episode for a special moment of the city.",
+   "statement_cn": "在新冠疫情期間，香港幾乎陷入停滯，人們的日常生活大多受到防疫政策的限制…\n藝術無疑是推動人們再次相聚的重要力量…\n一系列海報/廣告宣傳活動捕捉了藝術界和文化界的關鍵人物，\n包括藝術愛好者在內的各界人士歡聚一堂，\n共同慶祝2021年香港巴塞爾藝術展這一特殊時刻，為這座城市增添獨特的色彩。",
+   "credits": [
+    {
+     "label": "client",
+     "value_en": "art basel",
+     "value_cn": "香港巴塞爾藝術展"
+    },
+    {
+     "label": "collaboration",
+     "value_en": "alan lau / suhanya raffel / ying kwok / claire hsu /\nalice mong / arman lam / issac wong /\namanda hon / andrew luk / willem molesworth /\nanthony tao / yuk king tan / bobby mohseni / lorraine kiang malingue / shasha tittmann / henrietta tsui /\nvenerable sik chang lin / sin aries / liang xing /\nlouis yu / arnault castel / eddie chung / ranee k /\npeter wong / may chow / vivienne chow /",
+     "value_cn": ""
+    },
+    {
+     "label": "award",
+     "value_en": "global design awards 2025 / winning enteries",
+     "value_cn": "環球設計大獎 2025 / 得獎作品"
+    }
+   ],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6.0
+     ],
+     "cells": [
+      {
+       "imgs": [
+        11
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6.0
+     ],
+     "cells": [
+      {
+       "imgs": [
+        13
+       ]
+      }
+     ],
+     "top": 0.07
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "blocks": [
+        {
+         "type": "row",
+         "span": [
+          0.0,
+          2.92
+         ],
+         "cells": [
+          {
+           "imgs": [
+            10
+           ]
+          }
+         ]
+        },
+        {
+         "type": "row",
+         "span": [
+          0.0,
+          2.58
+         ],
+         "cells": [
+          {
+           "span": [
+            0.0,
+            0.87
+           ],
+           "imgs": [
+            9
+           ]
+          },
+          {
+           "span": [
+            1.07,
+            2.58
+           ],
+           "imgs": [
+            7
+           ]
+          }
+         ],
+         "top": 0.78
+        }
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "top": 0.85,
+       "imgs": [
+        5
+       ]
+      }
+     ],
+     "top": 0.36
+    },
+    {
+     "type": "row",
+     "span": [
+      3.08,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        3.08,
+        3.88
+       ],
+       "imgs": [
+        12
+       ]
+      },
+      {
+       "span": [
+        3.92,
+        4.84
+       ],
+       "imgs": [
+        6
+       ]
+      },
+      {
+       "span": [
+        4.88,
+        6.0
+       ],
+       "imgs": [
+        8
+       ]
+      }
+     ],
+     "top": 0.07
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      4.97
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.89
+       ],
+       "imgs": [
+        1
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        4.97
+       ],
+       "imgs": [
+        3
+       ]
+      }
+     ],
+     "top": 0.47
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6.0
+     ],
+     "cells": [
+      {
+       "imgs": [
+        4
+       ]
+      }
+     ],
+     "top": 0.2
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  },
+  {
+   "slug": "s003",
+   "who": "sw",
+   "sort": 3,
+   "title_en": "hmv ideal",
+   "title_cn": "",
+   "year": 2008,
+   "year_text": "",
+   "category_en": "branding / interior / graphic",
+   "category_cn": "品牌 / 室內 / 平面",
+   "categories": [
+    "branding",
+    "space",
+    "art / design"
+   ],
+   "statement_en": "",
+   "statement_cn": "",
+   "credits": [
+    {
+     "label": "client",
+     "value_en": "hmv",
+     "value_cn": ""
+    },
+    {
+     "label": "collaboration",
+     "value_en": "joey ho [interior]\nhenry chu [muliti media]",
+     "value_cn": "joey ho［室內設計］\nhenry chu［多媒體］"
+    }
+   ],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg",
+    "15.jpg",
+    "16.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      1.61,
+      4.83
+     ],
+     "cells": [
+      {
+       "imgs": [
+        3
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.28,
+      6.0
+     ],
+     "cells": [
+      {
+       "imgs": [
+        4
+       ]
+      }
+     ],
+     "top": 0.28
+    },
+    {
+     "type": "row",
+     "span": [
+      0.39,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.39,
+        3.95
+       ],
+       "imgs": [
+        6
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        6.0
+       ],
+       "top": 0.22,
+       "imgs": [
+        7
+       ]
+      }
+     ],
+     "top": 0.47
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.89
+       ],
+       "imgs": [
+        9
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        6.0
+       ],
+       "top": 1.68,
+       "imgs": [
+        8
+       ]
+      }
+     ],
+     "top": 0.39
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "imgs": [
+        12
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "imgs": [
+        14
+       ]
+      }
+     ],
+     "top": 0.84
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "imgs": [
+        16
+       ]
+      }
+     ],
+     "top": 0.46
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  },
+  {
+   "slug": "s004",
+   "who": "sw",
+   "sort": 4,
+   "title_en": "heaven & hell /\nagi / hong kong conference",
+   "title_cn": "天堂與地獄 / 國際平面設計聯盟 / 香港會議",
+   "year": 2012,
+   "year_text": "",
+   "category_en": "event visual / promotion / book / poster",
+   "category_cn": "活動視覺 / 書籍 / 海報 / 推廣",
+   "categories": [
+    "advertising",
+    "exhibition",
+    "book",
+    "poster"
+   ],
+   "statement_en": "“heaven and hell” is the theme of the agi 2012 held during the hong kong design conference and exhibition.\nheaven and hell are relative,\nthere is always bad in good, and good in bad.\nit is heaven and it is hell.\na long time ago, hong kong was a “shopping paradise” and then it also became a “gourmet paradise”.\nheaven is perfection, is a dream,\na pursuit, an epitome...\na common line in movies – “there is a road to heaven but you shun it, there is no door to hell yet you break in…”\nor, another oft-heard line,\n“if i do not risk going to hell, no one will.”\nheaven and hell exist in the mythical world.\nheaven and hell exist in the religious world.\nthere is heaven and hell in the west.\nthere is heaven and hell in the east.\nif hell is in the abyss between the east and the west,\nthen,\nheaven should be up high,\ncloser to the sky…\nin the buddhist world,\nthere are also two states of existence:\npurified land (heaven) exists among us,\nright before us, in our minds,\nand so does hell.\none thought can take us to heaven,\nanother thought can bring us hell.",
+   "statement_cn": "《天堂與地獄》是AGI 二○一二在香港舉辦設計會議及活動的主題。\n天堂與地獄是一個相對的，好中有壞，壞中有好的概念。\n也是地獄。也是天堂。\n很久很久以前，\n香港被譽為「購物天堂」\n後又被稱「美食天堂」。\n天堂是美好至極，是夢，是追求，\n是指標…\n電影常出現這句話：「天堂有路你不走，地獄無門你闖進來…」\n另外一句：「我不入地獄，誰入地獄。」\n神話世界有天堂地獄。\n宗教世界有天堂地獄。\n西方有天堂地獄。\n東方有天堂地獄。\n如果地獄是在東西方之間地底最深處，\n那麼，\n天堂是較近哪一方之天空上面…\n佛的世界也有另兩角度：\n淨土（天堂）就在人間，\n地獄也在眼前。\n一念天堂，一念地獄。",
+   "credits": [
+    {
+     "label": "client",
+     "value_en": "agi alliance graphique internationale",
+     "value_cn": "國際平面設計聯盟（agi）"
+    },
+    {
+     "label": "collaboration",
+     "value_en": "hung lam [exhibition design]\n84000 communications ltd.",
+     "value_cn": "hung lam［展覽設計］\n八萬四千溝通事務所"
+    },
+    {
+     "label": "collection",
+     "value_en": "m+",
+     "value_cn": "m+"
+    }
+   ],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg",
+    "15.jpg",
+    "16.jpg",
+    "17.jpg",
+    "18.jpg",
+    "19.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      1.89
+     ],
+     "cells": [
+      {
+       "imgs": [
+        17
+       ]
+      }
+     ],
+     "aside": "statement"
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      3.95
+     ],
+     "cells": [
+      {
+       "imgs": [
+        7
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        2.05,
+        3.34
+       ],
+       "imgs": [
+        1
+       ]
+      },
+      {
+       "span": [
+        3.38,
+        4.67
+       ],
+       "imgs": [
+        4
+       ]
+      },
+      {
+       "span": [
+        4.71,
+        6.0
+       ],
+       "imgs": [
+        2
+       ]
+      }
+     ],
+     "top": 0.31
+    },
+    {
+     "type": "row",
+     "span": [
+      0.6,
+      6.0
+     ],
+     "cells": [
+      {
+       "imgs": [
+        19
+       ]
+      }
+     ],
+     "top": 0.35
+    },
+    {
+     "type": "row",
+     "span": [
+      4.11,
+      5.97
+     ],
+     "cells": [
+      {
+       "imgs": [
+        9
+       ]
+      }
+     ],
+     "top": 0.56
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      5.97
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        3.95
+       ],
+       "imgs": [
+        3
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        5.97
+       ],
+       "imgs": [
+        8
+       ]
+      }
+     ],
+     "top": 0.12
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "imgs": [
+        6
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "imgs": [
+        13
+       ]
+      }
+     ],
+     "top": 0.69
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.45
+       ],
+       "imgs": [
+        10
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        4.53
+       ],
+       "imgs": [
+        12
+       ]
+      },
+      {
+       "span": [
+        4.55,
+        6.0
+       ],
+       "imgs": [
+        11
+       ]
+      }
+     ],
+     "top": 0.09
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.97
+       ],
+       "imgs": [
+        16
+       ]
+      },
+      {
+       "span": [
+        2.01,
+        3.99
+       ],
+       "imgs": [
+        15
+       ]
+      },
+      {
+       "span": [
+        4.03,
+        6.0
+       ],
+       "imgs": [
+        14
+       ]
+      }
+     ],
+     "top": 0.72
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  },
+  {
+   "slug": "s005",
+   "who": "sw",
+   "sort": 5,
+   "title_en": "red light / wheel",
+   "title_cn": "紅燈 / 車轆",
+   "year": 1991,
+   "year_text": "",
+   "category_en": "tv commercial / poster",
+   "category_cn": "電視廣告 / 海報",
+   "categories": [
+    "poster",
+    "tv commercial"
+   ],
+   "statement_en": "i thank willde ng and gary chui for bringing me into the family of j. walter thompson and the mtr advertising creative team. Since there were seven million readers and audience, i quickly adopted the essence of the “local” life as the start point for the creative – a rarity in advertising back then.\nthat four and a half years of experience allowed me to fully appreciate the local culture, people... reshaping my views and values of my creative work and life.\nthis is the project that brought me fame within the asian creative circle.\nthis brought me the first award in my career in advertising world.\nthis might be the most effective communication work throughout my career.\nthis tvc series might be the project with the lowest production cost in hong kong advertising scene.",
+   "statement_cn": "感謝吳文芳和徐憶雄帶我進入智威湯遜這大家庭，成為地下鐵路廣告創意團隊。\n因七百萬人都是讀者和觀眾，\n令我很快進入以「地道」生活元素出發作為創意溝通的切入點，\n這也是當年少見的廣告語言。\n這四年半的經驗，\n讓我切切實實落實到地道、人文種種，\n改變我往後創作和做人的思路和價值觀。\n這是令我在亞洲創意圈建立名聲的項目。\n這是商業創作生涯得獎零的突破。\n這可能是我工作以來，最有效的宣傳案子。\n這電視廣告系列可能是香港廣告製作最低成本的其中一個。",
+   "credits": [
+    {
+     "label": "client",
+     "value_en": "mtr mass transit railway corporation",
+     "value_cn": "地下鐵路公司"
+    },
+    {
+     "label": "collaboration",
+     "value_en": "gary chui / deborah hosking [creative]\nsandy lee [print photography]\nmaisy choi [film director]",
+     "value_cn": "gary chui / deborah hosking［創作］\nsandy lee［平面攝影］\nmaisy choi［導演］"
+    },
+    {
+     "label": "agency",
+     "value_en": "j. walter thompson (hk)",
+     "value_cn": "智威湯遜（香港）"
+    },
+    {
+     "label": "award",
+     "value_en": "1991 media asian advertising awards /\ntv campaign / spike\n1991 hong kong 4a's creative award /\ntv campaign / 2 silver awards\nbest tv campaign / silver award\nbest low budget tv campaign / silver awards\nbest single poster / bronze award\ncraft awards - chinese / bronze award\n1992 hkda design show / tv / 1 silver award",
+     "value_cn": "1991 media 亞洲廣告大獎 /\n電視廣告系列 / spike 獎\n1991 香港 4a 創意獎 /\n電視廣告系列 / 兩項銀獎\n最佳電視廣告系列 / 銀獎\n最佳低成本電視廣告系列 / 銀獎\n最佳單張海報 / 銅獎\n技藝獎 — 中文 / 銅獎\n1992 香港設計師協會設計展 / 電視 / 銀獎"
+    }
+   ],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg"
+   ],
+   "video": "",
+   "video_poster": "s005-poster.jpg",
+   "layout": [
+    {
+     "type": "video",
+     "span": [
+      0.0,
+      6.0
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      4.97
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "imgs": [
+        3
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        4.97
+       ],
+       "imgs": [
+        4
+       ]
+      }
+     ],
+     "top": 0.44
+    },
+    {
+     "type": "caption",
+     "span": [
+      0.0,
+      2.92
+     ],
+     "text": "taxi / 30\"\ntaxi meter / 30\"\nwheel / 30\"",
+     "top": -0.02
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "top": 0.02,
+       "imgs": [
+        1
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "imgs": [
+        2
+       ]
+      }
+     ],
+     "top": 0.32
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": "https://vimeo.com/366693695"
+  },
+  {
+   "slug": "a001",
+   "who": "amm",
+   "sort": 1,
+   "title_en": "i see ikebana. it is ikebana.",
+   "title_cn": "我看花。便是花。",
+   "year": 2024,
+   "year_text": "",
+   "category_en": "photography",
+   "category_cn": "攝影",
+   "categories": [
+    "photography"
+   ],
+   "statement_en": "i see mountains,\nthey are mountains.\ni see ikebana,\nit is ikebana.\nsee flowers from heart,\nenjoy the flowers.\nfeel home in heart,\nembrace...\nand stay home.",
+   "statement_cn": "我看山。便是山。\n我看花。便是花。\n心中有花。當下賞花。\n心中有家。安住在家。\ni see ikebana.",
+   "credits": [],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg",
+    "15.jpg",
+    "16.jpg",
+    "17.jpg",
+    "18.jpg",
+    "19.jpg",
+    "20.jpg",
+    "21.jpg",
+    "22.jpg",
+    "23.jpg",
+    "24.jpg",
+    "25.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.96
+       ],
+       "imgs": [
+        1
+       ]
+      },
+      {
+       "span": [
+        2.01,
+        3.98
+       ],
+       "imgs": [
+        2
+       ]
+      },
+      {
+       "span": [
+        4.03,
+        6.0
+       ],
+       "imgs": [
+        3
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.99
+       ],
+       "imgs": [
+        4
+       ]
+      },
+      {
+       "span": [
+        3.01,
+        6.0
+       ],
+       "imgs": [
+        5
+       ]
+      }
+     ],
+     "top": 0.07
+    },
+    {
+     "type": "row",
+     "span": [
+      0.43,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.43,
+        2.32
+       ],
+       "top": 0.02,
+       "blocks": [
+        {
+         "type": "row",
+         "span": [
+          0.43,
+          2.32
+         ],
+         "cells": [
+          {
+           "imgs": [
+            25
+           ]
+          }
+         ]
+        },
+        {
+         "type": "row",
+         "span": [
+          0.43,
+          2.32
+         ],
+         "cells": [
+          {
+           "imgs": [
+            21
+           ]
+          }
+         ],
+         "top": 0.04
+        }
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "blocks": [
+        {
+         "type": "row",
+         "span": [
+          3.08,
+          6.0
+         ],
+         "cells": [
+          {
+           "span": [
+            3.08,
+            4.46
+           ],
+           "imgs": [
+            20
+           ]
+          },
+          {
+           "span": [
+            4.62,
+            6.0
+           ],
+           "imgs": [
+            19
+           ]
+          }
+         ]
+        },
+        {
+         "type": "row",
+         "span": [
+          3.08,
+          6.0
+         ],
+         "cells": [
+          {
+           "imgs": [
+            7
+           ]
+          }
+         ],
+         "top": -0.08
+        }
+       ]
+      }
+     ],
+     "top": 0.25
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.41
+       ],
+       "imgs": [
+        15
+       ]
+      },
+      {
+       "span": [
+        1.53,
+        2.94
+       ],
+       "imgs": [
+        14
+       ]
+      },
+      {
+       "span": [
+        3.06,
+        4.47
+       ],
+       "imgs": [
+        22
+       ]
+      },
+      {
+       "span": [
+        4.59,
+        6.0
+       ],
+       "imgs": [
+        23
+       ]
+      }
+     ],
+     "top": 0.18
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.88
+       ],
+       "imgs": [
+        6
+       ]
+      },
+      {
+       "span": [
+        3.12,
+        6.0
+       ],
+       "imgs": [
+        9
+       ]
+      }
+     ],
+     "top": 0.59
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.48
+       ],
+       "imgs": [
+        13
+       ]
+      },
+      {
+       "span": [
+        1.48,
+        2.97
+       ],
+       "imgs": [
+        10
+       ]
+      },
+      {
+       "span": [
+        2.99,
+        4.48
+       ],
+       "imgs": [
+        11
+       ]
+      },
+      {
+       "span": [
+        4.51,
+        6.0
+       ],
+       "imgs": [
+        12
+       ]
+      }
+     ],
+     "top": 0.52
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.91
+       ],
+       "imgs": [
+        16
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        3.96
+       ],
+       "imgs": [
+        17
+       ]
+      },
+      {
+       "span": [
+        4.09,
+        6.0
+       ],
+       "imgs": [
+        18
+       ]
+      }
+     ],
+     "top": 0.3
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "imgs": [
+        8
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "imgs": [
+        24
+       ]
+      }
+     ],
+     "top": 0.39
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  },
+  {
+   "slug": "a002",
+   "who": "amm",
+   "sort": 2,
+   "title_en": "seeing words in hong kong / redwhiteblue //\nwords talking / self talking",
+   "title_cn": "香港看字 / 紅白藍 //\n字言。字語",
+   "year": 2022,
+   "year_text": "",
+   "category_en": "painting",
+   "category_cn": "絲網版畫",
+   "categories": [
+    "painting"
+   ],
+   "statement_en": "it is said that “a picture tells more than a thousand words”.\nif a picture can speak more than a thousand words, then,\nwhat can be offered by a picture with just “a few words”?\nwords are used to tell different stories by respective interpretation,\nbeing fermented and polished along with time, the plot becomes more vivid and touching.\nwords can be compelling, but sometimes be taken apart.\nideas can be put into words, but sometimes you have to read between the lines.\nat the crossroad, reminding me of the lyrics of “midnight whisper”\nby cantopop singer sam hui: babbling nonsense, more typos. however, we both know what's in our hearts.\nknowing but not knowing, conversing with myself ruthlessly.\n(a tribute to the heroes and unsung heroes written in the city of hong kong in the past forty years,\ngranting me unlimited imagination and inspiration).",
+   "statement_cn": "人家説 a picture tells more than a thousand words 。\n如果一幅照片能説多過千言萬語，\n那麼，一張有「三言兩語」的照片，可能給我們什麼...\n文字落在不同人的手中，訴説不同的故事心聲，\n與時間磨合發酵，情節愈發立體、動人。\n有時字字鏗鏘，有時説文會被解字。\n有時白紙黑字，有時唯有字裡行間。\n十字街頭，想起 sam hui 一句歌詞：\n糊言亂語更多錯字，總之兩心知。\n在知還不知當中，好好地、狠狠地，自言自語。\n（ 向四十年來親身看見在香港我城書寫其中的英雄和無名英雄致意，\n賦與我無限想像和靈感。）\nseeing words in hong kong / redwhiteblue //",
+   "credits": [
+    {
+     "label": "award",
+     "value_en": "2023 tokyo tdc / nominee",
+     "value_cn": "2023 東京 tdc / 入圍"
+    }
+   ],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg",
+    "15.jpg",
+    "16.jpg",
+    "17.jpg",
+    "18.jpg",
+    "19.jpg",
+    "20.jpg",
+    "21.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "imgs": [
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      1.03,
+      3.95
+     ],
+     "cells": [
+      {
+       "imgs": [
+        3
+       ]
+      }
+     ],
+     "top": 0.41
+    },
+    {
+     "type": "row",
+     "span": [
+      3.08,
+      6.0
+     ],
+     "cells": [
+      {
+       "imgs": [
+        19
+       ]
+      }
+     ],
+     "top": 0.86
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.39
+       ],
+       "imgs": [
+        4
+       ]
+      },
+      {
+       "span": [
+        1.54,
+        2.92
+       ],
+       "imgs": [
+        5
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        4.47
+       ],
+       "imgs": [
+        6
+       ]
+      },
+      {
+       "span": [
+        4.61,
+        6.0
+       ],
+       "imgs": [
+        7
+       ]
+      }
+     ],
+     "top": 0.59
+    },
+    {
+     "type": "row",
+     "span": [
+      1.03,
+      4.97
+     ],
+     "cells": [
+      {
+       "span": [
+        1.03,
+        2.92
+       ],
+       "imgs": [
+        8
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        4.97
+       ],
+       "imgs": [
+        9
+       ]
+      }
+     ],
+     "top": 0.61
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.89
+       ],
+       "imgs": [
+        10
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        3.95
+       ],
+       "imgs": [
+        11
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        6.0
+       ],
+       "imgs": [
+        12
+       ]
+      }
+     ],
+     "top": 0.61
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        0.87
+       ],
+       "imgs": [
+        13
+       ]
+      },
+      {
+       "span": [
+        1.03,
+        1.89
+       ],
+       "imgs": [
+        14
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        2.92
+       ],
+       "imgs": [
+        15
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        3.95
+       ],
+       "imgs": [
+        16
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        4.97
+       ],
+       "imgs": [
+        17
+       ]
+      },
+      {
+       "span": [
+        5.13,
+        6.0
+       ],
+       "imgs": [
+        18
+       ]
+      }
+     ],
+     "top": 0.61
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        2.05,
+        3.95
+       ],
+       "imgs": [
+        20
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        6.0
+       ],
+       "imgs": [
+        21
+       ]
+      }
+     ],
+     "top": 0.63
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  },
+  {
+   "slug": "a003",
+   "who": "amm",
+   "sort": 3,
+   "title_en": "hong kong walk on / one",
+   "title_cn": "香港前行",
+   "year": 2022,
+   "year_text": "",
+   "category_en": "installation / product / photography",
+   "category_cn": "裝置 / 產品 / 攝影",
+   "categories": [
+    "installation",
+    "product",
+    "photography"
+   ],
+   "statement_en": "for everything in life\nthere is no\nclear start point\nand there will be\nno absolute ending\nit’s a journey of\nstraight and winding\nsmooth and rugged\nsame for everything\nsame for our city hong kong\nanothermountainman\npalms together",
+   "statement_cn": "裝飾\n人生\n就像一個圓圈\n沒有一個清楚的起點\n亦沒有絕對的終點\n路途上\n有直有彎\n有平坦\n也有崎嶇\n凡事也許如是\n我城香港如是\n又一山人 合十",
+   "credits": [
+    {
+     "label": "client",
+     "value_en": "tai ping carpet",
+     "value_cn": "太平地氈"
+    },
+    {
+     "label": "producer",
+     "value_en": "tai ping carpet",
+     "value_cn": "太平地氈"
+    },
+    {
+     "label": "award",
+     "value_en": "2023 dfa design for asia award / grand award\nglobal design awards 2025 / winning entries",
+     "value_cn": "2023 亞洲設計大獎 / 大獎\n環球設計大獎 2025 / 得獎作品"
+    }
+   ],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg",
+    "15.jpg",
+    "16.jpg",
+    "17.jpg",
+    "18.jpg",
+    "19.jpg",
+    "20.jpg",
+    "21.jpg",
+    "22.jpg",
+    "23.jpg",
+    "24.jpg",
+    "25.jpg",
+    "26.jpg",
+    "27.jpg",
+    "28.jpg",
+    "29.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "par",
+     "span": [
+      4.11,
+      6.0
+     ],
+     "text_en": "from tai ping carpet invitation,\nanothermountainman created an limited edition art rug for 2022 art basel exhibition with the symbolic redwhiteblue pattern plastic sheet which he worked with it over 20 years to promote\n‘positive spirit of hong kong’.\nthe rug dedicates positive wishes to hong kong city\nwhich going through a rough timing from covid 19 and social / politically unstable huddles.",
+     "text_cn": "接受太平地氈邀請，\n又一山人利用了他過去愈 20 年\n提倡‘正面香港精神’的紅白藍膠布圖像，\n創作了一張限量藝術地氈\n在香港 art basel 2022 展出。\n藉着這地氈，希望將一個正面的期盼祝願\n給予正在經歷 covid 19 和社會政治動盪難關的香港城市。"
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.89
+       ],
+       "imgs": [
+        27
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        3.95
+       ],
+       "imgs": [
+        18
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        6.0
+       ],
+       "imgs": [
+        10
+       ]
+      }
+     ],
+     "top": 0.32
+    },
+    {
+     "type": "row",
+     "span": [
+      1.03,
+      4.97
+     ],
+     "cells": [
+      {
+       "span": [
+        1.03,
+        2.92
+       ],
+       "imgs": [
+        17
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        4.97
+       ],
+       "imgs": [
+        16
+       ]
+      }
+     ],
+     "top": 0.7
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        0.87
+       ],
+       "imgs": [
+        16
+       ]
+      },
+      {
+       "span": [
+        1.03,
+        1.89
+       ],
+       "imgs": [
+        15
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        2.92
+       ],
+       "imgs": [
+        20
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        3.95
+       ],
+       "imgs": [
+        25
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        4.97
+       ],
+       "imgs": [
+        24
+       ]
+      },
+      {
+       "span": [
+        5.13,
+        6.0
+       ],
+       "imgs": [
+        19
+       ]
+      }
+     ],
+     "top": 0.69
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      4.97
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        0.87
+       ],
+       "imgs": [
+        26
+       ]
+      },
+      {
+       "span": [
+        1.03,
+        1.89
+       ],
+       "imgs": [
+        14
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        3.95
+       ],
+       "imgs": [
+        23
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        4.97
+       ],
+       "imgs": [
+        29
+       ]
+      }
+     ],
+     "top": 0.37
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        2.05,
+        3.95
+       ],
+       "imgs": [
+        22
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        6.0
+       ],
+       "imgs": [
+        12
+       ]
+      }
+     ],
+     "top": 0.82
+    },
+    {
+     "type": "row",
+     "span": [
+      1.03,
+      4.97
+     ],
+     "cells": [
+      {
+       "span": [
+        1.03,
+        3.95
+       ],
+       "imgs": [
+        28
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        4.97
+       ],
+       "imgs": [
+        13
+       ]
+      }
+     ],
+     "top": 0.1
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        3.95
+       ],
+       "imgs": [
+        3
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        6.0
+       ],
+       "text_en": "in hong kong walk on, tai ping’s most demanding level of craftsmanship in recent decades,\nanothermountainman reinterprets his iconic red white blue series by creating a sophisticated,\nphotorealistic design that gives the illusion of a rippled textile.\nto showcase the intricate texture of the original fabric, tai ping furthered its exploration into artistic production with a mural-standard execution,\nan approach that is beyond the reach of technological assistance due to the intricacy of the design.\nabandoning computer-generated templates, artisans performed their work directly on the canvas,\nrelying on their unparalleled skills and artistic interpretation in order to bring the image to life – based solely on a photo reference.\nto guide the artisans, the first layer of the template was hand-painted onto a 3 x 6m canvas,\nwhich divided the carpet into 71,200 small grids of 1.59 x 1.59cm, followed by a second layer of the sketched design.\neach grid was carefully analysed to ensure every millimetre of the carpet was accurately defined.\nthe artisans then applied a combination of yarns to the canvas using a hand-tufting gun to fill each grid,\ncrafting in horizontal, vertical or diagonal directions.\nsmooth gradation, dynamic curves and clean lines, together with the regular collocation of red/white grids or blue/white grids throughout,\nmark the challenges from which this artisanal piece grows.\nthe complex design required the workshop to appoint four seasoned artisans with over 25 years of hand-tufting experience,\nas well as 10 craftsmen from various departments including colour matching, sketching, stencilling & brushing,\ncolour separation, and colour marking & processing.\nthe carpet was made using 64 different hues of red, white and blue along with 628 colour combinations in grade a new zealand wool and silk yarns.\nfrom inception to completion, this extraordinary textile took 12 months to complete.",
+       "text_cn": "將又一山人的「紅白藍」布料皺摺形態藝術照片以寫實主義呈現於地氈香港前行，\n生產及手工複雜程度為近年所未見。\n為展現原裝布料複雜的質感及達至對圖案輪廓的嚴格要求，\n需要採用壁畫形式設計及製作，\n意指設計、生產及手工複雜程度超越電腦程式所及，\n需要工藝師及工匠單憑經驗及參照藝術照片，在沒有任何電腦程式協助直接上畫及織造。\n工藝師先在三米 × 六米的畫布上起第一層畫稿，\n將其分劃成七萬一千二百個 1.59×1.59 釐米的小格子；\n然後將設計圖案勾畫出來，此為第二層畫稿。\n其後在每個小格子內進行技術分析，以確保每一部份都極其精細準確。\n工匠以人手簇絨槍在每個小格子用四組不同的混合紗線及按水平、垂直及對角方向來織造。\n既要達致自然過渡效果，也要保持線條的暢順和整體均一，\n還要呈現出紅白格或藍白格的規律配搭，對工匠的技藝水平挑戰極高。\n太平共起用了四位具二十五年以上經驗的資深手工簇絨工匠及\n十位不同崗位的工藝師包括配色，放畫，刷畫，分色，標色及加工來織造此地氈；\n使用甲級紐西蘭羊毛及真絲，\n共六十四種不同深淺的紅、白和藍色紗線及六百二十八組混合紗線織造而成。\n整個項目由策劃、設計至完工需時整整十二個月的時間。"
+      }
+     ],
+     "top": 0.75
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.89
+       ],
+       "imgs": [
+        9
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        3.95
+       ],
+       "imgs": [
+        8
+       ]
+      },
+      {
+       "span": [
+        5.13,
+        6.0
+       ],
+       "blocks": [
+        {
+         "type": "row",
+         "span": [
+          5.13,
+          6.0
+         ],
+         "cells": [
+          {
+           "imgs": [
+            4
+           ]
+          }
+         ]
+        },
+        {
+         "type": "row",
+         "span": [
+          5.13,
+          6.0
+         ],
+         "cells": [
+          {
+           "imgs": [
+            5
+           ]
+          }
+         ],
+         "top": 0.09
+        },
+        {
+         "type": "row",
+         "span": [
+          5.13,
+          6.0
+         ],
+         "cells": [
+          {
+           "imgs": [
+            7
+           ]
+          }
+         ],
+         "top": 0.08
+        },
+        {
+         "type": "row",
+         "span": [
+          5.13,
+          6.0
+         ],
+         "cells": [
+          {
+           "imgs": [
+            6
+           ]
+          }
+         ],
+         "top": 0.1
+        }
+       ]
+      }
+     ],
+     "top": 1.54
+    },
+    {
+     "type": "row",
+     "span": [
+      1.03,
+      6.0
+     ],
+     "cells": [
+      {
+       "imgs": [
+        2
+       ]
+      }
+     ],
+     "top": 0.59
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  },
+  {
+   "slug": "a004",
+   "who": "amm",
+   "sort": 4,
+   "title_en": "heaven on earth",
+   "title_cn": "凡非凡",
+   "year": 2012,
+   "year_text": "2007 / 2009 / 2012",
+   "category_en": "photography",
+   "category_cn": "photography",
+   "categories": [
+    "photography"
+   ],
+   "statement_en": "he sees, mirage.\nshe sees, oasis.\ni see, heaven on earth.",
+   "statement_cn": "他看。海市蜃樓\n你看。汪洋綠洲\n我看。人間淨土",
+   "credits": [
+    {
+     "label": "special thanks",
+     "value_en": "nanyang academy of fine arts, singapore",
+     "value_cn": "新加坡南洋藝術學院"
+    },
+    {
+     "label": "award",
+     "value_en": "2009 hkda asia design awards \\ photography \\ bronze",
+     "value_cn": "2009 香港設計師協會亞洲設計大獎 \\ 攝影 \\ 銅獎"
+    }
+   ],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6.0
+     ],
+     "cells": [
+      {
+       "imgs": [
+        2
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "imgs": [
+        3
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "imgs": [
+        1
+       ]
+      }
+     ],
+     "top": 0.48
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  },
+  {
+   "slug": "a005",
+   "who": "amm",
+   "sort": 5,
+   "title_en": "impermanent",
+   "title_cn": "無常",
+   "year": 2009,
+   "year_text": "",
+   "category_en": "installation / furniture",
+   "category_cn": "裝置 / 傢俱",
+   "categories": [
+    "installation"
+   ],
+   "statement_en": "the rise of causes is simply because of one’s subjectivity and wishful thinking.\nmore than ten years ago, i had a conversation with my friends about the forms of funeral\nand how to see people for the last time.\ni expressed my concerns: the melancholy, the hazy and smoky environment and\nthe colors in traditional chinese-style funeral were things i found uncomfortable…\nwe opened the end of the conversations.\nthe most concerns of all, in my thinking, was about coffin.\n1. it was environmental unfriendly. even the state-of-the-art eco-coffin was after all one kind of\ncommodities which came into being thanks to “death”, it was a luxury item for its one-time usage.\n2. its over-design and the curvy outlook annoyed me for i am a perfectionist\nin pursuing straight lines and the orderly square shape.\n(that was before a relatively more minimal design of paper coffin was brought out in the market.)\n3. most of all, the alienation. i asked myself for what reasons people have to be wrapped,\nin their very last moment,in an object or space that makes no connection to their lives and carries no emotions?\nas i thought about all these, i decided to make a sofa bed for my own use\nfor up to 30 or 50 years until i passed away in it.\nhow environmental friendly it is, and how intimate it is to me…\nas i thought more deeply, i knew that by interacting intimately with the sofa bed everyday\ni could experience how “death” is regarded as part of one’s life.\nit would be a task and learning for me to come face-to-face with my own life.\nimpermanent. between a sofa bed and a coffin.\nimpermanent. between this life, death and the next life.\nin between. there should be the will to cherish… it should be positive… proactive… and free…\nimpermanent. the experiencing the life.",
+   "statement_cn": "緣起，只因主觀願望，只因一廂情願 ⋯\n十多年前與朋友説起葬禮的形式，如何與他人見最後一面。\n表白了我關心的是：怕悲情、怕香燭煙火、怕傳統中式葬禮的多顏色⋯⋯\n開了話題，拜託了朋友，往後再看吧。\n再想下去，最不安的要算是棺木這環節吧。\n接受不了它不夠環保，就算是近年面世的環保棺材，\n也是因死而「生」的市場產品；\n只可使用一次的奢侈產品。\n接受不了它不夠簡約和多弧線外型的設計﹝當時還未出現紙棺材這比較簡約的造型﹞，\n正因為一向自知是個對直線、四正追求「完美」主義者。\n最最接受不了的是陌生感受。心裡問：為何在離世的最後一刻、伴著的空間，\n竟是被那個與一生無關、沒時日感情、沒感覺的東西包圍著。\n想了想了，決定做張梳化牀，用它三、五十年，然後裹身一同離去。\n符合環保原則，多麼親切，多好 ⋯⋯\n再想，藉著每天親近梳化牀的互動，親身感受「死」是人生的一部份這概念；\n親近面對自己人生的一個功課。\n無常。是梳化牀和棺木之間。\n無常。是今生和死亡和來生之間。\n之間。應該是珍惜⋯是正面⋯是積極⋯是自在⋯\n無常。是體驗人生。",
+   "credits": [
+    {
+     "label": "award",
+     "value_en": "2009 gdc / product / bronze\n2012 hong kong contemporary art award / gold",
+     "value_cn": "2009 gdc 平面設計在中國 / 產品 / 銅獎\n2012 香港當代藝術獎 / 金獎"
+    },
+    {
+     "label": "collection",
+     "value_en": "hong kong museum of art / oct art and design gallery (shenzhen)",
+     "value_cn": "香港藝術館 / 華·美術館（深圳）"
+    }
+   ],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        2.05,
+        4.0
+       ],
+       "imgs": [
+        3
+       ]
+      },
+      {
+       "span": [
+        4.05,
+        6.0
+       ],
+       "imgs": [
+        4
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "imgs": [
+        1
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "imgs": [
+        2
+       ]
+      }
+     ],
+     "top": 0.64
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  },
+  {
+   "slug": "x001",
+   "who": "xsw",
+   "sort": 1,
+   "title_en": "hong kong palace museum / the quest for originality",
+   "title_cn": "香港故宮文化博物館 / 器惟求新",
+   "year": 2021,
+   "year_text": "",
+   "category_en": "curation / interior design / exhibition / graphic",
+   "category_cn": "策展 / 室內設計 / 展覽 / 平面",
+   "categories": [
+    "space",
+    "curation",
+    "exhibition",
+    "art / design"
+   ],
+   "statement_en": "ZONE 1 /\nbrief time line introduction of\nchinese design and craft in history\n(video and craftworks).\nZONE 2 /\nthe literature of craft and production for\nempires’s families (from different historical periods).\nZONE 3 /\n6 crafted treasury object series from different materials /\njade / wood craving / glass / enamel /…\neducational details on different materials with samples and tools.\n4 vertical testimonial videos from hong kong artisans,\nexpress their passion on materials,\nand the way they see the industries going forward for next generation.\nZONE 4 /\nchinese design and craft treasures.\na circular radiation display includes objects of\nclothing / dinning / living / stationary for empires’s families.\nZONE 5 /\nchinese design spirit /\na long video wall of 4 interviews from hong kong master designers,\nto tell their passion and values in design and creativity\nwithin chinese roots and lead to now and future.\nartistic director stanley wong (anothermountainman) in the last video,\nto conclude the whole show,\nthe importance and meaning to persuade design and craft\nin our own culture from history, and pass on 傳承 to our future,\nalso elaborate the artistic statement\nwhich from the very beginning of the exhibition.\nresult /\nhuge positive responses from all stakeholders including\nhong kong public / hong hong kong youngsters / overseas visitors /\nhong kong cultural groups / hong kong and beijing palace museum boards /\nas ex board chairman bernard chan said,\n‘it a unique hong kong story rides on chinese cultural history,\ndemonstrated a pride of hong kong…’",
+   "statement_cn": "第一區 /\n中國設計與工藝的歷史簡介\n（影片及工藝品）。\n第二區 /\n歷代皇室的工藝與製作文獻。\n第三區 /\n六個以不同物料製作的珍品系列 /\n玉 / 木雕 / 玻璃 / 琺瑯 /……\n以樣本及工具講解各種物料的知識。\n四段直幅訪談影片，由香港工匠\n細說他們對物料的熱情，\n以及他們眼中行業如何走向下一代。\n第四區 /\n中國設計與工藝珍品。\n環形放射式陳列，包括歷代皇室的\n衣 / 食 / 住 / 文房用品。\n第五區 /\n中國設計精神 /\n一道長影像牆，播放四位香港設計大師的訪談，\n細說他們在中國文化根源上的設計與創作熱情和價值，\n並延伸至當下與未來。\n藝術總監黃炳培（又一山人）於最後一段影片\n為整個展覽作結：\n在自身文化與歷史中追求設計與工藝的重要與意義，\n並將之傳承至未來；\n同時闡述展覽開首的藝術宣言。\n成果 /\n各方持份者反應熱烈正面，包括\n香港市民 / 香港年輕人 / 海外訪客 /\n香港文化團體 / 香港故宮文化博物館及北京故宮博物院董事局；\n正如前董事局主席陳智思所言：\n「這是一個獨特的香港故事，以中國文化歷史為根基，\n展現了香港的驕傲……」",
+   "credits": [],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg",
+    "15.jpg",
+    "16.jpg",
+    "17.jpg",
+    "18.jpg",
+    "19.jpg",
+    "20.jpg",
+    "21.jpg",
+    "22.jpg",
+    "23.jpg",
+    "24.jpg",
+    "25.jpg",
+    "26.jpg",
+    "27.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        2
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        3
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "span": [
+      0,
+      6
+     ],
+     "imgs": [
+      4,
+      5,
+      6,
+      7
+     ],
+     "cols": 2
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        8
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        9
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        10
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "span": [
+      0,
+      6
+     ],
+     "imgs": [
+      11,
+      12,
+      13,
+      14
+     ],
+     "cols": 2
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        15
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        16
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        17
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "span": [
+      0,
+      6
+     ],
+     "imgs": [
+      18,
+      19,
+      20,
+      21
+     ],
+     "cols": 2
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        22
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        23
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        24
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        25
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        26
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        27
+       ]
+      }
+     ]
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  },
+  {
+   "slug": "x002",
+   "who": "xsw",
+   "sort": 2,
+   "title_en": "life is beautiful",
+   "title_cn": "生命是美麗的",
+   "year": 2016,
+   "year_text": "",
+   "category_en": "branding / promotion",
+   "category_cn": "品牌 / 宣傳片",
+   "categories": [
+    "advertising",
+    "branding",
+    "video"
+   ],
+   "statement_en": "life is beautiful, savouring the meaning of life.\nin our fast-paced society, we sweat everyday between “living a life” and “survival”\nhardly finding the time and mood to savour the meaning of life. there are truly many\nsmall things in life that are worthy of savouring.\nthe ifc mall is an iconic shopping mall in hong kong. it has a human and personal\ntouch, bringing together the fine things of our lives, which are also a part of our lives.\nlet’s start from here with our interpretation of “life is beautiful”.\nlet us explore the meaning of life together.",
+   "statement_cn": "《生命是美麗的》細味生活的意義。\n今天在步伐急速的社會中，大家每日於「生活」與「生存」之間疲於奔命，\n鮮有心思時間細味生活的意義，感受人生。\n事實上，生活當中種種的細節，都值得大家細心欣賞。\nifc商場是本港具代表性的商場之一，具有親和力及人性化的一面，\n匯聚大家的生活點滴，亦是大家生活的一部分。\n正好以此出發，演繹「生命是美麗的」，與大眾正面探討生命。",
+   "credits": [],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg"
+   ],
+   "video": "",
+   "video_poster": "x002-poster.jpg",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        2
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        3
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "video",
+     "span": [
+      0,
+      3.9
+     ]
+    },
+    {
+     "type": "grid",
+     "span": [
+      0,
+      6
+     ],
+     "imgs": [
+      4,
+      5,
+      6,
+      7
+     ],
+     "cols": 2
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        8
+       ]
+      }
+     ]
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": "https://vimeo.com/298339302"
+  },
+  {
+   "slug": "x003",
+   "who": "xsw",
+   "sort": 3,
+   "title_en": "redwhiteblue 330",
+   "title_cn": "紅白藍330",
+   "year": 2011,
+   "year_text": "",
+   "category_en": "branding / curation / product / graphic",
+   "category_cn": "品牌設計 / 策展 / 產品 / 平面設計",
+   "categories": [
+    "branding",
+    "curation",
+    "product",
+    "art / design"
+   ],
+   "statement_en": "positive hongkong, redwhiteblue\nredwhiteblue is existence, participation,\ndedication and giving.\nredwhiteblue is perseverance, diligence and endurance\nredwhiteblue represents each and every hong kong people of the 1960s and 1970s\nafter the handover, 50 years unchanged....\npositive, motivated\nanothermountainman\nredwhiteblue  body  heart  soul\ntough and dependable, but flexible and adaptable.\nthe redwhiteblue series not only symbolise the perseverance,\nflexibility and diligence of the hong kong people,\nit also represents the hard work\nthat the rehabilitated patients of mental illness\ngave in making these fabric products,\nit is an important first step in achieving self-recovery\nand rebuilding the health of the “body  heart  soul”\nnew life association",
+   "statement_cn": "正面香港 紅白藍\n紅白藍是存在、參與、耕耘和付出\n紅白藍是堅持、拼博、和捱苦\n紅白藍是代表我們香港六、七十年代的\t每一份子\n這是我們香港回歸後\n應一直保持五十年不變的…\n正面積極\n又一山人\n紅白藍 身 心 靈\n堅韌可靠，卻又靈活多變的\n紅白藍系列不僅象徵着香港人堅毅不屈、\n靈活變通的拼博精神，它亦代表着\n精神病康復者為製作出\n精心布藝產品而付出的不懈努力，\n為自我復元、重建健康之「身 心 靈」\n踏出重要的一步\n新生會",
+   "credits": [],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg",
+    "15.jpg",
+    "16.jpg",
+    "17.jpg",
+    "18.jpg",
+    "19.jpg",
+    "20.jpg",
+    "21.jpg",
+    "22.jpg",
+    "23.jpg",
+    "24.jpg",
+    "25.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      3.85
+     ],
+     "cells": [
+      {
+       "imgs": [
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        2
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        3
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        4
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "span": [
+      0,
+      6
+     ],
+     "imgs": [
+      5,
+      6,
+      7,
+      8
+     ],
+     "cols": 2
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        9
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        10
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        11
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        12
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        13
+       ]
+      },
+      {
+       "imgs": [
+        14
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        15
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        16
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        17
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "span": [
+      0,
+      6
+     ],
+     "imgs": [
+      18,
+      19,
+      20,
+      21
+     ],
+     "cols": 2
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        22
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        23
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        24
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        25
+       ]
+      }
+     ]
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  },
+  {
+   "slug": "x004",
+   "who": "xsw",
+   "sort": 4,
+   "title_en": "a bowl of life",
+   "title_cn": "一碗生命",
+   "year": 2011,
+   "year_text": "",
+   "category_en": "photograph",
+   "category_cn": "攝影",
+   "categories": [
+    "photography"
+   ],
+   "statement_en": "to have a bowl of rice, life is nurtured.\nto take a bowl of tea, body and soul are enlivened.\nto inside from outside.\nfrom inside to outside.\nback and forth.\ngive and take.\nthose inside a bowl,\ncan be consumed,\ncan nurture a life.\na family of three is a family.\nthree generations under the same roof also form a family.\nheaven and earth, with all beings, are ultimately the same family.\ntogether we form a true family.\nconcept & photography by anothermountainman\ngreen bowl-scape by yu tek-li",
+   "statement_cn": "吃一碗飯 生命得以持續\n吃一碗茶 身心靈為之飛揚\n往內 從外\n從內 往外\n有來 有往\n有受 有施\n碗裡頭的\n可往肚裡吃\n可以栽出生命\n一家三口是家\n三代同堂是家\n大地眾生萬物正是家\n大家 才是家\n又一山人/ 概念/ 攝影\n暨\n餘德麗/ 綠色碗景",
+   "credits": [],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg",
+    "15.jpg",
+    "16.jpg",
+    "17.jpg",
+    "18.jpg",
+    "19.jpg",
+    "20.jpg",
+    "21.jpg",
+    "22.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        2
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        3
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "span": [
+      0,
+      6
+     ],
+     "imgs": [
+      4,
+      5,
+      6,
+      7
+     ],
+     "cols": 2
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        8
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        9
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        10
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "span": [
+      0,
+      6
+     ],
+     "imgs": [
+      11,
+      12,
+      13,
+      14
+     ],
+     "cols": 2
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        15
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        16
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        17
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "span": [
+      0,
+      6
+     ],
+     "imgs": [
+      18,
+      19,
+      20,
+      21
+     ],
+     "cols": 2
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        22
+       ]
+      }
+     ]
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  },
+  {
+   "slug": "x005",
+   "who": "xsw",
+   "sort": 5,
+   "title_en": "fang suo commune",
+   "title_cn": "定是常住。便成方所",
+   "year": 2011,
+   "year_text": "",
+   "category_en": "branding / consultant / interior design / exhibition / graphic",
+   "category_cn": "品牌設計 / 顧問 / 室內設計 / 展覽 / 平面設計",
+   "categories": [
+    "branding",
+    "space",
+    "exhibition",
+    "art / design"
+   ],
+   "statement_en": "fangsuo is not just a bookstore. nor is it an area.\nit is an attitude, an advocate.\nit is an attempt to boldly amplify aesthetics in everyday life.\nin the vast, boundless space of the universe,\nwe encounter the wisdom and knowledge of old and new,\nwe meet with designers from far and wide,\nwe connect with our own hearts and minds.\nfangsuo is a peaceful and quiet spot in the universe,\nit’s now.\nlet us all gather here.\nfangsuo, a community that began in china,\nis a platform for culture and aesthetics to meet,\na space where sensuality and intellect reside,\na conjugation of knowledge, aesthetics and living.\nin this wide expanse for nurturing and practice,\npeople pursue truth, feel beauty,\nexperience the power that peace and tranquillity bring.",
+   "statement_cn": "方所不僅是書店  方所不僅是方所\n方所是一種態度  一個主張\n一個將美學在生活中放大化的嘗試\n十方世界廣闊無限的宇宙中\n我們與古往今來的知識相遇\n我們與設計師的作品相遇\n我們與所有遊方世界的旅人相遇\n我們與我們的心相遇\n方所是宇宙寧靜的一點  是當下\n讓我們在此相遇\n方所是一個源於中國的場所\n一個文化與美學匯聚的平台\n一個讓知性與感性得以寄託的空間\n一種知識  審美與生活的結合\n人們在這共修之地\n追求真  感受美\n體會當人心安放時  寧靜即力量",
+   "credits": [],
+   "cover": "00.jpg",
+   "images": [
+    "01.jpg",
+    "02.jpg",
+    "03.jpg",
+    "04.jpg",
+    "05.jpg",
+    "06.jpg",
+    "07.jpg",
+    "08.jpg",
+    "09.jpg",
+    "10.jpg",
+    "11.jpg",
+    "12.jpg",
+    "13.jpg",
+    "14.jpg",
+    "15.jpg"
+   ],
+   "video": "",
+   "video_poster": "",
+   "layout": [
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        2
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        3
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "grid",
+     "span": [
+      0,
+      6
+     ],
+     "imgs": [
+      4,
+      5,
+      6,
+      7
+     ],
+     "cols": 2
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        8
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        9
+       ]
+      },
+      {
+       "imgs": [
+        10
+       ]
+      },
+      {
+       "imgs": [
+        11
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      3.85
+     ],
+     "cells": [
+      {
+       "imgs": [
+        12
+       ]
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      0,
+      6
+     ],
+     "cells": [
+      {
+       "imgs": [
+        13
+       ],
+       "w": 0.5
+      },
+      {
+       "imgs": [
+        14
+       ],
+       "w": 0.5
+      }
+     ]
+    },
+    {
+     "type": "row",
+     "span": [
+      2.05,
+      3.85
+     ],
+     "cells": [
+      {
+       "imgs": [
+        15
+       ]
+      }
+     ]
+    }
+   ],
+   "featured_home": false,
+   "published": true,
+   "tags": "",
+   "video_url": ""
+  }
+ ],
+ "home": [
+  {
+   "set": 1,
+   "sw": "set01-sw.jpg",
+   "amm": "set01-amm.jpg",
+   "xsw": "set01-xsw.jpg"
+  },
+  {
+   "set": 2,
+   "sw": "set02-sw.jpg",
+   "amm": "set02-amm.jpg",
+   "xsw": "set02-xsw.jpg"
+  },
+  {
+   "set": 3,
+   "sw": "set03-sw.jpg",
+   "amm": "set03-amm.jpg",
+   "xsw": "set03-xsw.jpg"
+  },
+  {
+   "set": 4,
+   "sw": "set04-sw.jpg",
+   "amm": "set04-amm.jpg",
+   "xsw": "set04-xsw.jpg"
+  },
+  {
+   "set": 5,
+   "sw": "set05-sw.jpg",
+   "amm": "set05-amm.jpg",
+   "xsw": "set05-xsw.jpg"
+  },
+  {
+   "set": 6,
+   "sw": "set06-sw.jpg",
+   "amm": "set06-amm.jpg",
+   "xsw": "set06-xsw.jpg"
+  },
+  {
+   "set": 7,
+   "sw": "set07-sw.jpg",
+   "amm": "set07-amm.jpg",
+   "xsw": "set07-xsw.jpg"
+  },
+  {
+   "set": 8,
+   "sw": "set08-sw.jpg",
+   "amm": "set08-amm.jpg",
+   "xsw": "set08-xsw.jpg"
+  },
+  {
+   "set": 9,
+   "sw": "set09-sw.jpg",
+   "amm": "set09-amm.jpg",
+   "xsw": "set09-xsw.jpg"
+  },
+  {
+   "set": 10,
+   "sw": "set10-sw.jpg",
+   "amm": "set10-amm.jpg",
+   "xsw": "set10-xsw.jpg"
+  },
+  {
+   "set": 11,
+   "sw": "set11-sw.jpg",
+   "amm": "set11-amm.jpg",
+   "xsw": "set11-xsw.jpg"
+  },
+  {
+   "set": 12,
+   "sw": "set12-sw.jpg",
+   "amm": "set12-amm.jpg",
+   "xsw": "set12-xsw.jpg"
+  }
+ ]
+}

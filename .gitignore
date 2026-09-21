@@ -1,0 +1,4 @@
+.DS_Store
+._*
+.claude-tmp/
+node_modules/

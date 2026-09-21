@@ -1,0 +1,101 @@
+{
+  "_note": "media page — Update Request 0919/amm x sw website - media- contact-acknowledgement.pdf p.1. one record per press item = one media_items row: title, date (yyyy/mm, sorted newest first), source (publication / channel), url (article or video), image (thumbnail, 16:9 photos as they are; frame = logo on white with a hairline box). cms/import.html writes these to media_items (idempotent on url).",
+  "items": [
+    {
+      "title_en": "anothermountainman (wong ping-pui, stanley): studio and beyond",
+      "title_cn": "又一山人（黃炳培）：工作室以外",
+      "date": "2026/05",
+      "source_en": "visit hk museums",
+      "source_cn": "visit hk museums",
+      "url": "https://www.youtube.com/watch?v=VdEu1ImkoWM&t=40s",
+      "image": "assets/media/01.jpg",
+      "frame": false,
+      "kind": "interview",
+      "orig": "hq720.jpg"
+    },
+    {
+      "title_en": "the philosophy of subtraction in the second half of life! artist anothermountainman's second life in kyoto: spending ten years building his temporary residence.",
+      "title_cn": "人生下半場的減法哲學！藝術家又一山人的京都第二人生：花十年打造暫居之家",
+      "date": "2026/05",
+      "source_en": "gq hong kong",
+      "source_cn": "gq 香港",
+      "url": "https://gqhongkong.com/lifestyle/poliform-senzafine-wardrobe",
+      "image": "assets/media/02.jpg",
+      "frame": true,
+      "kind": "interview",
+      "orig": "images.png"
+    },
+    {
+      "title_en": "anothermountain person’s home in kyoto: mountain people come down from the mountain and see impermanence under the trees",
+      "title_cn": "又一山人的京都之家：山人既下山，樹下見無常",
+      "date": "2026/05",
+      "source_en": "elle decoration",
+      "source_cn": "elle decoration 家居廊",
+      "url": "https://mp.weixin.qq.com/s/Co2lUTZarquBlbRohum6_Q",
+      "image": "assets/media/03.jpg",
+      "frame": true,
+      "kind": "interview",
+      "orig": "ffbf8eb44e6849baa90990fae42fbab6.jpeg"
+    },
+    {
+      "title_en": "i'm a buddhist; moving from hong kong to kyoto",
+      "title_cn": "我是佛教徒；從香港移居京都",
+      "date": "2026/01",
+      "source_en": "financial times",
+      "source_cn": "金融時報",
+      "url": "https://www.ft.com/content/caf0c90e-2217-4ac8-b392-c5424fe522be",
+      "image": "assets/media/04.png",
+      "frame": true,
+      "kind": "interview",
+      "orig": "3images.png"
+    },
+    {
+      "title_en": "anothermountainman. seeing mountains from within the mountains.",
+      "title_cn": "又一山人。山中看山。",
+      "date": "2025/10",
+      "source_en": "life magazine",
+      "source_cn": "生活月刊",
+      "url": "https://mp.weixin.qq.com/s/_uzeZZRGE9-TeAqH96mUmA",
+      "image": "assets/media/05.png",
+      "frame": true,
+      "kind": "interview",
+      "orig": "33.jpg"
+    },
+    {
+      "title_en": "v music magazine vol. 2 anothermountainman",
+      "title_cn": "v music magazine 第二期：又一山人",
+      "date": "2025/03",
+      "source_en": "v music magazine",
+      "source_cn": "v music magazine",
+      "url": "https://www.youtube.com/watch?v=yfkaYrMfeL0",
+      "image": "assets/media/06.jpg",
+      "frame": false,
+      "kind": "interview",
+      "orig": "3hq720.jpg"
+    },
+    {
+      "title_en": "artist sharing: anothermountainman | hkipf 2024",
+      "title_cn": "藝術家分享：又一山人｜香港國際攝影節 2024",
+      "date": "2024/11",
+      "source_en": "hkipf",
+      "source_cn": "香港國際攝影節",
+      "url": "https://www.youtube.com/watch?v=OLMN3PuJrco",
+      "image": "assets/media/07.jpg",
+      "frame": false,
+      "kind": "speech",
+      "orig": "hqdefault.jpg"
+    },
+    {
+      "title_en": "[concrete vs. forest] talking with everyday scenery: another mountain man connects cultures and lives in different places through art",
+      "title_cn": "【石屋 vs 森林】與日常的風景共話：又一山人以藝術串連異地的文化與生命",
+      "date": "2022/11",
+      "source_en": "the culturist",
+      "source_cn": "文化者",
+      "url": "https://www.youtube.com/watch?v=eIguzffyIj4",
+      "image": "assets/media/08.jpg",
+      "frame": false,
+      "kind": "interview",
+      "orig": "4hqdefault.jpg"
+    }
+  ]
+}

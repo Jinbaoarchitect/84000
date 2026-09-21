@@ -1,0 +1,8 @@
+{
+  "_note": "contact page — media- contact-acknowledgement.pdf p.2. body = plain text, one blank line between groups (the site auto-links e-mail addresses, phone numbers and urls). the 84000 communications logo is part of the site (assets/contact/84000-communications.svg, vector from the pdf), not cms content. cms/import.html writes this to pages[key=contact].",
+  "key": "contact",
+  "title_en": "contact",
+  "title_cn": "聯絡",
+  "body_en": "84000 communications\n\ntel /\n+852 2887 1321\n\nemail /\n0002@84000.com.hk\n0001@84000.com.hk\n\naddress /\nroom i, eaton house, 4/f, 380 nathan road, kowloon, hong kong",
+  "body_cn": "八萬四千溝通事務所\n\n電話 /\n+852 2887 1321\n\n電郵 /\n0002@84000.com.hk\n0001@84000.com.hk\n\n地址 /\n香港九龍彌敦道 380 號 eaton house 4 樓 i 室"
+}

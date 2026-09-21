@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>anothermountainman × stanley wong — :NOW</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ══════════ intro : NOW ══════════ -->
+<div id="intro" class="view">
+  <div id="intro-bg"></div>
+  <div id="intro-frames" aria-label=":NOW">
+    <!-- split-flap: the two stills are photographs of one flap board.
+         static top = next card's upper half · static bottom = current card's lower half
+         flap (hinged on the seam) = current upper half in front, next lower half on its back -->
+    <div class="flip">
+      <div class="piece stat top"><div class="img"></div><div class="shade"></div></div>
+      <div class="piece stat bot"><div class="img"></div></div>
+      <div class="piece flap">
+        <div class="face front"><div class="img"></div></div>
+        <div class="face back"><div class="img"></div><div class="shade"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ home / three panels ══════════ -->
+<div id="home" class="view hidden">
+  <section class="panel" data-who="sw">
+    <div class="panel-img a"></div>
+    <div class="panel-img b"></div>
+    <span class="panel-label" data-name="stanley wong" data-period="1980 - present">stanley wong</span>
+  </section>
+  <section class="panel" data-who="amm">
+    <div class="panel-img a"></div>
+    <div class="panel-img b"></div>
+    <span class="panel-label" data-name="anothermountainman" data-period="2000 - present">anothermountainman</span>
+  </section>
+  <section class="panel" data-who="xsw">
+    <div class="panel-img a"></div>
+    <div class="panel-img b"></div>
+    <span class="panel-label" data-name="anothermountainman × stanley wong" data-period="2000 - present">anothermountainman × stanley wong</span>
+    <span class="clock home-clock" data-clock>00 : 00 : 00</span>
+  </section>
+</div>
+
+<!-- ══════════ section : work list / infinite canvas ══════════ -->
+<div id="section" class="view hidden">
+  <div id="section-bg"></div>
+
+  <!-- work list -->
+  <div id="worklist" class="section-mode">
+    <div id="worklist-scroll" class="rows-col"></div>
+  </div>
+
+  <!-- infinite canvas -->
+  <div id="canvas-mode" class="section-mode hidden">
+    <div id="canvas-stage"></div>
+  </div>
+
+  <span id="section-name" class="side-label left"></span>
+  <span class="clock side-label right" data-clock>00 : 00 : 00</span>
+
+  <button id="mode-toggle" title="view" aria-label="toggle view"></button>
+</div>
+
+<!-- ══════════ function pages (search / filter / journey / biography …) ══════════ -->
+<div id="page" class="view hidden">
+  <div id="page-content">
+    <div id="page-bar"></div>
+    <div id="page-scroll">
+      <div id="page-rows" class="rows-col"></div>   <!-- search / filter results -->
+      <div id="page-body"></div>                     <!-- biography & other scrolling pages -->
+    </div>
+    <div id="page-stage" class="hidden"></div>       <!-- journey: full-screen, non-scrolling -->
+  </div>
+  <span class="clock side-label right" data-clock>00 : 00 : 00</span>
+  <button class="close-btn" data-close-page>×</button>
+</div>
+
+<!-- ══════════ work detail : scrolling project page ══════════ -->
+<div id="detail" class="view hidden">
+  <div id="detail-scroll">
+    <header id="detail-hero">
+      <!-- pinned image: stays put while the text scrolls away, scrim fades out -->
+      <div id="detail-hero-pin">
+        <div id="detail-hero-img"></div>
+        <div id="detail-hero-scrim"></div>
+      </div>
+      <div id="detail-hero-text">
+        <span class="d-title"></span>
+        <div class="d-meta">
+          <span class="d-year sub"></span>
+          <span class="d-cat sub"></span>
+        </div>
+      </div>
+    </header>
+    <div id="detail-body"></div>
+  </div>
+  <span id="detail-name" class="side-label left"></span>
+  <span class="clock side-label right" data-clock>00 : 00 : 00</span>
+  <button class="close-btn" data-close-detail>×</button>
+</div>
+
+<!-- ══════════ image lightbox (enlarge) ══════════ -->
+<div id="lightbox" class="hidden">
+  <img id="lightbox-img" alt="">
+  <div id="lightbox-cap"></div>
+  <button class="close-btn" data-close-lightbox>×</button>
+</div>
+
+<!-- ══════════ banner menu (hover left third — rebuilt per context by JS) ══════════ -->
+<nav id="menu" class="hidden"></nav>
+<div id="menu-bottom" class="hidden">
+  <a class="menu-item" data-page="contact">contact</a>
+  <a class="menu-item" data-page="shop">shop</a>
+  <a class="menu-item" data-page="acknowledgments">acknowledgments</a>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/canvas.js"></script>
+<script src="js/cms.js"></script>
+<script src="js/main.js"></script>
+<script src="js/pages.js"></script>
+</body>
+</html>

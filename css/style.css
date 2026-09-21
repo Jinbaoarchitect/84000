@@ -1,0 +1,1164 @@
+/* ————————————————————————————————————————————
+   amm × sw — :NOW   demo build
+   6-column grid on 16:9 · 3 master columns
+   ———————————————————————————————————————————— */
+
+/* Helvetica Neue — site webfont (extracted from the supplied .ttc) */
+@font-face { font-family: "HN"; src: url("../assets/fonts/hn-300.woff2") format("woff2"); font-weight: 300; font-display: swap; }
+@font-face { font-family: "HN"; src: url("../assets/fonts/hn-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "HN"; src: url("../assets/fonts/hn-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "HN"; src: url("../assets/fonts/hn-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "HN Condensed"; src: url("../assets/fonts/hn-cond-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --grey:  #b1b1b1;
+  --page-grey: #e9e9e9;              /* function pages: search / filter / … */
+  --sub-on-white: #9d9d9d;
+  --sub-on-black: #7f7f7f;
+  --sub-on-grey:  #6f6f6f;
+  --sub-on-page:  #8f8f8f;
+
+  --fs: clamp(12px, 0.83vw, 20px);          /* base text size (≈16px @1920): list captions, detail copy */
+  --fs-lg: calc(var(--fs) * 1.25);           /* one size up (≈20px @1920): home labels, side labels, clock, banner menu */
+  --lh-label: 1.2;                           /* shared line box for everything that sits on the centre line */
+  --ls-label: 0.01em;                        /* shared tracking — side label, menu, clock must not re-space when swapped */
+  --inset: clamp(14px, 1.15vw, 30px);        /* edge inset for labels */
+  --col: calc(100vw / 6);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--black);
+  font-family: "HN", "Helvetica Neue", Helvetica, "PingFang HK", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+  font-size: var(--fs);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+.hidden { display: none !important; }
+
+/* the page ground follows the zone: the html canvas takes the body's colour, so the
+   browser chrome (safari's toolbar tint, with the theme-color meta set by setBodyTheme),
+   the overscroll bounce and the safe areas show the zone, never a black edge */
+html { background: transparent; }
+body.theme-sw   { background: var(--white); }
+body.theme-amm  { background: var(--black); }
+body.theme-xsw  { background: var(--grey);  }
+body.theme-page { background: var(--page-grey); }
+
+.view {
+  position: fixed; inset: 0;
+}
+
+/* ————— shared labels ————— */
+.side-label {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  font-weight: 700;
+  z-index: 40;
+  white-space: nowrap;
+  letter-spacing: var(--ls-label);
+}
+.side-label.left  { left: var(--inset); }
+.side-label.right { right: var(--inset); }
+
+.clock {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  display: inline-block;
+  min-width: 7.2em;          /* keep hit area stable when text swaps to ": now" */
+  text-align: right;
+}
+
+.sub { color: var(--sub-on-black); }
+
+/* ————————————————————————————————————————————
+   intro  : N O W  — split-flap board
+   the two stills are photographs of one flap display; the seam runs at
+   --seam of the frame height. a card change is a real flap: the upper
+   half hinges down over the seam, showing the next card's lower half on
+   its back. no fades between cards — only the exit to home dissolves.
+   ———————————————————————————————————————————— */
+#intro {
+  background: transparent;
+  z-index: 100;
+  pointer-events: none;
+}
+#intro-bg {
+  position: absolute; inset: 0;
+  background: var(--black);
+  transition: opacity 1s ease;
+}
+#intro.reveal #intro-bg { opacity: 0; }
+
+#intro-frames {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--black);            /* letterbox around the 16:9 board is the same black as the stills */
+  perspective: 1800px;
+  transition: opacity 1s ease;
+}
+#intro.fadeword #intro-frames { opacity: 0; }
+
+/* the board: 16:9 letterboxed in the viewport (stills are black-ground) */
+.flip {
+  --seam: 0.494;                                     /* seam row / frame height, measured on the stills */
+  position: relative;
+  width: min(100vw, calc(100vh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  background: var(--black);
+  transform-style: preserve-3d;
+}
+.flip .piece {
+  position: absolute; left: 0; width: 100%;
+  overflow: hidden;
+  background: var(--black);
+}
+.flip .top, .flip .flap { top: 0; height: calc(var(--seam) * 100%); }
+.flip .bot { top: calc(var(--seam) * 100%); height: calc((1 - var(--seam)) * 100%); }
+
+/* every piece shows a window onto the full frame */
+.flip .img {
+  position: absolute; left: 0; width: 100%;
+  background: var(--black) no-repeat center / 100% 100%;
+}
+.flip .top .img, .flip .front .img { top: 0; height: calc(100% / var(--seam)); }
+.flip .bot .img { top: calc(-100% * var(--seam) / (1 - var(--seam))); height: calc(100% / (1 - var(--seam))); }
+.flip .back .img { top: -100%; height: calc(100% / var(--seam)); }
+
+/* the moving flap: hinged on its bottom edge (the seam) */
+.flip .flap {
+  overflow: visible;                 /* overflow:hidden would flatten the 3D context and break backface culling */
+  transform-origin: 50% 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+  z-index: 2;
+}
+.flip .face {
+  position: absolute; inset: 0;
+  overflow: hidden;
+  background: var(--black);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip .face.back { transform: rotateX(180deg); }
+
+/* light: the revealed upper half sits in the flap's shadow until it clears,
+   the flap's back catches light as it comes down */
+.flip .shade {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+.flip .top .shade  { background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.75)); }
+.flip .back .shade { background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.1)); }
+
+/* ————————————————————————————————————————————
+   home — three panels
+   ———————————————————————————————————————————— */
+#home { display: flex; z-index: 50; }
+
+.panel {
+  position: relative;
+  width: calc(100% / 3);
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+.panel[data-who="sw"]  { background: var(--white); }
+.panel[data-who="amm"] { background: var(--black); }
+.panel[data-who="xsw"] { background: var(--grey);  }
+
+.panel-img {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+.panel-img.on { opacity: 1; }
+
+.panel-label {
+  position: absolute;
+  top: 50%; left: var(--inset);
+  transform: translateY(-50%);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  font-weight: 700;
+  z-index: 5;
+  white-space: nowrap;
+  letter-spacing: var(--ls-label);
+}
+.panel-label, .home-clock { transition: color 0.6s ease; }
+.panel[data-who="sw"]  .panel-label { color: var(--black); }
+.panel[data-who="amm"] .panel-label { color: var(--white); }
+.panel[data-who="xsw"] .panel-label { color: var(--black); }
+
+/* while an image is showing the label reads white by default (design frames);
+   JS samples the image strip under the text and overrides per panel with
+   data-tone / data-clock-tone = white | black | grey for legibility */
+.panel.lit .panel-label, .panel.lit .home-clock { color: var(--white); }
+.panel.lit[data-tone="black"] .panel-label { color: var(--black); }
+.panel.lit[data-tone="grey"]  .panel-label { color: var(--grey);  }
+.panel.lit[data-clock-tone="black"] .home-clock { color: var(--black); }
+.panel.lit[data-clock-tone="grey"]  .home-clock { color: var(--grey);  }
+
+.home-clock {
+  position: absolute;
+  top: 50%; right: var(--inset);
+  transform: translateY(-50%);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  color: var(--black);
+  z-index: 5;
+}
+
+/* ————————————————————————————————————————————
+   section — work list
+   ———————————————————————————————————————————— */
+#section { z-index: 30; }
+/* entering from home: first the plain zone colour fades in over the three
+   panels (2 s, list hidden) — then the rows arrive one after another, top → bottom */
+#section.entering { z-index: 60; animation: section-in 2s ease both; }
+@keyframes section-in { from { opacity: 0; } to { opacity: 1; } }
+#section.entering #worklist, #section.entering #mode-toggle { opacity: 0; }
+#section.rows-in .work-row {
+  animation: row-in 0.7s ease both;
+  animation-delay: calc(var(--i, 0) * 110ms);
+}
+@keyframes row-in { from { opacity: 0; transform: translateY(0.6vh); } to { opacity: 1; transform: none; } }
+#section-bg { position: fixed; inset: 0; }
+
+#section.theme-sw  #section-bg { background: var(--white); }
+#section.theme-amm #section-bg { background: var(--black); }
+#section.theme-xsw #section-bg { background: var(--grey);  }
+
+#section.theme-sw  { color: var(--black); --sub: var(--sub-on-white); }
+#section.theme-amm { color: var(--white); --sub: var(--sub-on-black); }
+#section.theme-xsw { color: var(--black); --sub: var(--sub-on-grey);  }
+
+.section-mode {
+  position: fixed; inset: 0;
+  transition: opacity .5s ease;
+}
+body.menu-open .section-mode,
+body.menu-open #detail-scroll,
+body.menu-open #page-content {
+  opacity: 0.12;
+  pointer-events: none;
+}
+#detail-scroll { transition: opacity .5s ease; }
+
+#worklist { overflow-y: auto; overflow-x: hidden; scrollbar-width: none; }
+#worklist::-webkit-scrollbar { display: none; }
+
+/* shared list column (section list, search & filter results) */
+.rows-col {
+  padding: clamp(60px, 8vh, 120px) 0 clamp(120px, 16vh, 220px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 5.5vh, 70px);
+}
+
+.work-row { position: relative; }
+.work-thumb {
+  position: relative;
+  margin-left: calc(var(--col) * 2 + clamp(4px, 0.4vw, 10px));
+  width: calc(var(--col) * 2 - clamp(8px, 0.8vw, 20px));
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+}
+/* scrubbing: image at its true ratio, letterboxed in the work's zone colour
+   (white / black / grey — so the zone reads even on search & filter pages),
+   plus a progress line */
+.work-thumb.scrubbing {
+  background-size: contain;
+  background-color: var(--black);
+}
+.work-thumb.scrubbing[data-who="sw"]  { background-color: var(--white); }
+.work-thumb.scrubbing[data-who="amm"] { background-color: var(--black); }
+.work-thumb.scrubbing[data-who="xsw"] { background-color: var(--grey);  }
+.work-thumb .scrub-line {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: var(--white);
+  mix-blend-mode: difference;
+  opacity: 0;
+  pointer-events: none;
+}
+.work-thumb.scrubbing .scrub-line { opacity: 1; }
+.work-caption {
+  position: absolute;
+  top: 0;
+  left: calc(var(--col) * 4 + clamp(10px, 1vw, 26px));
+  width: calc(var(--col) * 1.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  line-height: 1.5;
+}
+.work-caption .w-title { font-weight: 400; }
+.work-caption .w-sub   { color: var(--sub); font-weight: 400; }
+
+/* ————————————————————————————————————————————
+   infinite canvas
+   ———————————————————————————————————————————— */
+#canvas-mode {
+  cursor: grab;                        /* section colour shows through */
+  overflow: hidden;
+}
+#canvas-mode.dragging { cursor: grabbing; }
+#canvas-stage { position: absolute; top: 0; left: 0; will-change: transform; }
+.cv-item {
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+/* ————— mode toggle button (bottom right) ————— */
+#mode-toggle {
+  position: fixed;
+  right: var(--inset);
+  bottom: calc(var(--inset) * 0.9);
+  width: clamp(18px, 1.25vw, 30px);
+  height: clamp(13px, 0.9vw, 22px);
+  background: transparent;
+  border: 1.5px solid currentColor;
+  color: inherit;
+  cursor: pointer;
+  z-index: 45;
+  padding: 0;
+}
+/* grid glyph (list mode → go to canvas) */
+#mode-toggle::before, #mode-toggle::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+}
+#mode-toggle.glyph-grid::before { left: 33%; top: 0; bottom: 0; width: 1.5px; }
+#mode-toggle.glyph-grid::after  { top: 45%; left: 0; right: 0; height: 1.5px; }
+/* lines glyph (canvas mode → back to list) */
+#mode-toggle.glyph-lines::before { top: 30%; left: 15%; right: 15%; height: 1.5px; }
+#mode-toggle.glyph-lines::after  { top: 62%; left: 15%; right: 15%; height: 1.5px; }
+
+/* ————————————————————————————————————————————
+   banner menu (hover left third) — global layer, themed via body class
+   ———————————————————————————————————————————— */
+body.theme-sw   { --menu-fg: var(--black); --menu-sub: var(--sub-on-white); }
+body.theme-amm  { --menu-fg: var(--white); --menu-sub: var(--sub-on-black); }
+body.theme-xsw  { --menu-fg: var(--black); --menu-sub: var(--sub-on-grey);  }
+body.theme-page { --menu-fg: var(--black); --menu-sub: var(--sub-on-page); }
+
+#menu {
+  position: fixed;
+  left: var(--inset);
+  top: 50%;
+  /* same size and line box as the side label, so the first line lands
+     exactly where the name was — nothing moves when the banner opens.
+     rows are set solid (one line pitch); groups are one blank line apart */
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  transform: translateY(calc(var(--lh-label) * -0.5em));
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--lh-label) * 1em);
+}
+.menu-block { display: flex; flex-direction: column; gap: 0; }
+#menu-lang { flex-direction: row; align-items: baseline; gap: 0.45em; }
+
+.menu-item {
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--menu-sub);
+  white-space: nowrap;
+  line-height: var(--lh-label);
+}
+.menu-item:hover, .menu-item.active { color: var(--menu-fg); }
+.lang-dot { color: var(--menu-sub); font-weight: 700; }
+
+#menu-bottom {
+  position: fixed;
+  left: var(--inset);
+  bottom: calc(var(--inset) * 0.9);
+  font-size: var(--fs);                 /* one step below the banner menu (base size, ≈16px @1920) */
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  display: flex;
+  gap: clamp(24px, 3.2vw, 72px);
+  z-index: 90;
+}
+#menu-bottom .menu-item { color: var(--menu-fg); }
+
+/* ————————————————————————————————————————————
+   placeholder pages & detail
+   ———————————————————————————————————————————— */
+#page {
+  z-index: 70;
+  background: var(--page-grey);
+  color: var(--black);
+  --sub: var(--sub-on-page);
+}
+#page-scroll {
+  position: fixed; inset: 0;
+  overflow-y: auto; overflow-x: hidden;
+  scrollbar-width: none;
+}
+#page-scroll::-webkit-scrollbar { display: none; }
+#page-rows:empty { display: none; }           /* result list padding must not push the biography down */
+#page-content { transition: opacity .5s ease; }
+
+/* fixed control bar on the centre line (search / filter) */
+#page-bar {
+  position: fixed;
+  left: var(--inset);
+  top: 50%;
+  /* first line on the centre line (same rule as the menu), rest flows down */
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  transform: translateY(calc(var(--lh-label) * -0.5em));
+  display: flex;
+  align-items: baseline;
+  gap: clamp(24px, 2.6vw, 60px);
+  font-weight: 700;
+  z-index: 40;
+}
+/* the open menu takes the bar's place — no doubled label */
+body.menu-open #page-bar { opacity: 0; }
+#page-bar .bar-label { font-weight: 700; }
+#page-bar .bar-note  { color: var(--sub); font-weight: 400; }
+
+.search-input {
+  border: none; outline: none; background: transparent;
+  border-bottom: 1.5px solid currentColor;
+  font: inherit; font-weight: 700; color: inherit;
+  width: calc(var(--col) * 1.55);
+  padding: 0 0 0.15em;
+  border-radius: 0;
+}
+
+/* custom dropdown (year / category) */
+.dd { position: relative; }
+.dd .dd-title {
+  display: block;
+  border-bottom: 1.5px solid currentColor;
+  width: calc(var(--col) * 0.55);
+  padding-bottom: 0.15em;
+}
+.dd.wide .dd-title { width: calc(var(--col) * 0.85); }
+.dd .dd-value {
+  display: flex;
+  justify-content: space-between;
+  width: calc(var(--col) * 0.55);
+  margin-top: 0.5em;
+  cursor: pointer;
+}
+.dd.wide .dd-value { width: calc(var(--col) * 0.85); }
+.dd .dd-value .chev { color: var(--sub); }
+.dd .dd-options {
+  position: absolute;
+  top: calc(100% + 0.5em);
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18em;
+  max-height: 44vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  min-width: calc(var(--col) * 0.85);
+  background: var(--page-grey);
+  z-index: 45;
+}
+.dd .dd-options::-webkit-scrollbar { display: none; }
+.dd .dd-option { cursor: pointer; font-weight: 700; white-space: nowrap; }
+.dd .dd-option:hover { color: var(--sub); }
+
+.close-btn {
+  /* the × is drawn (two hairlines), not typeset: the glyph in Helvetica Neue is too heavy at this size.
+     box = --fs × 1.5 square (same footprint as the earlier 3 × --fs glyph), lines 1.5px thin */
+  position: fixed;
+  right: var(--inset);
+  bottom: calc(var(--inset) * 0.9);   /* box bottom on the bottom-label row, like the other corner labels */
+  width: calc(var(--fs) * 1.5);
+  height: calc(var(--fs) * 1.5);
+  padding: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 0;                 /* hides the × character; kept in the markup for accessibility */
+  cursor: pointer;
+  z-index: 75;
+}
+.close-btn::before,
+.close-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: calc(var(--fs) * 1.5 * 1.3);   /* diagonal of the box, slightly short */
+  height: 1.5px;
+  background: currentColor;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.close-btn::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+/* ————————————————————————————————————————————
+   work detail — scrolling project page
+   ———————————————————————————————————————————— */
+#detail {
+  z-index: 70;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+#detail::-webkit-scrollbar { display: none; }
+
+#detail.theme-sw  { background: var(--white); color: var(--black); --sub: var(--sub-on-white); }
+#detail.theme-amm { background: var(--black); color: var(--white); --sub: var(--sub-on-black); }
+#detail.theme-xsw { background: var(--grey);  color: var(--black); --sub: var(--sub-on-grey);  }
+
+/* hero: 200vh block. the image is pinned (sticky) for the first 100vh
+   while the text scrolls away and the 70% section-colour scrim fades
+   to 0; then the image scrolls up with the rest of the page */
+#detail.theme-sw  { --bg: var(--white); }
+#detail.theme-amm { --bg: var(--black); }
+#detail.theme-xsw { --bg: var(--grey);  }
+
+#detail-hero {
+  position: relative;
+  height: 200vh;
+}
+#detail-hero-pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+#detail-hero-img {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+#detail-hero-scrim {
+  position: absolute; inset: 0;
+  background: var(--bg);
+  opacity: 0.7;                        /* driven by scroll in JS */
+}
+#detail-hero-text {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+}
+/* hero row: same size / line box / tracking as the name and the clock,
+   so the whole centre line reads as one row */
+#detail-hero .d-title,
+#detail-hero .d-meta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: inherit;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  font-weight: 700;
+  transition: color 0.4s ease;
+}
+#detail-hero .d-title {
+  left: calc(var(--col) * 2 + clamp(10px, 1vw, 26px));
+  transform: translateY(calc(var(--lh-label) * -0.5em));   /* first line on the centre line; a 2nd title line flows down */
+  white-space: pre-line;
+}
+#detail-hero .d-meta {
+  left: calc(var(--col) * 4 + clamp(10px, 1vw, 26px));
+  transform: translateY(calc(var(--lh-label) * -0.5em));   /* first line (year) on the centre line */
+  display: flex; flex-direction: column;
+}
+#detail-hero .sub { color: var(--sub); transition: color 0.4s ease; }
+/* per-element tone from the image behind (JS): the secondary line keeps a
+   step below the primary but stays legible over the scrimmed picture */
+#detail-hero [data-tone="white"] { color: var(--white); --sub: #d2d2d2; }
+#detail-hero [data-tone="black"] { color: var(--black); --sub: #3c3c3c; }
+
+/* scroll content blocks */
+#detail-body {
+  /* no bottom padding: the 100vh colophon ends flush with the scroll,
+     so its centre line meets the fixed name / clock exactly */
+  --bgap: clamp(40px, 6vh, 90px);      /* gap between page blocks; a block's `top` is measured against it */
+  padding: clamp(60px, 9vh, 140px) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--bgap);
+}
+/* statement with an image beside it (layout block  aside: "statement") */
+.d-head { display: flex; align-items: flex-start; gap: var(--lgap); }
+.d-head .d-text { margin-bottom: 0; }
+.d-text {
+  margin-left: calc(var(--col) * 2 + clamp(10px, 1vw, 26px));
+  width: calc(var(--col) * 2.2);
+  white-space: pre-line;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.d-par {
+  margin-left: calc(var(--col) * 3 + clamp(10px, 1vw, 26px));
+  width: calc(var(--col) * 1.7);
+  line-height: 1.6;
+  font-weight: 400;
+}
+.d-img {
+  margin-left: calc(var(--col) * 2 + clamp(10px, 1vw, 26px));
+  width: calc(var(--col) * 2);
+  cursor: pointer;
+}
+.d-img img { width: 100%; height: auto; display: block; }
+.d-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(6px, 0.6vw, 14px);
+  margin: 0 var(--inset);
+}
+.d-grid .cell {
+  aspect-ratio: 3 / 4;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+.d-pair {
+  display: flex;
+  gap: clamp(14px, 1.4vw, 34px);
+  margin-left: calc(var(--col) * 1 + clamp(10px, 1vw, 26px));
+  align-items: flex-start;
+}
+.d-pair .d-img { margin-left: 0; width: calc(var(--col) * 1.15); }
+.d-pair .d-par { margin-left: clamp(20px, 2vw, 50px); width: calc(var(--col) * 1.7); }
+
+/* ————— layout engine blocks ————— */
+:root { --lgap: clamp(10px, 1vw, 24px); }
+.l-block { display: block; }
+.l-row { display: flex; gap: var(--lgap); align-items: flex-start; }
+.l-cell { display: flex; flex-direction: column; gap: var(--lgap); min-width: 0; }
+.l-grid { display: grid; gap: var(--lgap); }
+.l-img { cursor: pointer; }
+.l-img img { width: 100%; height: auto; display: block; }
+.l-video-box {
+  position: relative; aspect-ratio: 16 / 9; background: var(--black) center / cover; cursor: pointer;
+}
+.l-video-box .play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 0; height: 0; border-left: clamp(14px, 1.3vw, 26px) solid var(--white);
+  border-top: clamp(9px, 0.8vw, 16px) solid transparent; border-bottom: clamp(9px, 0.8vw, 16px) solid transparent;
+}
+.l-video-el { width: 100%; display: block; background: var(--black); }
+.l-video-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: var(--black); }
+.l-caption { font-weight: 400; line-height: 1.5; color: var(--sub); }
+.l-par { font-weight: 400; line-height: 1.6; }              /* body paragraph inside the layout (par block / text cell) */
+#detail-body .d-text { margin-bottom: 0; }
+
+/* colophon: material / collection / exhibition
+   full-viewport end block — every column's FIRST line sits on the
+   centre line (aligned with the fixed name / clock), rest flows down */
+.d-colophon {
+  position: relative;
+  height: 100vh;
+}
+/* colophon row = first-level size, same line box / tracking as the name and clock */
+.d-colophon .c-title {
+  position: absolute;
+  left: calc(var(--col) * 2 + clamp(10px, 1vw, 26px));
+  top: 50%;
+  transform: translateY(calc(var(--lh-label) * -0.5em));   /* first line on the centre line, like the hero title */
+  white-space: pre-line;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  font-weight: 700;
+}
+.d-colophon .c-meta {
+  position: absolute;
+  left: calc(var(--col) * 4 + clamp(10px, 1vw, 26px));
+  top: 50%;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  transform: translateY(calc(var(--lh-label) * -0.5em));   /* first line (label) on the centre line */
+  width: calc(var(--col) * 1.9);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--lh-label) * 1em);   /* one blank line between entries, like the menu */
+  font-weight: 400;
+}
+.d-colophon .c-meta .label { color: var(--sub); display: block; }
+
+/* ————————————————————————————————————————————
+   lightbox (enlarge)
+   ———————————————————————————————————————————— */
+#lightbox {
+  position: fixed; inset: 0;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#lightbox.theme-sw  { background: var(--white); color: var(--black); }
+#lightbox.theme-amm { background: var(--black); color: var(--white); }
+#lightbox.theme-xsw { background: var(--grey);  color: var(--black); }
+#lightbox img {
+  max-width: 86vw;
+  max-height: 86vh;
+  display: block;
+}
+/* one line of description under the image — bottom edge, same row as ×;
+   colour follows the zone (black on white / white on black / black on grey) */
+#lightbox-cap {
+  position: fixed;
+  left: var(--inset);
+  right: calc(var(--inset) + 3em);
+  bottom: calc(var(--inset) * 0.9);
+  font-weight: 400;
+  line-height: var(--lh-label);
+  color: inherit;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+#lightbox-cap:empty { display: none; }
+
+/* clock hover → ": now" handled in JS via data swap */
+
+/* ————————————————————————————————————————————
+   journey — design p.64–69
+   one axis on the centre line from 1960 to now, inset --x-axis on both
+   sides; the identities are bands stacked upward from the line
+   (white centred on it · black above · grey above that), the
+   anothermountainman band led in by ticks 1993–2000. a hairline cursor
+   walks the axis; the current event hangs off it.
+   ———————————————————————————————————————————— */
+:root {
+  --x-axis: 9.4vw;                             /* axis / cv inset (150px @1600) */
+  --j-band: clamp(6px, 1.13vh, 14px);          /* band thickness (10px @900) */
+  --j-gap: 0.6vw;                              /* text ↔ cursor */
+  --j-above: 23.9vh;                           /* upper block (personal): top edge, as drawn */
+  --j-below: 56.7vh;                           /* lower block (professional): top edge, as drawn */
+  --j-clear: 5vh;                              /* nearest a block or image may come to the axis */
+  --j-edge: 4vh;                               /* nearest a block may come to the viewport edge */
+}
+#page-stage {
+  position: fixed; inset: 0;
+  overflow: hidden;
+  touch-action: none;
+}
+#journey { position: absolute; inset: 0; }
+.j-field {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: var(--x-axis); right: var(--x-axis);
+}
+.j-axis {
+  position: absolute;
+  left: 0; right: 0;
+  top: 50%;
+  height: 0;
+}
+.j-line {
+  position: absolute; left: 0; right: 0;
+  top: -0.5px; height: 1px;
+  background: var(--black);
+}
+.j-band, .j-ticks {
+  position: absolute;
+  right: 0;
+  height: var(--j-band);
+}
+.j-band.j-sw  { top: calc(var(--j-band) * -0.5); background: var(--white); }
+.j-band.j-amm { top: calc(var(--j-band) * -1.5); background: var(--black); }
+.j-band.j-xsw { top: calc(var(--j-band) * -2.5); background: var(--grey);  }
+.j-ticks {
+  right: auto;
+  top: calc(var(--j-band) * -1.5);
+  background-image: linear-gradient(to right, var(--black) 0 1px, transparent 1px);
+  background-size: calc(100% / 19) 100%;      /* 19 ticks over the lead-in, as drawn */
+  background-repeat: repeat-x;
+}
+
+.j-cursor {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1px;
+  margin-left: -0.5px;
+  background: var(--black);
+  opacity: 0;
+  transition: opacity 0.4s ease;                /* position is driven per frame (stepless scrub) */
+  pointer-events: none;
+  will-change: left;
+}
+.j-cursor.on { opacity: 1; }
+
+/* event: a zero-width anchor at its year, full height; one or two groups
+   (above = personal column, below = professional column of the timeline) */
+.j-event {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.j-event.on { opacity: 1; transition: opacity 0.45s ease; }         /* lit while the cursor is past its year */
+.j-text {
+  position: absolute;
+  top: var(--j-above);                         /* refined per block in layoutJourney() */
+  width: max-content;
+  max-width: 31vw;
+  line-height: 1.5;
+  font-weight: 400;
+  display: flex; flex-direction: column;
+}
+.j-group.below .j-text { top: var(--j-below); }
+.j-year { font-weight: 700; }
+.j-body { white-space: pre-line; }
+.j-body + .j-body { margin-top: 1.5em; }       /* paragraphs one blank line apart, as in the timeline */
+.side-right .j-text { left: var(--j-gap); }
+.side-left  .j-text { right: var(--j-gap); text-align: right; }
+
+.j-img {
+  position: absolute;
+  right: var(--j-gap);                         /* always on the left of the cursor */
+  pointer-events: auto;
+  cursor: pointer;
+  line-height: 0;
+}
+.j-img img { display: block; height: auto; width: auto; max-height: 28vh; }
+.j-img.size-l img { max-width: 25vw; }         /* 1.5 columns (398px @1600) */
+.j-img.size-s img { max-width: 12vw; }         /* 0.72 column (190px @1600) — stamps, small objects */
+
+/* ————————————————————————————————————————————
+   biography — design p.70–71
+   portrait in columns 3–5 ending above the centre line, statement whose
+   first line sits on it; then the cv from --x-axis to --x-axis with the
+   section label holding the centre line while its rows scroll
+   ———————————————————————————————————————————— */
+:root {
+  --b-left: calc(var(--col) * 2 + clamp(10px, 1vw, 26px));
+  --b-width: calc(var(--col) * 3 - 2 * clamp(10px, 1vw, 26px));
+  --b-lh: 1.55;
+}
+#bio { padding-bottom: 40vh; }
+.b-head {
+  height: 50vh;
+  margin-left: var(--b-left);
+  width: var(--b-width);
+  display: flex; align-items: flex-end;
+  padding-bottom: 6.3vh;                        /* portrait ↔ centre line (57px @900) */
+}
+.b-portrait {
+  display: block;
+  width: 100%;
+  max-height: calc(50vh - 6.3vh);
+  object-fit: cover;
+  cursor: pointer;
+}
+.b-statement {
+  margin-left: var(--b-left);
+  width: var(--b-width);
+  margin-top: calc(var(--b-lh) * -0.5em);        /* first line centred on the line */
+  line-height: var(--b-lh);
+  font-weight: 400;
+}
+.b-statement p { margin: 0 0 calc(var(--b-lh) * 1em); }
+.b-statement p:last-child { margin-bottom: 0; }
+/* block heading (the person · 84000 communications): bold first line, the
+   second block set three lines below the first; the first heading keeps
+   the page's rule of the first line sitting on the centre line */
+.b-statement .b-lead b { font-weight: 700; }
+.b-statement .b-lead:not(:first-child) { margin-top: calc(var(--b-lh) * 3em); }
+
+.b-cv {
+  margin: 9vh var(--x-axis) 0;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.b-group {
+  display: grid;
+  grid-template-columns: 8.6vw 1fr;             /* label · rows (date 288px @1600) */
+  align-items: start;
+  margin-bottom: calc(1.5em * 3);
+}
+.b-label {
+  position: sticky;
+  top: 50%;                                     /* the rule holds the centre line */
+  margin-right: 2.4vw;                          /* short rule: 150 → 250 @1600 */
+  border-top: 1px solid var(--black);
+  padding-top: 0.5em;
+  background: var(--page-grey);
+  z-index: 2;
+}
+.b-rows {
+  border-top: 1px solid var(--black);
+  padding-top: 0.5em;
+  display: grid;
+  grid-template-columns: 8.1vw 8.6vw 33.3vw 1fr; /* date · type · title · venue (418 · 555 · 1088 @1600) */
+  column-gap: 0;
+}
+.b-row { display: contents; }
+.b-row > span { padding-right: 1vw; }
+
+/* ————————————————————————————————————————————
+   media / contact / acknowledgments
+   design: Update Request 0919/amm x sw website - media- contact-acknowledgement.pdf
+   (1920 frame, 6-column grid with 25px gutters). all three use the biography's text
+   column (--b-left = columns 2–); the label sits on the centre line as on every page.
+   ———————————————————————————————————————————— */
+:root {
+  --mc-gutter: clamp(10px, 1.3vw, 30px);                      /* 25 @1920 */
+  --mc-gap: clamp(20px, 2.6vw, 60px);                          /* 50 @1920: row pitch, logo ↔ text */
+}
+
+/* media — the list starts at the top and scrolls under the label; one row per item:
+   text in columns 2–3, thumbnail in column 4 (270 × 152 @1920), text top-aligned with it */
+#media {
+  margin-left: var(--b-left);
+  padding: var(--mc-gutter) 0 40vh;
+  display: flex; flex-direction: column;
+  gap: var(--mc-gap);
+}
+.m-item {
+  display: grid;
+  grid-template-columns: calc(var(--col) * 2 - 2 * var(--mc-gutter)) calc(var(--col) - 2 * var(--mc-gutter));
+  column-gap: calc(2 * var(--mc-gutter));
+  align-items: start;
+  color: var(--black);
+  text-decoration: none;
+  line-height: 1.4;                                            /* 36 / 26 as drawn */
+  font-weight: 400;
+}
+a.m-item { cursor: pointer; }
+.m-text { display: flex; flex-direction: column; }
+.m-title { color: var(--black); }
+.m-meta  { color: var(--sub); }
+.m-url   { text-decoration: underline; text-underline-offset: 0.12em; text-decoration-thickness: 1px; word-break: break-all; }
+a.m-item:hover .m-title { text-decoration: underline; text-underline-offset: 0.12em; text-decoration-thickness: 1px; }
+.m-thumb {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--black);
+}
+.m-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+/* a logo instead of a still: on white, inside a hairline box, as drawn */
+.m-thumb.frame { background: var(--white); border: 1px solid var(--black); }
+.m-thumb.frame img { object-fit: contain; padding: 14% 18%; }
+
+/* contact — the 84000 communications logo centred on the centre line, the details
+   one row gap below at the label size, one blank line between groups */
+#contact {
+  margin-left: var(--b-left);
+  width: var(--b-width);
+  padding: calc(50vh - var(--ct-logo-h) / 2) 0 40vh;
+  --ct-logo-h: clamp(16px, 2.35vw, 52px);                     /* 45 @1920 (logo 440 wide) */
+}
+.ct-logo { height: var(--ct-logo-h); line-height: 0; }
+.ct-logo img { height: 100%; width: auto; display: block; }
+.ct-body {
+  margin-top: var(--mc-gap);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  font-weight: 400;
+}
+.ct-body p { margin: 0 0 calc(var(--lh-label) * 1em); }
+.ct-body p:last-child { margin-bottom: 0; }
+.ct-body a, .ak-body a { color: inherit; text-decoration: none; }
+.ct-body a:hover, .ak-body a:hover { text-decoration: underline; text-underline-offset: 0.12em; text-decoration-thickness: 1px; }
+
+/* acknowledgments — statement in bold with its first line on the centre line (same rule
+   as the label), two blank lines, then the credit groups one blank line apart */
+#ack {
+  margin-left: var(--b-left);
+  width: calc(var(--col) * 3 - 2 * var(--mc-gutter));         /* columns 2–4 */
+  padding: 50vh 0 40vh;
+}
+.ak-body {
+  margin-top: calc(var(--lh-label) * -0.5em);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  font-weight: 400;
+}
+.ak-body p { margin: 0 0 calc(var(--lh-label) * 1em); }
+.ak-body p:last-child { margin-bottom: 0; }
+.ak-body .ak-lead { font-weight: 700; margin-bottom: calc(var(--lh-label) * 2em); }
+
+/* ————————————————————————————————————————————
+   mobile — portrait and square viewports (aspect ≤ 1:1)
+   design: Update Request 0919/amm x sw website - Mobile.pdf (1080 × 1810 frame;
+   all sizes below are that frame read in vw). the centre line gives way to the
+   corners: name top-left · clock bottom-left · × / view toggle bottom-right.
+   the three panels stack; lists run in one column (120 → 960 @1080); the
+   detail page scrolls straight through (no pinned hero, colophon in the flow);
+   journey becomes a year list; the cv folds into date + three lines.
+   ———————————————————————————————————————————— */
+@media (max-aspect-ratio: 1/1) {
+  :root {
+    --fs: clamp(12px, 3.33vw, 22px);                 /* 36 @1080 — captions, body copy, colophon */
+    --fs-lg: clamp(15px, 4.44vw, 30px);              /* 48 @1080 — name, clock, menu, titles */
+    --fs-body: clamp(13px, 3.9vw, 25px);             /* 42 @1080 — statement, journey, biography */
+    --inset: 3.7vw;                                  /* 40 @1080 — page margin */
+    --inset-top: calc(2.8vw + env(safe-area-inset-top));
+    --inset-bottom: calc(2.9vw + env(safe-area-inset-bottom));
+    --m-left: 11.1vw;                                /* list column 120 → 960 @1080 */
+    --m-width: 77.8vw;
+    --m-top: 15vw;                                   /* first row / portrait / grid top, under the name */
+    --lgap: 1.85vw;                                  /* 20 @1080 — gutter between images */
+    --lh-body: 1.25;                                 /* set close, as drawn */
+    --m-line: 1.25px;                                /* hairline weight for × and the view toggle */
+    --b-lh: 1.25;
+  }
+
+  html { -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: 100%; }
+
+  /* ————— corners ————— */
+  .side-label { top: auto; transform: none; }
+  .side-label.left  { top: var(--inset-top); left: var(--inset); right: var(--inset); white-space: normal; }
+  .side-label.right { right: auto; left: var(--inset); bottom: var(--inset-bottom); }
+  .clock { text-align: left; min-width: 0; }
+  /* × and the view toggle share the clock's line box (same bottom, same height), so their
+     centres sit on the clock's centre; both are hairlines of the same weight (--m-line),
+     the × one name-size wide (≈ 48 @1080 as drawn) */
+  .close-btn {
+    right: var(--inset);
+    bottom: var(--inset-bottom);
+    width: var(--fs-lg);
+    height: calc(var(--fs-lg) * var(--lh-label));
+  }
+  .close-btn::before, .close-btn::after { width: calc(var(--fs-lg) * 1.35); height: var(--m-line); }
+
+  /* ————— home: three bands ————— */
+  #home { flex-direction: column; }
+  .panel { width: 100%; height: calc(100% / 3); }
+  .panel-label { top: var(--inset-top); right: var(--inset); transform: none; white-space: normal; }
+  .home-clock { top: auto; right: auto; left: var(--inset); bottom: var(--inset-bottom); transform: none; }
+
+  /* ————— section: one column of rows ————— */
+  #worklist, #canvas-mode, #detail, #page-scroll { overscroll-behavior: none; }
+  #worklist { touch-action: pan-y; }
+  #canvas-mode { touch-action: none; }             /* the field is dragged, never scrolled */
+  .rows-col { padding: var(--m-top) 0 40vw; gap: 6.8vw; }
+  .work-thumb { margin-left: var(--m-left); width: var(--m-width); }
+  .work-caption {
+    position: static;
+    margin: 1.8vw 0 0 var(--m-left);
+    width: var(--m-width);
+    gap: 0;
+    line-height: var(--lh-body);
+  }
+  #mode-toggle {
+    --tg-w: 5.5vw; --tg-h: 4vw;                      /* a touch larger than the desktop glyph */
+    right: var(--inset);
+    bottom: calc(var(--inset-bottom) + (var(--fs-lg) * var(--lh-label) - var(--tg-h)) / 2);   /* centred on the clock */
+    width: var(--tg-w);
+    height: var(--tg-h);
+    border-width: var(--m-line);
+  }
+  #mode-toggle.glyph-grid::before  { width: var(--m-line); }
+  #mode-toggle.glyph-grid::after,
+  #mode-toggle.glyph-lines::before,
+  #mode-toggle.glyph-lines::after  { height: var(--m-line); }
+  /* canvas = the same free-sliding, wrapping field as on desktop, sized so two columns show */
+  #canvas-mode.dragging { cursor: default; }
+  /* swipe between the three zones: the leaving list slides out on a ghost layer */
+  .swipe-ghost { position: fixed; inset: 0; z-index: 35; overflow: hidden; pointer-events: none; }
+  .swipe-ghost .section-mode { position: absolute; inset: 0; overflow: hidden; }
+
+  /* ————— menu: top-left, first line where the name was ————— */
+  #menu { top: var(--inset-top); transform: none; }
+  #menu-bottom {
+    bottom: calc(var(--inset-bottom) + var(--fs-lg) * var(--lh-label) + 3vw);
+    gap: 5vw;
+  }
+
+  /* ————— function pages: bar on the top row ————— */
+  #page-bar { top: var(--inset-top); right: var(--inset); transform: none; gap: 4vw; }
+  .search-input { flex: 1 1 0; width: auto; min-width: 0; font-size: max(16px, var(--fs-lg)); }   /* ≥ 16px: ios does not zoom the page on focus */
+  .dd .dd-title, .dd .dd-value { width: 22vw; }
+  .dd.wide .dd-title, .dd.wide .dd-value { width: 44vw; }
+  .dd .dd-options { min-width: 44vw; }
+
+  /* ————— detail: hero one screen high, title at a third, year at two thirds ————— */
+  #detail-hero { height: 100vh; height: 100dvh; }
+  #detail-hero-pin { position: relative; height: 100%; }
+  #detail-hero-text { height: 100%; }
+  #detail-hero .d-title { left: var(--inset); right: var(--inset); top: 35.3%; transform: none; }
+  #detail-hero .d-meta  { left: var(--inset); right: var(--inset); top: 68.6%; transform: none; }
+  #detail-body { --bgap: 6vw; padding: 11.7vw 0 0; }
+  .d-text, .d-par, .d-img, .d-pair, .d-head { margin-left: var(--inset); margin-right: var(--inset); width: auto; }
+  .d-text { font-size: var(--fs-body); line-height: var(--lh-body); }
+  .d-par, .l-par, .l-caption { line-height: var(--lh-body); }
+  .d-head, .d-pair { flex-direction: column; gap: var(--bgap); }
+  .d-head .d-text { margin-left: 0 !important; margin-right: 0; }
+  .d-pair .d-img, .d-pair .d-par { width: auto; margin: 0; }
+  .d-grid { grid-template-columns: repeat(2, 1fr); }
+  .l-video-box .play { border-left-width: 5vw; border-top-width: 3vw; border-bottom-width: 3vw; }
+  /* colophon in the flow: title, two blank lines, then the credits one blank line apart */
+  .d-colophon { height: auto; padding: 4vw var(--inset) 30vh; }
+  .d-colophon .c-title, .d-colophon .c-meta { position: static; transform: none; width: auto; }
+  .d-colophon .c-meta { margin-top: calc(var(--lh-label) * 2em); font-size: var(--fs); line-height: var(--lh-body); gap: 1em; }
+
+  /* ————— lightbox ————— */
+  #lightbox img { max-width: calc(100vw - 2 * var(--inset)); max-height: 78vh; max-height: 78dvh; }
+  #lightbox-cap { right: calc(var(--inset) + 2.5em); white-space: normal; }
+
+  /* ————— journey: the years one under another, a rule above each ————— */
+  #journey-list { padding: var(--m-top) var(--inset) 40vw; }
+  .jl-year { border-top: 1px solid var(--black); padding-top: 1.4vw; margin-bottom: 9vw; }
+  .jl-head { font-size: var(--fs-lg); line-height: var(--lh-label); font-weight: 700; letter-spacing: var(--ls-label); margin-bottom: 0.5vw; }
+  .jl-age { color: var(--sub); font-weight: 400; margin-left: 0.35em; }
+  .jl-body { font-size: var(--fs-body); line-height: var(--lh-body); font-weight: 400; margin: 0 0 1.25em; white-space: pre-line; }
+  .jl-body:last-child { margin-bottom: 0; }
+  .jl-img { margin-top: 1.5vw; line-height: 0; cursor: pointer; }
+  .jl-img img { display: block; height: auto; }
+  .jl-img.size-s img { width: 30vw; }               /* stamps, small objects (220 @1080 as drawn) */
+  .jl-img.size-l img { width: 100%; }
+
+  /* ————— biography: portrait full width, statement under it, cv folded ————— */
+  #bio { padding: var(--m-top) var(--inset) 40vw; }
+  .b-head { height: auto; margin: 0; width: auto; padding: 0; display: block; }
+  .b-portrait { width: 100%; max-height: none; }
+  .b-statement { margin: 6vw 0 0; width: auto; font-size: var(--fs-body); }
+  .b-cv { margin: 12vw 0 0; line-height: var(--lh-body); }
+  .b-group { display: block; margin-bottom: 3em; }
+  .b-label { position: static; margin: 0 0 1em; background: none; }
+  .b-rows { display: block; border-top: 0; padding-top: 0; }
+  .b-row { display: grid; grid-template-columns: 24vw 1fr; column-gap: 2vw; margin-bottom: 1em; }
+  .b-row .b-date { grid-row: 1 / span 3; }
+  .b-row .b-type, .b-row .b-venue { color: var(--sub); }
+    .b-row > span { padding-right: 0; }
+
+  /* ————— media / contact / acknowledgments: one column under the label ————— */
+  #media { margin: 0; padding: var(--m-top) var(--inset) 40vw; gap: 9vw; }
+  .m-item { display: flex; flex-direction: column-reverse; gap: 2.5vw; line-height: var(--lh-body); }
+  .m-thumb { width: 100%; }
+  .m-title { font-size: var(--fs-body); }
+  #contact { margin: 0; width: auto; padding: var(--m-top) var(--inset) 40vw; --ct-logo-h: 6.2vw; }
+  .ct-body { margin-top: 8vw; font-size: var(--fs-body); line-height: var(--lh-body); }
+  .ct-body p { margin-bottom: calc(var(--lh-body) * 1em); }
+  #ack { margin: 0; width: auto; padding: var(--m-top) var(--inset) 40vw; }
+  .ak-body { margin-top: 0; font-size: var(--fs-body); line-height: var(--lh-body); }
+  .ak-body p { margin-bottom: calc(var(--lh-body) * 1em); }
+  .ak-body .ak-lead { margin-bottom: calc(var(--lh-body) * 2em); }
+}

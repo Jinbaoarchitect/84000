@@ -1,0 +1,442 @@
+{
+ "sw": [
+  {
+   "src": "assets/canvas/sw/01.jpg",
+   "w": 1200,
+   "h": 852,
+   "orig": "Chungking Express.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/02.jpg",
+   "w": 1178,
+   "h": 1600,
+   "orig": "DSCF2054.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/03.jpg",
+   "w": 1000,
+   "h": 1470,
+   "orig": "DSCF2426r.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/04.jpg",
+   "w": 1000,
+   "h": 1000,
+   "orig": "DSCF3425.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/05.jpg",
+   "w": 1500,
+   "h": 1000,
+   "orig": "DSCF7005.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/06.jpg",
+   "w": 1501,
+   "h": 1000,
+   "orig": "IMG_2216_RB.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/07.jpg",
+   "w": 1500,
+   "h": 1000,
+   "orig": "IMG_5827_R.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/08.jpg",
+   "w": 1492,
+   "h": 1000,
+   "orig": "IMG_6807.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/09.jpg",
+   "w": 1500,
+   "h": 1000,
+   "orig": "IMG_9994.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/10.jpg",
+   "w": 1600,
+   "h": 800,
+   "orig": "MTR 660x330 罰抄_Page_2.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/11.jpg",
+   "w": 1600,
+   "h": 800,
+   "orig": "MTR 660x330 魚骨op_Page_2.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/12.jpg",
+   "w": 1200,
+   "h": 1600,
+   "orig": "Packaging_rosewood x hkpm_moon cake packaging_1.jpg",
+   "work": "s001"
+  },
+  {
+   "src": "assets/canvas/sw/13.jpg",
+   "w": 1199,
+   "h": 1000,
+   "orig": "S045.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/14.jpg",
+   "w": 1198,
+   "h": 1000,
+   "orig": "S047.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/15.jpg",
+   "w": 1196,
+   "h": 1000,
+   "orig": "S048.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/16.jpg",
+   "w": 1000,
+   "h": 1011,
+   "orig": "S049.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/17.jpg",
+   "w": 1000,
+   "h": 929,
+   "orig": "S050.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/18.jpg",
+   "w": 1600,
+   "h": 900,
+   "orig": "cover image-desktop.jpg",
+   "work": "s002"
+  },
+  {
+   "src": "assets/canvas/sw/19.jpg",
+   "w": 1600,
+   "h": 701,
+   "orig": "fujifilm GFX 50R_Première 2_roadshow_09012019-01.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/20.jpg",
+   "w": 934,
+   "h": 1600,
+   "orig": "img_9886b.jpg",
+   "work": "s004"
+  },
+  {
+   "src": "assets/canvas/sw/21.jpg",
+   "w": 1000,
+   "h": 1182,
+   "orig": "media poster_final.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/22.jpg",
+   "w": 1600,
+   "h": 900,
+   "orig": "retouch2.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/sw/23.jpg",
+   "w": 1080,
+   "h": 1600,
+   "orig": "twt to dffa 4.jpg",
+   "work": "s005"
+  }
+ ],
+ "amm": [
+  {
+   "src": "assets/canvas/amm/01.jpg",
+   "w": 600,
+   "h": 750,
+   "orig": "01A.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/02.jpg",
+   "w": 1200,
+   "h": 1600,
+   "orig": "5_148x197cm_300dpi.jpg",
+   "work": "a001"
+  },
+  {
+   "src": "assets/canvas/amm/03.jpg",
+   "w": 1600,
+   "h": 1269,
+   "orig": "Boat_1RGB.jpg",
+   "work": "a004"
+  },
+  {
+   "src": "assets/canvas/amm/04.jpg",
+   "w": 1600,
+   "h": 1067,
+   "orig": "DSCF0206 15-30-25.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/05.jpg",
+   "w": 800,
+   "h": 1600,
+   "orig": "DSCF2202_1.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/06.jpg",
+   "w": 1600,
+   "h": 1280,
+   "orig": "E04.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/07.jpg",
+   "w": 1600,
+   "h": 1067,
+   "orig": "IMG_0865_2.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/08.jpg",
+   "w": 1600,
+   "h": 1125,
+   "orig": "NOWHERE_BIG wall painting.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/09.jpg",
+   "w": 1319,
+   "h": 1000,
+   "orig": "RWB(C).jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/10.jpg",
+   "w": 1000,
+   "h": 1000,
+   "orig": "RWB_HK_ARTFAIR_1.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/11.jpg",
+   "w": 1199,
+   "h": 1000,
+   "orig": "S044.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/12.jpg",
+   "w": 600,
+   "h": 600,
+   "orig": "Speechless_2_4_A_007.jpeg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/13.jpg",
+   "w": 1000,
+   "h": 1000,
+   "orig": "VASE_2.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/14.jpg",
+   "w": 1000,
+   "h": 1416,
+   "orig": "a.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/15.jpg",
+   "w": 1000,
+   "h": 1428,
+   "orig": "hmrwbposter 1.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/16.jpg",
+   "w": 1591,
+   "h": 1600,
+   "orig": "impermanence 2.jpg",
+   "work": "a005"
+  },
+  {
+   "src": "assets/canvas/amm/17.jpg",
+   "w": 1200,
+   "h": 1501,
+   "orig": "milk 22092006 hi A1.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/18.jpg",
+   "w": 1200,
+   "h": 1501,
+   "orig": "milk_grp1_07.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/19.jpg",
+   "w": 1600,
+   "h": 1242,
+   "orig": "mother_son.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/20.jpg",
+   "w": 1600,
+   "h": 1120,
+   "orig": "not_why_not-01.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/21.jpg",
+   "w": 1600,
+   "h": 900,
+   "orig": "pr14.png",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/22.jpg",
+   "w": 1000,
+   "h": 1328,
+   "orig": "rebuild-hk 1.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/23.jpg",
+   "w": 1200,
+   "h": 1600,
+   "orig": "rug 9 V2.jpg",
+   "work": "a003"
+  },
+  {
+   "src": "assets/canvas/amm/24.jpg",
+   "w": 480,
+   "h": 1600,
+   "orig": "so to 8_selected_Fish 1.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/amm/25.jpg",
+   "w": 1200,
+   "h": 1600,
+   "orig": "字言。字語 1.jpg",
+   "work": "a002"
+  }
+ ],
+ "xsw": [
+  {
+   "src": "assets/canvas/xsw/01.jpg",
+   "w": 1144,
+   "h": 1600,
+   "orig": "2 MEN SHOW_ggg_book-345_final_Page_26.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/xsw/02.jpg",
+   "w": 1600,
+   "h": 1131,
+   "orig": "2 MEN SHOW_ggg_poster_teaser-01.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/xsw/03.jpg",
+   "w": 1600,
+   "h": 901,
+   "orig": "DSCF6831 1.jpg",
+   "work": "x001"
+  },
+  {
+   "src": "assets/canvas/xsw/04.jpg",
+   "w": 1600,
+   "h": 900,
+   "orig": "IMG_4367.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/xsw/05.jpg",
+   "w": 1600,
+   "h": 1600,
+   "orig": "IMG_5647_R_cropped.jpg",
+   "work": "x004"
+  },
+  {
+   "src": "assets/canvas/xsw/06.jpg",
+   "w": 1600,
+   "h": 1067,
+   "orig": "IMG_6192.jpg",
+   "work": "x003"
+  },
+  {
+   "src": "assets/canvas/xsw/07.jpg",
+   "w": 1600,
+   "h": 1067,
+   "orig": "LOLOSOSO_4side.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/xsw/08.jpg",
+   "w": 1122,
+   "h": 1600,
+   "orig": "TWT_AMM x SW_40th poster.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/xsw/09.jpg",
+   "w": 1600,
+   "h": 1565,
+   "orig": "YNOT T 16_宣傳冊子-part 07-13.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/xsw/10.jpg",
+   "w": 1600,
+   "h": 1600,
+   "orig": "being_20052019-01.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/xsw/11.jpg",
+   "w": 1600,
+   "h": 1185,
+   "orig": "building a livable city_CN_Page_85 拷贝.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/xsw/12.jpg",
+   "w": 1396,
+   "h": 1000,
+   "orig": "exception-1-ok.jpg",
+   "work": ""
+  },
+  {
+   "src": "assets/canvas/xsw/13.jpg",
+   "w": 1600,
+   "h": 716,
+   "orig": "ifcthemetic12sheetbusshelterartwork20160414_page_4.jpg",
+   "work": "x002"
+  },
+  {
+   "src": "assets/canvas/xsw/14.jpg",
+   "w": 1064,
+   "h": 1600,
+   "orig": "微信图片_20260901103046_104_138.jpg",
+   "work": "x005"
+  }
+ ]
+}
