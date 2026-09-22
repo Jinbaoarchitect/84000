@@ -312,7 +312,7 @@ body.menu-open #page-content {
   gap: 0.15em;
   line-height: 1.5;
 }
-.work-caption .w-title { font-weight: 400; }
+.work-caption .w-title { font-weight: 400; white-space: pre-line; }   /* a line break in the title (a002) stays a line break */
 .work-caption .w-sub   { color: var(--sub); font-weight: 400; }
 
 /* ————————————————————————————————————————————
@@ -615,6 +615,7 @@ body.menu-open #page-bar { opacity: 0; }
   margin-left: calc(var(--col) * 2 + clamp(10px, 1vw, 26px));
   width: calc(var(--col) * 2.2);
   white-space: pre-line;
+  font-size: var(--fs-lg);               /* statement at the title size (client note 2026-09-22) */
   line-height: 1.6;
   font-weight: 400;
 }
@@ -696,7 +697,7 @@ body.menu-open #page-bar { opacity: 0; }
   position: absolute;
   left: calc(var(--col) * 4 + clamp(10px, 1vw, 26px));
   top: 50%;
-  font-size: var(--fs-lg);
+  font-size: var(--fs);                  /* credits one size smaller than the title (client note 2026-09-22) */
   line-height: var(--lh-label);
   letter-spacing: var(--ls-label);
   transform: translateY(calc(var(--lh-label) * -0.5em));   /* first line (label) on the centre line */
@@ -960,9 +961,10 @@ a.m-item:hover .m-title { text-decoration: underline; text-underline-offset: 0.1
   background: var(--black);
 }
 .m-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
-/* a logo instead of a still: on white, inside a hairline box, as drawn */
-.m-thumb.frame { background: var(--white); border: 1px solid var(--black); }
-.m-thumb.frame img { object-fit: contain; padding: 14% 18%; }
+/* a logo instead of a still: a transparent png sitting on the page grey, no box (client note 2026-09-22),
+   left-aligned in the same 16:9 slot so the rows keep their rhythm */
+.m-thumb.frame { background: transparent; }
+.m-thumb.frame img { object-fit: contain; object-position: left center; padding: 6% 0; }
 
 /* contact — the 84000 communications logo centred on the centre line, the details
    one row gap below at the label size, one blank line between groups */
@@ -972,7 +974,7 @@ a.m-item:hover .m-title { text-decoration: underline; text-underline-offset: 0.1
   padding: calc(50vh - var(--ct-logo-h) / 2) 0 40vh;
   --ct-logo-h: clamp(16px, 2.35vw, 52px);                     /* 45 @1920 (logo 440 wide) */
 }
-.ct-logo { height: var(--ct-logo-h); line-height: 0; }
+.ct-logo { height: var(--ct-logo-h); line-height: 0; margin-left: calc(var(--ct-logo-h) * -0.05); }   /* optical: the 8's curve hangs a touch left of the text edge */
 .ct-logo img { height: 100%; width: auto; display: block; }
 .ct-body {
   margin-top: var(--mc-gap);
@@ -1152,7 +1154,7 @@ a.m-item:hover .m-title { text-decoration: underline; text-underline-offset: 0.1
   /* ————— media / contact / acknowledgments: one column under the label ————— */
   #media { margin: 0; padding: var(--m-top) var(--inset) 40vw; gap: 9vw; }
   .m-item { display: flex; flex-direction: column-reverse; gap: 2.5vw; line-height: var(--lh-body); }
-  .m-thumb { width: 100%; }
+  .m-thumb { width: 50%; }                         /* half the screen: a press picture, not a work */
   .m-title { font-size: var(--fs-body); }
   #contact { margin: 0; width: auto; padding: var(--m-top) var(--inset) 40vw; --ct-logo-h: 6.2vw; }
   .ct-body { margin-top: 8vw; font-size: var(--fs-body); line-height: var(--lh-body); }

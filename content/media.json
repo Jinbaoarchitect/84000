@@ -1,5 +1,5 @@
 {
-  "_note": "media page — Update Request 0919/amm x sw website - media- contact-acknowledgement.pdf p.1. one record per press item = one media_items row: title, date (yyyy/mm, sorted newest first), source (publication / channel), url (article or video), image (thumbnail, 16:9 photos as they are; frame = logo on white with a hairline box). cms/import.html writes these to media_items (idempotent on url).",
+  "_note": "media page — Update Request 0919/amm x sw website - media- contact-acknowledgement.pdf p.1. one record per press item = one media_items row: title, date (yyyy/mm, sorted newest first), source (publication / channel), url (article or video), image (thumbnail, 16:9 photos as they are; frame = a logo (transparent png, sits on the page grey, no box)). cms/import.html writes these to media_items (idempotent on url).",
   "items": [
     {
       "title_en": "anothermountainman (wong ping-pui, stanley): studio and beyond",
@@ -20,7 +20,7 @@
       "source_en": "gq hong kong",
       "source_cn": "gq 香港",
       "url": "https://gqhongkong.com/lifestyle/poliform-senzafine-wardrobe",
-      "image": "assets/media/02.jpg",
+      "image": "assets/media/02.png",
       "frame": true,
       "kind": "interview",
       "orig": "images.png"
@@ -32,7 +32,7 @@
       "source_en": "elle decoration",
       "source_cn": "elle decoration 家居廊",
       "url": "https://mp.weixin.qq.com/s/Co2lUTZarquBlbRohum6_Q",
-      "image": "assets/media/03.jpg",
+      "image": "assets/media/03.png",
       "frame": true,
       "kind": "interview",
       "orig": "ffbf8eb44e6849baa90990fae42fbab6.jpeg"

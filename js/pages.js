@@ -386,7 +386,7 @@ const DEMO_BIO = {
    transcribed from Update Request 0919/amm x sw website - media- contact-acknowledgement.pdf;
    the same text lives in cms/import/media.json · contact.json · acknowledgments.json for the importer
    and the static review build. media: one item per press piece (newest first); the picture is the
-   16:9 thumbnail as supplied, `frame` = a logo shown on white inside a hairline box.
+   16:9 thumbnail as supplied, `frame` = a logo (transparent png on the page grey, no box).
    every text carries an en and a cn (traditional chinese, hong kong usage) version. ————— */
 const DEMO_MEDIA = [
   {
@@ -406,7 +406,7 @@ const DEMO_MEDIA = [
     "source_en": "gq hong kong",
     "source_cn": "gq 香港",
     "url": "https://gqhongkong.com/lifestyle/poliform-senzafine-wardrobe",
-    "image": "assets/media/02.jpg",
+    "image": "assets/media/02.png",
     "frame": true
   },
   {
@@ -416,7 +416,7 @@ const DEMO_MEDIA = [
     "source_en": "elle decoration",
     "source_cn": "elle decoration 家居廊",
     "url": "https://mp.weixin.qq.com/s/Co2lUTZarquBlbRohum6_Q",
-    "image": "assets/media/03.jpg",
+    "image": "assets/media/03.png",
     "frame": true
   },
   {
@@ -479,7 +479,7 @@ const DEMO_CONTACT = { rec: { body_en: "84000 communications<br><br>tel /<br>+85
 
 /* first paragraph = the statement (bold, first line on the centre line), then the credit groups.
    "yongran zhang" corrected from the pdf's "rongran zhang" (client, 2026-09-22) */
-const DEMO_ACK = { rec: { body_en: "looking back, i realise that none of the work was ever made alone.<br>behind every idea, every image and every project were people<br>who shared their time, trust, patience and passion with me.<br>my wife, my team, the artists, colleagues, clients and friends<br>i have worked with over the years —<br>each of you has been part of the journey in your own way.<br>there were long nights, difficult moments, unexpected turns,<br>good conversations and plenty of laughter.<br>some things worked, some did not. but all of them became part of the story.<br>in the end, perhaps the work is not the most important thing we leave behind.<br>it is the people we meet,<br>the things we make together, and the memories we carry with us.<br>thank you for being part of mine.<br><br>special thanks //<br>jessie law<br><br>creative collaboration in advertising career //<br>fornita wong / milker ho / lee chun chung / dennis chang /<br>sam wong / jen halim / david cheung / gary chui /<br>ringo tang / fornita wong / sandy lee / iris lo /<br>tan shen guan / keith ho / kelvin hung / andy wong /<br>patrick lai / shirley chow / louis ng / nelson ng /<br>romeo diaz / david cheung / ...<br><br>creative collaboration //<br>william chang / wong kar-wai / tony leung chiu-wai / fung lam /<br>jihong mao / wang xu / kung chi-shing / ...<br><br>producer //<br>a yan / ...<br><br>team of 84000 communications //<br>jessie law / ... / jennifer ip / kwok wai-ki /<br>chan hong-ning / benber lee / yongran zhang / ...<br><br>website design //<br>senw design (benber lee / jinbao zhong / shoupeng zhu)", body_cn: "回望過去，我發現沒有一件作品是獨自完成的。<br>每一個意念、每一幅影像、每一個項目背後，<br>都有人與我分享他們的時間、信任、耐性和熱情。<br>我的太太、我的團隊、藝術家、同事、客戶和朋友，<br>多年來與我共事的每一位——<br>你們都以各自的方式，成為這段旅程的一部分。<br>有過漫漫長夜、艱難時刻、意料之外的轉折，<br>也有過暢快的對話和許多歡笑。<br>有些事成了，有些沒有；但它們都成為了故事的一部分。<br>到頭來，或許作品並不是我們留下的最重要的東西。<br>重要的是我們遇上的人、<br>一起創造的事，以及我們帶着走的回憶。<br>感謝你成為我回憶的一部分。<br><br>特別鳴謝 //<br>jessie law<br><br>廣告生涯中的創作夥伴 //<br>fornita wong / milker ho / lee chun chung / dennis chang /<br>sam wong / jen halim / david cheung / gary chui /<br>ringo tang / fornita wong / sandy lee / iris lo /<br>tan shen guan / keith ho / kelvin hung / andy wong /<br>patrick lai / shirley chow / louis ng / nelson ng /<br>romeo diaz / david cheung / ……<br><br>創作夥伴 //<br>william chang / wong kar-wai / tony leung chiu-wai / fung lam /<br>jihong mao / wang xu / kung chi-shing / ……<br><br>監製 //<br>a yan / ……<br><br>八萬四千溝通事務所團隊 //<br>jessie law / …… / jennifer ip / kwok wai-ki /<br>chan hong-ning / benber lee / yongran zhang / ……<br><br>網站設計 //<br>東南西北設計 senw design（benber lee / jinbao zhong / shoupeng zhu）" }, images: [] };
+const DEMO_ACK = { rec: { body_en: "looking back, i realise that none of the work was ever made alone.<br>behind every idea, every image and every project were people<br>who shared their time, trust, patience and passion with me.<br>my wife, my team, the artists, colleagues, clients and friends<br>i have worked with over the years —<br>each of you has been part of the journey in your own way.<br>there were long nights, difficult moments, unexpected turns,<br>good conversations and plenty of laughter.<br>some things worked, some did not. but all of them became part of the story.<br>in the end, perhaps the work is not the most important thing we leave behind.<br>it is the people we meet,<br>the things we make together, and the memories we carry with us.<br>thank you for being part of mine.<br><br>special thanks //<br>jessie law<br><br>creative collaboration in advertising career //<br>fornita wong / milker ho / lee chun chung / dennis chang /<br>sam wong / jen halim / david cheung / gary chui /<br>ringo tang / fornita wong / sandy lee / iris lo /<br>tan shen guan / keith ho / kelvin hung / andy wong /<br>patrick lai / shirley chow / louis ng / nelson ng /<br>romeo diaz / david cheung / ...<br><br>creative collaboration //<br>william chang / wong kar-wai / tony leung chiu-wai / fung lam /<br>jihong mao / wang xu / kung chi-shing / ...<br><br>production //<br>a yan / ...<br><br>team of 84000 communications //<br>jessie law / ... / jennifer ip / kwok wai-ki /<br>chan hong-ning / benber lee / yongran zhang / ...<br><br>website design //<br>senw design (benber lee / jinbao zhong / shoupeng zhu)", body_cn: "回望過去，我發現沒有一件作品是獨自完成的。<br>每一個意念、每一幅影像、每一個項目背後，<br>都有人與我分享他們的時間、信任、耐性和熱情。<br>我的太太、我的團隊、藝術家、同事、客戶和朋友，<br>多年來與我共事的每一位——<br>你們都以各自的方式，成為這段旅程的一部分。<br>有過漫漫長夜、艱難時刻、意料之外的轉折，<br>也有過暢快的對話和許多歡笑。<br>有些事成了，有些沒有；但它們都成為了故事的一部分。<br>到頭來，或許作品並不是我們留下的最重要的東西。<br>重要的是我們遇上的人、<br>一起創造的事，以及我們帶着走的回憶。<br>感謝你成為我回憶的一部分。<br><br>特別鳴謝 //<br>jessie law<br><br>廣告生涯中的創作夥伴 //<br>fornita wong / milker ho / lee chun chung / dennis chang /<br>sam wong / jen halim / david cheung / gary chui /<br>ringo tang / fornita wong / sandy lee / iris lo /<br>tan shen guan / keith ho / kelvin hung / andy wong /<br>patrick lai / shirley chow / louis ng / nelson ng /<br>romeo diaz / david cheung / ……<br><br>創作夥伴 //<br>william chang / wong kar-wai / tony leung chiu-wai / fung lam /<br>jihong mao / wang xu / kung chi-shing / ……<br><br>製作 //<br>a yan / ……<br><br>八萬四千溝通事務所團隊 //<br>jessie law / …… / jennifer ip / kwok wai-ki /<br>chan hong-ning / benber lee / yongran zhang / ……<br><br>網站設計 //<br>東南西北設計 senw design（benber lee / jinbao zhong / shoupeng zhu）" }, images: [] };
 
 /* live content — replaced by the CMS when it answers */
 let MEDIA = DEMO_MEDIA;
