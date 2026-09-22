@@ -903,7 +903,8 @@ const PAGES = {
   },
 };
 
-/* ————— CMS ————— */
+/* ————— CMS ————— (phones: after the intro, see afterIntro in main.js) */
+afterIntro(() => {
 CMS.loadJourney().then((list) => {
   if (!list) return;
   JOURNEY_EVENTS = list;
@@ -931,4 +932,5 @@ CMS.loadTextPage("acknowledgments").then((page) => {
   if (!page) return;
   ACK = page;
   if (pageVisible() && currentPage === "acknowledgments") PAGES.refresh();
+});
 });

@@ -133,22 +133,33 @@ function show(sel) {
    ———————————————————————————————————————————— */
 let introTimers = [];
 let introRun = 0;                       /* guards against an overlapping restart */
+/* the stills: full size on desktop, a 960-wide copy on phones (the board is a few hundred px there) */
 const INTRO_CARDS = [null, "assets/intro/opening-1.jpg", "assets/intro/opening-2.jpg"];
+const INTRO_CARDS_M = [null, "assets/intro/opening-1-m.jpg", "assets/intro/opening-2-m.jpg"];
+const introCards = () => (isMobile() ? INTRO_CARDS_M : INTRO_CARDS);
 const FLIP_MS = 560;
 let introPreload = null;
 
 function preloadIntro() {
   if (introPreload) return introPreload;
+  /* load AND decode, so the flap never waits for a decode mid-animation */
   const load = (src) => new Promise((res) => {
     const im = new Image();
-    im.onload = im.onerror = () => res();
+    im.onload = () => (im.decode ? im.decode().catch(() => {}).then(res) : res());
+    im.onerror = () => res();
     im.src = src;
   });
-  /* never hold the intro hostage to a slow image: cap the wait */
-  const cap = new Promise((res) => setTimeout(res, 1500));
-  introPreload = Promise.race([Promise.all(INTRO_CARDS.filter(Boolean).map(load)), cap]);
+  /* never hold the intro hostage to a slow image: cap the wait (phones get a little longer on cellular) */
+  const cap = new Promise((res) => setTimeout(res, isMobile() ? 2500 : 1500));
+  introPreload = Promise.race([Promise.all(introCards().filter(Boolean).map(load)), cap]);
   return introPreload;
 }
+
+/* phones: heavy content (works, canvas pool, journey …) waits until the intro has played,
+   so decoding a few hundred pictures never competes with the flap animation.
+   desktop: unchanged — everything loads in parallel with the intro */
+const INTRO_TOTAL_MS = 3300;
+function afterIntro(fn) { if (isMobile()) setTimeout(fn, INTRO_TOTAL_MS); else fn(); }
 
 /* paint one card (or blank) into a set of .img windows */
 function setCard(els, src) {
@@ -202,7 +213,8 @@ function playIntro(done) {
   introTimers = [];
   intro.classList.remove("reveal", "fadeword", "hidden");
   flip.getAnimations({ subtree: true }).forEach((a) => a.cancel());
-  restCard(flip, INTRO_CARDS[1]);
+  const CARDS = introCards();
+  restCard(flip, CARDS[1]);
 
   /* whole opening ≤ 3 s: still 1 (1.1 s) → flap (0.56 s) → still 2 → 1 s dissolve */
   const T = {
@@ -214,8 +226,8 @@ function playIntro(done) {
   const run = ++introRun;
   preloadIntro().then(() => {
     if (run !== introRun) return;        /* a newer intro has taken over */
-    restCard(flip, INTRO_CARDS[1]);      /* open directly on still 1 — no blank card first */
-    introTimers.push(setTimeout(() => flipTo(flip, INTRO_CARDS[1], INTRO_CARDS[2]), T.flip2));
+    restCard(flip, CARDS[1]);            /* open directly on still 1 — no blank card first */
+    introTimers.push(setTimeout(() => flipTo(flip, CARDS[1], CARDS[2]), T.flip2));
     introTimers.push(setTimeout(() => {
       done();                              /* home becomes visible underneath */
       /* the whole black layer (board + letterbox) dissolves as one — no light edges */
@@ -343,7 +355,10 @@ function startHome() {
     let idx = 0, step = 0, first = true;
 
     const nextImage = () => {
-      if (HOME_SETS.length) return HOME_SETS[idx++ % HOME_SETS.length][who];
+      if (HOME_SETS.length) {
+        const set = HOME_SETS[idx++ % HOME_SETS.length];
+        return (isMobile() && set[who + "_m"]) || set[who];      /* phones: the landscape band picture (1080 × 604) when supplied */
+      }
       const featured = WORKS[who].filter((w) => w.featured);
       const pool = featured.length ? featured : WORKS[who];
       if (!pool.length) return null;
@@ -1321,20 +1336,24 @@ function swipeSection(who, dir) {
     if (sectionVisible()) { renderRows($("#worklist-scroll"), WORKS[currentWho]); if (canvasOn) buildCanvas(); }
     if (detailVisible() && currentWork) openDetail(currentWork);
     if (pageVisible() && currentPage) openPage(currentPage);
+    if (!$("#home").classList.contains("hidden") && $("#intro").classList.contains("hidden")) startHome();   /* bands ↔ panels: swap to the right picture set */
   });
 })();
 
 /* ————— boot ————— */
 playIntro(startHome);
-/* content loads in parallel with the intro; swaps in silently when it arrives */
-CMS.loadWorks().then((list) => {
-  if (list) { applyWorks(list); console.info(`cms: ${list.length} works loaded`); }
-  else console.info("cms: offline or empty — demo data in use");
-});
+/* content loads in parallel with the intro (desktop) / after it (phones — afterIntro); swaps in silently when it arrives.
+   the home sets are small and needed first, so they always load at once */
 CMS.loadHomeSets().then((sets) => { if (sets) { HOME_SETS = sets; console.info(`cms: ${sets.length} home sets`); } });
-CMS.loadCanvas().then((items) => {
-  if (!items) return;                              /* cms unreachable: the demo pool stays */
-  CANVAS_ITEMS = items;
-  console.info(`cms: ${items.length} canvas items`);
-  if (canvasOn) buildCanvas();
+afterIntro(() => {
+  CMS.loadWorks().then((list) => {
+    if (list) { applyWorks(list); console.info(`cms: ${list.length} works loaded`); }
+    else console.info("cms: offline or empty — demo data in use");
+  });
+  CMS.loadCanvas().then((items) => {
+    if (!items) return;                              /* cms unreachable: the demo pool stays */
+    CANVAS_ITEMS = items;
+    console.info(`cms: ${items.length} canvas items`);
+    if (canvasOn) buildCanvas();
+  });
 });

@@ -3445,73 +3445,109 @@
    "set": 1,
    "sw": "set01-sw.jpg",
    "amm": "set01-amm.jpg",
-   "xsw": "set01-xsw.jpg"
+   "xsw": "set01-xsw.jpg",
+   "sw_m": "set01-sw-m.jpg",
+   "amm_m": "set01-amm-m.jpg",
+   "xsw_m": "set01-xsw-m.jpg"
   },
   {
    "set": 2,
    "sw": "set02-sw.jpg",
    "amm": "set02-amm.jpg",
-   "xsw": "set02-xsw.jpg"
+   "xsw": "set02-xsw.jpg",
+   "sw_m": "set02-sw-m.jpg",
+   "amm_m": "set02-amm-m.jpg",
+   "xsw_m": "set02-xsw-m.jpg"
   },
   {
    "set": 3,
    "sw": "set03-sw.jpg",
    "amm": "set03-amm.jpg",
-   "xsw": "set03-xsw.jpg"
+   "xsw": "set03-xsw.jpg",
+   "sw_m": "set03-sw-m.jpg",
+   "amm_m": "set03-amm-m.jpg",
+   "xsw_m": "set03-xsw-m.jpg"
   },
   {
    "set": 4,
    "sw": "set04-sw.jpg",
    "amm": "set04-amm.jpg",
-   "xsw": "set04-xsw.jpg"
+   "xsw": "set04-xsw.jpg",
+   "sw_m": "set04-sw-m.jpg",
+   "amm_m": "set04-amm-m.jpg",
+   "xsw_m": "set04-xsw-m.jpg"
   },
   {
    "set": 5,
    "sw": "set05-sw.jpg",
    "amm": "set05-amm.jpg",
-   "xsw": "set05-xsw.jpg"
+   "xsw": "set05-xsw.jpg",
+   "sw_m": "set05-sw-m.jpg",
+   "amm_m": "set05-amm-m.jpg",
+   "xsw_m": "set05-xsw-m.jpg"
   },
   {
    "set": 6,
    "sw": "set06-sw.jpg",
    "amm": "set06-amm.jpg",
-   "xsw": "set06-xsw.jpg"
+   "xsw": "set06-xsw.jpg",
+   "sw_m": "set06-sw-m.jpg",
+   "amm_m": "set06-amm-m.jpg",
+   "xsw_m": "set06-xsw-m.jpg"
   },
   {
    "set": 7,
    "sw": "set07-sw.jpg",
    "amm": "set07-amm.jpg",
-   "xsw": "set07-xsw.jpg"
+   "xsw": "set07-xsw.jpg",
+   "sw_m": "set07-sw-m.jpg",
+   "amm_m": "set07-amm-m.jpg",
+   "xsw_m": "set07-xsw-m.jpg"
   },
   {
    "set": 8,
    "sw": "set08-sw.jpg",
    "amm": "set08-amm.jpg",
-   "xsw": "set08-xsw.jpg"
+   "xsw": "set08-xsw.jpg",
+   "sw_m": "set08-sw-m.jpg",
+   "amm_m": "set08-amm-m.jpg",
+   "xsw_m": "set08-xsw-m.jpg"
   },
   {
    "set": 9,
    "sw": "set09-sw.jpg",
    "amm": "set09-amm.jpg",
-   "xsw": "set09-xsw.jpg"
+   "xsw": "set09-xsw.jpg",
+   "sw_m": "set09-sw-m.jpg",
+   "amm_m": "set09-amm-m.jpg",
+   "xsw_m": "set09-xsw-m.jpg"
   },
   {
    "set": 10,
    "sw": "set10-sw.jpg",
    "amm": "set10-amm.jpg",
-   "xsw": "set10-xsw.jpg"
+   "xsw": "set10-xsw.jpg",
+   "sw_m": "set10-sw-m.jpg",
+   "amm_m": "set10-amm-m.jpg",
+   "xsw_m": "set10-xsw-m.jpg"
   },
   {
    "set": 11,
    "sw": "set11-sw.jpg",
    "amm": "set11-amm.jpg",
-   "xsw": "set11-xsw.jpg"
+   "xsw": "set11-xsw.jpg",
+   "sw_m": "set11-sw-m.jpg",
+   "amm_m": "set11-amm-m.jpg",
+   "xsw_m": "set11-xsw-m.jpg"
   },
   {
    "set": 12,
    "sw": "set12-sw.jpg",
    "amm": "set12-amm.jpg",
-   "xsw": "set12-xsw.jpg"
+   "xsw": "set12-xsw.jpg",
+   "sw_m": "set12-sw-m.jpg",
+   "amm_m": "set12-amm-m.jpg",
+   "xsw_m": "set12-xsw-m.jpg"
   }
  ]
 }

@@ -42,7 +42,8 @@ const STATIC = {
   async home() {
     const m = await STATIC.json("manifest.json");
     if (!m || !Array.isArray(m.home) || !m.home.length) return null;
-    return m.home.map((h) => ({ sw: `${STATIC.base}home/${h.sw}`, amm: `${STATIC.base}home/${h.amm}`, xsw: `${STATIC.base}home/${h.xsw}` }));
+    const f = (n) => (n ? `${STATIC.base}home/${n}` : "");
+    return m.home.map((h) => ({ sw: f(h.sw), amm: f(h.amm), xsw: f(h.xsw), sw_m: f(h.sw_m), amm_m: f(h.amm_m), xsw_m: f(h.xsw_m) }));
   },
   async journey() {
     const t = await STATIC.json("timeline.json");
@@ -165,10 +166,10 @@ const CMS = {
     if (!PB_URL) return null;
     const items = await CMS.fetchAll("home_sets", `filter=${encodeURIComponent("published=true")}&sort=sort`);
     if (!items || !items.length) return null;
+    const f = (r, n) => (n ? CMS.fileUrl(r, n, "1600x0") : "");
     return items.map((r) => ({
-      sw: CMS.fileUrl(r, r.sw, "1600x0"),
-      amm: CMS.fileUrl(r, r.amm, "1600x0"),
-      xsw: CMS.fileUrl(r, r.xsw, "1600x0"),
+      sw: f(r, r.sw), amm: f(r, r.amm), xsw: f(r, r.xsw),
+      sw_m: f(r, r.sw_m), amm_m: f(r, r.amm_m), xsw_m: f(r, r.xsw_m),     /* phone bands (landscape), optional */
     }));
   },
 

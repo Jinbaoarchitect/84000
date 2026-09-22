@@ -961,10 +961,10 @@ a.m-item:hover .m-title { text-decoration: underline; text-underline-offset: 0.1
   background: var(--black);
 }
 .m-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
-/* a logo instead of a still: a transparent png sitting on the page grey, no box (client note 2026-09-22),
-   left-aligned in the same 16:9 slot so the rows keep their rhythm */
-.m-thumb.frame { background: transparent; }
-.m-thumb.frame img { object-fit: contain; object-position: left center; padding: 6% 0; }
+/* a logo instead of a still: a transparent png on the page grey, inside the 16:9 hairline box
+   as drawn (client note 2026-09-22: no white fill, keep the frame) */
+.m-thumb.frame { background: transparent; border: 1px solid var(--black); }
+.m-thumb.frame img { object-fit: contain; padding: 14% 18%; }
 
 /* contact — the 84000 communications logo centred on the centre line, the details
    one row gap below at the label size, one blank line between groups */
