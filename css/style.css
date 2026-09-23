@@ -457,7 +457,7 @@ body.menu-open #page-bar { opacity: 0; }
 
 .search-input {
   border: none; outline: none; background: transparent;
-  border-bottom: 1.5px solid currentColor;
+  border-bottom: 1px solid currentColor;              /* same hairline as the journey axis / cursor */
   font: inherit; font-weight: 700; color: inherit;
   width: calc(var(--col) * 1.55);
   padding: 0 0 0.15em;
@@ -468,7 +468,7 @@ body.menu-open #page-bar { opacity: 0; }
 .dd { position: relative; }
 .dd .dd-title {
   display: block;
-  border-bottom: 1.5px solid currentColor;
+  border-bottom: 1px solid currentColor;
   width: calc(var(--col) * 0.55);
   padding-bottom: 0.15em;
 }
