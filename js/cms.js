@@ -21,7 +21,8 @@ const STATIC = {
     const list = await Promise.all(m.works.filter((w) => w.published !== false).map(async (w) => {
       const dir = `${STATIC.base}works/${w.slug}/`;
       const cover = await CMS.measure(dir + w.cover);
-      const extras = (w.images || []).map((f) => ({ src: dir + f, full: dir + f, w: 4, h: 3, cap_en: "", cap_cn: "", canvas: false }));
+      const sz = w.sizes || {};                                   /* pixel sizes from the manifest (mobile layout needs the orientation) */
+      const extras = (w.images || []).map((f) => ({ src: dir + f, full: dir + f, w: (sz[f] || [])[0] || 4, h: (sz[f] || [])[1] || 3, known: !!sz[f], cap_en: "", cap_cn: "", canvas: false }));
       const rec = Object.assign({}, w, { statement_en: br(w.statement_en), statement_cn: br(w.statement_cn) });
       return {
         id: w.slug, who: w.who, rec,
@@ -123,7 +124,7 @@ const CMS = {
     const extras = (Array.isArray(rec.images) ? rec.images : rec.images ? [rec.images] : []).map((f, i) => ({
       src: CMS.fileUrl(rec, f, "1600x0"),
       full: CMS.fileUrl(rec, f),
-      w: 4, h: 3,
+      w: (caps[i] && caps[i].w) || 4, h: (caps[i] && caps[i].h) || 3, known: !!(caps[i] && caps[i].w),   /* size saved by the admin / importer */
       cap_en: (caps[i] && caps[i].en) || "",
       cap_cn: (caps[i] && caps[i].cn) || "",
       canvas: !!(caps[i] && caps[i].canvas),   /* ticked “canvas” in the cms → also shows on the infinite canvas */

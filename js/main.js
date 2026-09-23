@@ -1070,21 +1070,39 @@ function autoLayout(imgs, hasVideo) {
      an odd one out keeps its place on the grid (left / centre / right) at half width
    · nested rows and grids are flattened into that sequence; a paragraph beside a
      picture follows the pictures at full width; `top` offsets are dropped */
-function mobileBlocks(blocks) {
+/* ————— mobile re-flow of a work's layout —————
+   the desktop layout (rows / grids / nested cells on the 6-column grid) becomes one
+   column of pictures in three sizes, as drawn in the mobile design (Mobile.pdf, hong
+   kong walk on): a picture is either FULL width, HALF width on its own, or one of a PAIR.
+   what decides:
+     · a landscape picture (w/h ≥ 1.15) is always full width — at half width it is a stamp
+     · a cell the designer already gave more than half the grid is full width
+     · a portrait / square picture pairs with the next one when that one is portrait too
+       and the two were narrow cells; otherwise it stands alone at half width, on the
+       side its desktop cell sat (left / centre / right; no cell position → alternating)
+   grids and nested rows are flattened into the same sequence; text cells become full-width
+   paragraphs after the pictures. orientation comes from the picture size the cms / manifest
+   carries (image_captions[i].w/h, manifest sizes); unknown sizes fall back to the cell width. */
+function mobileBlocks(blocks, imgs) {
   const out = [];
-  const NARROW = 3.05;                                 /* cell width (grid units) at or under which pictures pair up */
-  const place = (span) => {                            /* half width, aligned as the cell was */
-    const [a, b] = span || [0, 3];
-    const w = 3, c = (a + b) / 2;
+  const NARROW = 3.05;                                 /* cell width (grid units) at or under which a picture may pair */
+  const LANDSCAPE = 1.15;
+  const ratio = (u) => { const im = imgs && imgs[(u.imgs[0] || 0) - 1]; return im && im.known !== false && im.w && im.h ? im.w / im.h : null; };
+  const isLand = (u) => { const r = ratio(u); return r !== null ? r >= LANDSCAPE : u.width > NARROW; };
+  let alt = 0;
+  const place = (span) => {                            /* half width, aligned as the cell was (or alternating) */
+    const w = 3;
+    if (!span) { const l = (alt++ % 2) ? 3 : 0; return [l, l + w]; }
+    const [a, b] = span, c = (a + b) / 2;
     const l = Math.min(Math.max(c - w / 2, 0), 6 - w);
     return [l, l + w];
   };
   const flush = (units) => {
     for (let i = 0; i < units.length;) {
       const u = units[i];
-      if (u.width > NARROW) { out.push({ type: "row", span: [0, 6], cells: [{ imgs: u.imgs }] }); i++; continue; }
+      if (isLand(u) || u.width > NARROW) { out.push({ type: "row", span: [0, 6], cells: [{ imgs: u.imgs }] }); i++; continue; }
       const v = units[i + 1];
-      if (v && v.width <= NARROW) { out.push({ type: "row", span: [0, 6], cells: [{ imgs: u.imgs, w: 0.5 }, { imgs: v.imgs, w: 0.5 }] }); i += 2; }
+      if (v && !isLand(v) && v.width <= NARROW) { out.push({ type: "row", span: [0, 6], cells: [{ imgs: u.imgs, w: 0.5 }, { imgs: v.imgs, w: 0.5 }] }); i += 2; }
       else { out.push({ type: "row", span: place(u.span), cells: [{ imgs: u.imgs }] }); i++; }
     }
   };
@@ -1124,7 +1142,7 @@ function vimeoId(url) {
 }
 
 function renderLayout(body, blocks, imgs, w) {
-  if (isMobile()) blocks = mobileBlocks(blocks);
+  if (isMobile()) blocks = mobileBlocks(blocks, imgs);
   const full = (im) => im.full || im.src;
   const pic = (i) => {
     const im = imgs[i - 1]; if (!im) return null;
@@ -1218,6 +1236,18 @@ function renderLayout(body, blocks, imgs, w) {
 let currentWork = null;
 function openDetail(w) {
   const d = $("#detail");
+  /* phones: the re-flow needs each picture's orientation. records saved before the cms
+     stored sizes have none — measure those first (capped), then lay out */
+  if (isMobile() && !w._measured) {
+    w._measured = true;
+    const unknown = (w.images || []).filter((im) => im.known === false);
+    if (unknown.length) {
+      currentWork = w;
+      const measure = Promise.all(unknown.map((im) => CMS.measure(im.src).then((m) => { if (m.w > 4) { im.w = m.w; im.h = m.h; im.known = true; } })));
+      Promise.race([measure, new Promise((r) => setTimeout(r, 1500))]).then(() => { if (currentWork === w) openDetail(w); });
+      return;
+    }
+  }
   const reopen = detailVisible();                  /* re-render while the page is up (language switch) */
   currentWork = w;
   currentPage = null;
