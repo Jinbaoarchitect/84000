@@ -242,6 +242,31 @@ function playIntro(done) {
    ———————————————————————————————————————————— */
 let homeTimers = [];
 let HOME_SETS = [];
+let homeRun = 0;                         /* startHome generation: a stale warm-up never paints into a newer home */
+
+/* ————— picture warm-up —————
+   a panel never starts its crossfade until the next picture is fetched AND decoded,
+   otherwise the incoming layer fades in empty and the picture pops in a moment later
+   (the “flash” seen on first visits). warmImage() caches one promise per url;
+   warmHomeSets() walks the whole rotation in the background, staggered, so by the
+   time a set comes round its three pictures are already in memory. */
+const warmed = new Map();
+function warmImage(src) {
+  if (!src) return Promise.resolve();
+  if (!warmed.has(src)) warmed.set(src, new Promise((res) => {
+    const im = new Image();
+    im.onload = () => (im.decode ? im.decode().catch(() => {}).then(res) : res());
+    im.onerror = () => res();
+    im.src = src;
+  }));
+  return warmed.get(src);
+}
+const homePick = (set, who) => (isMobile() && set[who + "_m"]) || set[who];
+function warmHomeSets(delay = 0) {
+  HOME_SETS.forEach((set, i) => {
+    homeTimers.push(setTimeout(() => ["sw", "amm", "xsw"].forEach((z) => warmImage(homePick(set, z))), delay + i * 350));
+  });
+}
 
 /* ————— label tone from the image behind it —————
    the label / clock colour follows each panel's current image:
@@ -349,16 +374,15 @@ function startHome() {
      returning to the bare colour. first image fades in once. */
   const RHYTHM = { sw: [3, 4, 5, 5, 3], amm: [5, 3, 3, 4, 3], xsw: [4, 3, 3, 5, 5] };
   const current = {};
+  const run = ++homeRun;
+  warmHomeSets(1200);                                /* the whole rotation, staggered, behind the first pictures */
 
   panels.forEach((p, pi) => {
     const who = p.dataset.who;
     let idx = 0, step = 0, first = true;
 
     const nextImage = () => {
-      if (HOME_SETS.length) {
-        const set = HOME_SETS[idx++ % HOME_SETS.length];
-        return (isMobile() && set[who + "_m"]) || set[who];      /* phones: the landscape band picture (1080 × 604) when supplied */
-      }
+      if (HOME_SETS.length) return homePick(HOME_SETS[idx++ % HOME_SETS.length], who);   /* phones: the landscape band picture when supplied */
       const featured = WORKS[who].filter((w) => w.featured);
       const pool = featured.length ? featured : WORKS[who];
       if (!pool.length) return null;
@@ -369,9 +393,17 @@ function startHome() {
       return pick;
     };
 
+    /* the picture after `pick` in this panel's sequence — warmed while `pick` is on screen */
+    const peekNext = () => (HOME_SETS.length ? homePick(HOME_SETS[idx % HOME_SETS.length], who) : null);
+
     const tick = () => {
       const pick = nextImage();
-      if (pick) {
+      const hold = RHYTHM[who][step++ % RHYTHM[who].length] * 1000;
+      if (!pick) { homeTimers.push(setTimeout(tick, hold + 600)); return; }
+      /* wait for the picture to be decoded (instant once warmed), then crossfade; the hold
+         counts from the moment the fade starts, so a slow fetch delays but never shortens it */
+      warmImage(pick).then(() => {
+        if (run !== homeRun) return;
         const a = p.querySelector(".panel-img.a"), b = p.querySelector(".panel-img.b");
         const front = p._front || null, back = front === a ? b : a;
         back.style.transitionDuration = first ? "0.9s" : "0.6s";
@@ -390,9 +422,9 @@ function startHome() {
         }
         p._front = back;
         first = false;
-      }
-      const hold = RHYTHM[who][step++ % RHYTHM[who].length] * 1000;
-      homeTimers.push(setTimeout(tick, hold + 600));
+        warmImage(peekNext());                       /* next one fetches during this hold */
+        homeTimers.push(setTimeout(tick, hold + 600));
+      });
     };
 
     /* staggered start so the three panels never move together */
@@ -1344,7 +1376,13 @@ function swipeSection(who, dir) {
 playIntro(startHome);
 /* content loads in parallel with the intro (desktop) / after it (phones — afterIntro); swaps in silently when it arrives.
    the home sets are small and needed first, so they always load at once */
-CMS.loadHomeSets().then((sets) => { if (sets) { HOME_SETS = sets; console.info(`cms: ${sets.length} home sets`); } });
+CMS.loadHomeSets().then((sets) => {
+  if (!sets) return;
+  HOME_SETS = sets; console.info(`cms: ${sets.length} home sets`);
+  /* first three pictures at once (the panels' first ticks are 2–3.4 s in), the rest staggered */
+  ["sw", "amm", "xsw"].forEach((z) => warmImage(homePick(sets[0], z)));
+  if (!$("#home").classList.contains("hidden")) warmHomeSets(800);
+});
 afterIntro(() => {
   CMS.loadWorks().then((list) => {
     if (list) { applyWorks(list); console.info(`cms: ${list.length} works loaded`); }
