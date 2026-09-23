@@ -122,8 +122,35 @@ const $ = (sel) => document.querySelector(sel);
 const MOBILE_MQ = matchMedia("(max-aspect-ratio: 1/1)");
 const isMobile = () => MOBILE_MQ.matches;
 const views = ["#intro", "#home", "#section", "#page", "#detail"];
+/* ————— view changes dissolve —————
+   every change of view (list → work, work → list, menu → journey / media / …) is a
+   VIEW_FADE dissolve rather than a cut. only one layer moves so there is no dip in
+   the middle: when the incoming view sits above the outgoing one (z-index) it fades
+   in over it; when it sits below, the outgoing view fades out and uncovers it.
+   the home → zone entrance keeps its own 2 s colour fade (openSection). */
+const VIEW_FADE = 550;
+let showToken = 0;
+const zOf = (el) => parseInt(getComputedStyle(el).zIndex, 10) || 0;
 function show(sel) {
-  views.forEach((v) => $(v).classList.toggle("hidden", v !== sel));
+  const target = $(sel);
+  const leaving = views.filter((v) => v !== sel && !$(v).classList.contains("hidden")).map((v) => $(v));
+  if (!target.classList.contains("hidden") && !leaving.length) return;      /* already the view on screen */
+  const tok = ++showToken;
+  views.forEach((v) => $(v).classList.remove("view-in", "view-out"));
+  target.classList.remove("hidden");
+  const above = leaving.every((el) => zOf(target) > zOf(el));
+  if (above) { void target.offsetWidth; target.classList.add("view-in"); }
+  else leaving.forEach((el) => el.classList.add("view-out"));
+  setTimeout(() => {
+    if (tok !== showToken) return;
+    leaving.forEach((el) => { el.classList.add("hidden"); el.classList.remove("view-out"); });
+    target.classList.remove("view-in");
+  }, VIEW_FADE);
+}
+/* content swapped inside a view that stays on screen (zone → zone, page → page): fade the new content in */
+function contentIn(el) {
+  el.classList.remove("content-in"); void el.offsetWidth; el.classList.add("content-in");
+  setTimeout(() => el.classList.remove("content-in"), 520);        /* the fill must not pin opacity (menu dims #page-content) */
 }
 
 /* ————————————————————————————————————————————
@@ -504,6 +531,7 @@ function openSection(who) {
     }, SECTION_IN_MS);
   } else {
     sec.classList.remove("entering", "rows-in");
+    if (sectionVisible()) contentIn($("#worklist"));      /* zone → zone from the menu: the new list fades in */
     show("#section");
   }
 }
@@ -978,6 +1006,7 @@ function openPage(name) {
 
   $("#page-scroll").scrollTop = 0;
   closeMenu();
+  if (pageVisible()) contentIn($("#page-content"));       /* page → page from the menu */
   show("#page");
 }
 
@@ -1241,7 +1270,10 @@ function openDetail(w) {
 
   d.scrollTop = 0;
   $("#detail-hero-scrim").style.opacity = 0.7;
-  show("#detail");
+  /* dissolve in once the hero picture is decoded (capped, so a slow file never stalls the click);
+     a language switch re-renders while the page is up — no wait, no fade */
+  if (detailVisible()) show("#detail");
+  else Promise.race([warmImage(w.img.src), new Promise((r) => setTimeout(r, 700))]).then(() => { if (currentWork === w) show("#detail"); });
 
   /* hero row colour: title and year / category are read against the image
      seen through the 70 % section-colour scrim; black or white per element.

@@ -42,6 +42,15 @@ html, body {
 
 .hidden { display: none !important; }
 
+/* view dissolves (main.js show()): the incoming view fades in over the old one, or the
+   outgoing one fades out to uncover it — never both, so the ground never shows through */
+.view.view-in  { animation: view-in 0.55s ease both; }
+.view.view-out { animation: view-out 0.55s ease both; pointer-events: none; }
+@keyframes view-in  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes view-out { from { opacity: 1; } to { opacity: 0; } }
+/* content replaced inside a view that stays (zone → zone, page → page) */
+.content-in { animation: view-in 0.5s ease both; }
+
 /* the page ground follows the zone: the html canvas takes the body's colour, so the
    browser chrome (safari's toolbar tint, with the theme-color meta set by setBodyTheme),
    the overscroll bounce and the safe areas show the zone, never a black edge */
