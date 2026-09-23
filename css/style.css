@@ -565,6 +565,9 @@ body.menu-open #page-bar { opacity: 0; }
   background-size: cover;
   background-position: center;
 }
+/* entrance (openDetail): the picture rises out of the zone colour, the title row and the body a beat after */
+#detail.hero-in #detail-hero-img { animation: view-in 1.1s ease both; }
+#detail.hero-in #detail-hero-text, #detail.hero-in #detail-body { animation: view-in 0.9s ease both 0.3s; }
 #detail-hero-scrim {
   position: absolute; inset: 0;
   background: var(--bg);

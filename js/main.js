@@ -1218,10 +1218,11 @@ function renderLayout(body, blocks, imgs, w) {
 let currentWork = null;
 function openDetail(w) {
   const d = $("#detail");
+  const reopen = detailVisible();                  /* re-render while the page is up (language switch) */
   currentWork = w;
   currentPage = null;
   setBodyTheme(currentWho);
-  d.className = `view theme-${currentWho}`;
+  d.className = `view theme-${currentWho}${reopen ? "" : " hidden"}`;   /* keep it hidden until the dissolve below */
   $("#detail-name").textContent = t(WHO[currentWho].name);
   $("#detail-hero-img").style.backgroundImage = `url("${w.img.src}")`;
   $("#detail-hero .d-title").textContent = txt(w, "title");
@@ -1272,8 +1273,17 @@ function openDetail(w) {
   $("#detail-hero-scrim").style.opacity = 0.7;
   /* dissolve in once the hero picture is decoded (capped, so a slow file never stalls the click);
      a language switch re-renders while the page is up — no wait, no fade */
-  if (detailVisible()) show("#detail");
-  else Promise.race([warmImage(w.img.src), new Promise((r) => setTimeout(r, 700))]).then(() => { if (currentWork === w) show("#detail"); });
+  if (reopen) show("#detail");
+  else Promise.race([warmImage(w.img.src), new Promise((r) => setTimeout(r, 700))]).then(() => {
+    if (currentWork !== w) return;
+    /* the page dissolves in, and inside it the hero picture and the text rise out of the zone
+       colour a beat later — a list and a work share the same ground, so the view dissolve alone
+       reads as a cut in the black and white zones */
+    d.classList.add("hero-in");
+    clearTimeout(d._heroInTimer);
+    d._heroInTimer = setTimeout(() => d.classList.remove("hero-in"), 1600);
+    show("#detail");
+  });
 
   /* hero row colour: title and year / category are read against the image
      seen through the 70 % section-colour scrim; black or white per element.
