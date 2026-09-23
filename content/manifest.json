@@ -3015,21 +3015,37 @@
    "slug": "x001",
    "who": "xsw",
    "sort": 1,
-   "title_en": "hong kong palace museum / the quest for originality",
-   "title_cn": "香港故宮文化博物館 / 器惟求新",
+   "title_en": "the quest for originality / contemporary design\nand traditional craft in dialogue",
+   "title_cn": "器惟求新 / 當代設計對話古代工藝",
    "year": 2021,
-   "year_text": "",
-   "category_en": "curation / interior design / exhibition / graphic",
-   "category_cn": "策展 / 室內設計 / 展覽 / 平面",
+   "year_text": "2021-2026",
+   "category_en": "curation / interior design / exhibition / graphic / film",
+   "category_cn": "策展 / 室內設計 / 展覽 / 平面 / 影片",
    "categories": [
     "space",
     "curation",
     "exhibition",
     "art / design"
    ],
-   "statement_en": "ZONE 1 /\nbrief time line introduction of\nchinese design and craft in history\n(video and craftworks).\nZONE 2 /\nthe literature of craft and production for\nempires’s families (from different historical periods).\nZONE 3 /\n6 crafted treasury object series from different materials /\njade / wood craving / glass / enamel /…\neducational details on different materials with samples and tools.\n4 vertical testimonial videos from hong kong artisans,\nexpress their passion on materials,\nand the way they see the industries going forward for next generation.\nZONE 4 /\nchinese design and craft treasures.\na circular radiation display includes objects of\nclothing / dinning / living / stationary for empires’s families.\nZONE 5 /\nchinese design spirit /\na long video wall of 4 interviews from hong kong master designers,\nto tell their passion and values in design and creativity\nwithin chinese roots and lead to now and future.\nartistic director stanley wong (anothermountainman) in the last video,\nto conclude the whole show,\nthe importance and meaning to persuade design and craft\nin our own culture from history, and pass on 傳承 to our future,\nalso elaborate the artistic statement\nwhich from the very beginning of the exhibition.\nresult /\nhuge positive responses from all stakeholders including\nhong kong public / hong hong kong youngsters / overseas visitors /\nhong kong cultural groups / hong kong and beijing palace museum boards /\nas ex board chairman bernard chan said,\n‘it a unique hong kong story rides on chinese cultural history,\ndemonstrated a pride of hong kong…’",
+   "statement_en": "ZONE 1 /\nbrief time line introduction of chinese design and craft in history\n(video and craftworks).\n\nZONE 2 /\nthe literature of craft and production for empires’s families\n(from different historical periods).\n\nZONE 3 /\n6 crafted treasury object series from different materials /\njade / wood craving / glass / enamel /…\neducational details on different materials with samples and tools.\n4 vertical testimonial videos from hong kong artisans,\nexpress their passion on materials,\nand the way they see the industries going forward for next generation.\n\nZONE 4 /\nchinese design and craft treasures.\na circular radiation display includes objects of\nclothing / dinning / living / stationary for empires’s families.\n\nZONE 5 /\nchinese design spirit /\na long video wall of 4 interviews from hong kong master designers,\nto tell their passion and values in design and creativity\nwithin chinese roots and lead to now and future.\nartistic director stanley wong (anothermountainman) in the last video,\nto conclude the whole show,\nthe importance and meaning to persuade design and craft\nin our own culture from history, and pass on 傳承 to our future,\nalso elaborate the artistic statement\nwhich from the very beginning of the exhibition.\n\nresult /\nhuge positive responses from all stakeholders including\nhong kong public / hong hong kong youngsters / overseas visitors /\nhong kong cultural groups / hong kong and beijing palace museum boards /\nas ex board chairman bernard chan said,\n‘it a unique hong kong story rides on chinese cultural history,\ndemonstrated a pride of hong kong…’",
    "statement_cn": "第一區 /\n中國設計與工藝的歷史簡介\n（影片及工藝品）。\n第二區 /\n歷代皇室的工藝與製作文獻。\n第三區 /\n六個以不同物料製作的珍品系列 /\n玉 / 木雕 / 玻璃 / 琺瑯 /……\n以樣本及工具講解各種物料的知識。\n四段直幅訪談影片，由香港工匠\n細說他們對物料的熱情，\n以及他們眼中行業如何走向下一代。\n第四區 /\n中國設計與工藝珍品。\n環形放射式陳列，包括歷代皇室的\n衣 / 食 / 住 / 文房用品。\n第五區 /\n中國設計精神 /\n一道長影像牆，播放四位香港設計大師的訪談，\n細說他們在中國文化根源上的設計與創作熱情和價值，\n並延伸至當下與未來。\n藝術總監黃炳培（又一山人）於最後一段影片\n為整個展覽作結：\n在自身文化與歷史中追求設計與工藝的重要與意義，\n並將之傳承至未來；\n同時闡述展覽開首的藝術宣言。\n成果 /\n各方持份者反應熱烈正面，包括\n香港市民 / 香港年輕人 / 海外訪客 /\n香港文化團體 / 香港故宮文化博物館及北京故宮博物院董事局；\n正如前董事局主席陳智思所言：\n「這是一個獨特的香港故事，以中國文化歷史為根基，\n展現了香港的驕傲……」",
-   "credits": [],
+   "credits": [
+    {
+     "label": "client",
+     "value_en": "hong kong palace museum",
+     "value_cn": ""
+    },
+    {
+     "label": "creative collaboration",
+     "value_en": "collective [interior design]",
+     "value_cn": ""
+    },
+    {
+     "label": "award",
+     "value_en": "2025 hkda global design awards / spatial / gold",
+     "value_cn": ""
+    }
+   ],
    "cover": "00.jpg",
    "images": [
     "01.jpg",
@@ -3058,7 +3074,11 @@
     "24.jpg",
     "25.jpg",
     "26.jpg",
-    "27.jpg"
+    "27.jpg",
+    "28.jpg",
+    "29.jpg",
+    "30.jpg",
+    "31.jpg"
    ],
    "video": "",
    "video_poster": "",
@@ -3066,13 +3086,26 @@
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        2.92
+       ],
        "imgs": [
         1
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "imgs": [
+        2
        ]
       }
      ]
@@ -3080,212 +3113,323 @@
     {
      "type": "row",
      "span": [
-      0,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
-       "imgs": [
-        2
+       "span": [
+        0.0,
+        1.89
        ],
-       "w": 0.5
+       "top": 1.54,
+       "imgs": [
+        4
+       ]
       },
       {
+       "span": [
+        2.06,
+        6.0
+       ],
        "imgs": [
         3
-       ],
-       "w": 0.5
+       ]
       }
-     ]
-    },
-    {
-     "type": "grid",
-     "span": [
-      0,
-      6
      ],
-     "imgs": [
-      4,
-      5,
-      6,
-      7
-     ],
-     "cols": 2
+     "top": 0.52
     },
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        1.89
+       ],
+       "imgs": [
+        5
+       ]
+      },
+      {
+       "span": [
+        2.06,
+        3.95
+       ],
+       "imgs": [
+        6
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        6.0
+       ],
+       "imgs": [
+        7
+       ]
+      }
+     ],
+     "top": 0.42
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        6.0
+       ],
        "imgs": [
         8
        ]
       }
-     ]
+     ],
+     "top": 0.53
     },
     {
      "type": "row",
      "span": [
-      0,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        1.89
+       ],
        "imgs": [
         9
-       ],
-       "w": 0.5
+       ]
       },
       {
+       "span": [
+        2.06,
+        3.95
+       ],
        "imgs": [
         10
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        6.0
        ],
-       "w": 0.5
+       "imgs": [
+        11
+       ]
       }
-     ]
-    },
-    {
-     "type": "grid",
-     "span": [
-      0,
-      6
      ],
-     "imgs": [
-      11,
-      12,
-      13,
-      14
-     ],
-     "cols": 2
+     "top": 0.33
     },
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        3.95
+       ],
+       "imgs": [
+        12
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        6.0
+       ],
+       "imgs": [
+        13
+       ]
+      }
+     ],
+     "top": 0.36
+    },
+    {
+     "type": "row",
+     "span": [
+      1.03,
+      4.97
+     ],
+     "cells": [
+      {
+       "span": [
+        1.03,
+        2.92
+       ],
+       "imgs": [
+        14
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        4.97
+       ],
        "imgs": [
         15
        ]
       }
-     ]
+     ],
+     "top": 0.67
     },
     {
      "type": "row",
      "span": [
-      0,
-      6
+      1.03,
+      4.97
      ],
      "cells": [
       {
+       "span": [
+        1.03,
+        2.92
+       ],
        "imgs": [
         16
-       ],
-       "w": 0.5
+       ]
       },
       {
+       "span": [
+        3.08,
+        4.97
+       ],
        "imgs": [
         17
-       ],
-       "w": 0.5
+       ]
       }
-     ]
-    },
-    {
-     "type": "grid",
-     "span": [
-      0,
-      6
      ],
-     "imgs": [
-      18,
-      19,
-      20,
-      21
-     ],
-     "cols": 2
+     "top": 0.1
     },
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        6.0
+       ],
+       "imgs": [
+        18
+       ]
+      }
+     ],
+     "top": 0.61
+    },
+    {
+     "type": "video",
+     "span": [
+      1.03,
+      4.98
+     ],
+     "file": "x001-artisans.mp4",
+     "poster": "x001-artisans-poster.jpg",
+     "top": 0.26
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "imgs": [
+        19
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
+       ],
+       "imgs": [
+        20
+       ]
+      }
+     ],
+     "top": 0.66
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.89
+       ],
+       "top": 1.71,
        "imgs": [
         22
        ]
-      }
-     ]
-    },
-    {
-     "type": "row",
-     "span": [
-      0,
-      6
-     ],
-     "cells": [
-      {
-       "imgs": [
-        23
-       ],
-       "w": 0.5
       },
       {
-       "imgs": [
-        24
+       "span": [
+        2.06,
+        6.0
        ],
-       "w": 0.5
+       "imgs": [
+        21
+       ]
       }
-     ]
+     ],
+     "top": 0.18
     },
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        6.0
+       ],
        "imgs": [
-        25
+        23
        ]
       }
-     ]
+     ],
+     "top": 0.17
     },
     {
-     "type": "row",
+     "type": "video",
      "span": [
-      2.05,
-      6
+      2.06,
+      6.0
      ],
-     "cells": [
-      {
-       "imgs": [
-        26
-       ]
-      }
-     ]
-    },
-    {
-     "type": "row",
-     "span": [
-      2.05,
-      6
-     ],
-     "cells": [
-      {
-       "imgs": [
-        27
-       ]
-      }
-     ]
+     "file": "x001-designer.mp4",
+     "poster": "x001-designer-poster.jpg",
+     "top": 0.16
     }
    ],
    "featured_home": false,
@@ -3294,8 +3438,8 @@
    "video_url": "",
    "sizes": {
     "00.jpg": [
-     2400,
-     1590
+     1871,
+     1053
     ],
     "01.jpg": [
      2400,
@@ -3311,7 +3455,7 @@
     ],
     "04.jpg": [
      2400,
-     1745
+     1800
     ],
     "05.jpg": [
      2400,
@@ -3343,11 +3487,11 @@
     ],
     "12.jpg": [
      2400,
-     1800
+     1241
     ],
     "13.jpg": [
      2400,
-     1800
+     1351
     ],
     "14.jpg": [
      2400,
@@ -3363,11 +3507,11 @@
     ],
     "17.jpg": [
      2400,
-     1351
+     1800
     ],
     "18.jpg": [
-     2400,
-     1800
+     2354,
+     1296
     ],
     "19.jpg": [
      2400,
@@ -3379,23 +3523,23 @@
     ],
     "21.jpg": [
      2400,
-     1241
+     1800
     ],
     "22.jpg": [
      2400,
-     1800
+     1590
     ],
     "23.jpg": [
      2400,
-     1800
+     1223
     ],
     "24.jpg": [
      2400,
-     1041
+     1800
     ],
     "25.jpg": [
      2400,
-     1800
+     1745
     ],
     "26.jpg": [
      2400,
@@ -3404,8 +3548,28 @@
     "27.jpg": [
      2400,
      1800
+    ],
+    "28.jpg": [
+     2400,
+     1800
+    ],
+    "29.jpg": [
+     2400,
+     1800
+    ],
+    "30.jpg": [
+     2400,
+     1041
+    ],
+    "31.jpg": [
+     2000,
+     1125
     ]
-   }
+   },
+   "videos": [
+    "x001-artisans.mp4",
+    "x001-designer.mp4"
+   ]
   },
   {
    "slug": "x002",
@@ -3422,9 +3586,20 @@
     "branding",
     "video"
    ],
-   "statement_en": "life is beautiful, savouring the meaning of life.\nin our fast-paced society, we sweat everyday between “living a life” and “survival”\nhardly finding the time and mood to savour the meaning of life. there are truly many\nsmall things in life that are worthy of savouring.\nthe ifc mall is an iconic shopping mall in hong kong. it has a human and personal\ntouch, bringing together the fine things of our lives, which are also a part of our lives.\nlet’s start from here with our interpretation of “life is beautiful”.\nlet us explore the meaning of life together.",
+   "statement_en": "life is beautiful, savouring the meaning of life.\n\nin our fast-paced society,\nwe sweat everyday between “living a life” and “survival”\nhardly finding the time and mood to savour the meaning of life.\nthere are truly many small things in life that are worthy of savouring.\n\nthe ifc mall is an iconic shopping mall in hong kong.\nit has a human and personal touch,\nbringing together the fine things of our lives,\nwhich are also a part of our lives.\nlet’s start from here with our interpretation of “life is beautiful”.\nlet us explore the meaning of life together.",
    "statement_cn": "《生命是美麗的》細味生活的意義。\n今天在步伐急速的社會中，大家每日於「生活」與「生存」之間疲於奔命，\n鮮有心思時間細味生活的意義，感受人生。\n事實上，生活當中種種的細節，都值得大家細心欣賞。\nifc商場是本港具代表性的商場之一，具有親和力及人性化的一面，\n匯聚大家的生活點滴，亦是大家生活的一部分。\n正好以此出發，演繹「生命是美麗的」，與大眾正面探討生命。",
-   "credits": [],
+   "credits": [
+    {
+     "label": "client",
+     "value_en": "ifc development ltd",
+     "value_cn": ""
+    },
+    {
+     "label": "creative collaboration",
+     "value_en": "anothermountainman [film direction] /\neddie chung [music] /\nhenry chu [website design] /\ntouches limited [editing] /\n84000 communications ltd.",
+     "value_cn": ""
+    }
+   ],
    "cover": "00.jpg",
    "images": [
     "01.jpg",
@@ -3434,7 +3609,8 @@
     "05.jpg",
     "06.jpg",
     "07.jpg",
-    "08.jpg"
+    "08.jpg",
+    "09.jpg"
    ],
    "video": "",
    "video_poster": "x002-poster.jpg",
@@ -3443,10 +3619,14 @@
      "type": "row",
      "span": [
       2.05,
-      6
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        2.05,
+        6.0
+       ],
        "imgs": [
         1
        ]
@@ -3454,60 +3634,144 @@
      ]
     },
     {
+     "type": "video",
+     "span": [
+      2.04,
+      6.0
+     ],
+     "top": 0.14
+    },
+    {
      "type": "row",
      "span": [
-      0,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        6.0
+       ],
        "imgs": [
         2
-       ],
-       "w": 0.5
-      },
+       ]
+      }
+     ],
+     "top": 0.58
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
       {
+       "span": [
+        0.0,
+        2.92
+       ],
        "imgs": [
         3
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        6.0
        ],
-       "w": 0.5
+       "imgs": [
+        4
+       ]
       }
-     ]
+     ],
+     "top": 0.18
     },
     {
-     "type": "video",
+     "type": "row",
      "span": [
-      0,
-      3.9
-     ]
-    },
-    {
-     "type": "grid",
-     "span": [
-      0,
-      6
+      0.0,
+      2.92
      ],
-     "imgs": [
-      4,
-      5,
-      6,
-      7
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.92
+       ],
+       "imgs": [
+        5
+       ]
+      }
      ],
-     "cols": 2
+     "top": 0.22
     },
     {
      "type": "row",
      "span": [
       2.05,
-      6
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        2.05,
+        6.0
+       ],
+       "imgs": [
+        6
+       ]
+      }
+     ],
+     "top": 0.39
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        2.93
+       ],
+       "imgs": [
+        7
+       ]
+      },
+      {
+       "span": [
+        3.07,
+        6.0
+       ],
        "imgs": [
         8
        ]
       }
-     ]
+     ],
+     "top": 0.2
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        6.0
+       ],
+       "imgs": [
+        9
+       ]
+      }
+     ],
+     "top": 0.53
     }
    ],
    "featured_home": false,
@@ -3517,19 +3781,19 @@
    "sizes": {
     "00.jpg": [
      2400,
-     1767
+     1350
     ],
     "01.jpg": [
-     2326,
-     1725
+     2400,
+     1767
     ],
     "02.jpg": [
-     2326,
-     1726
+     2400,
+     1074
     ],
     "03.jpg": [
-     2326,
-     1726
+     2400,
+     1074
     ],
     "04.jpg": [
      2400,
@@ -3541,17 +3805,22 @@
     ],
     "06.jpg": [
      2400,
-     1074
+     1777
     ],
     "07.jpg": [
      2400,
-     1074
+     1777
     ],
     "08.jpg": [
-     2340,
-     1770
+     2400,
+     1781
+    ],
+    "09.jpg": [
+     2400,
+     1795
     ]
-   }
+   },
+   "videos": []
   },
   {
    "slug": "x003",
@@ -3569,9 +3838,25 @@
     "product",
     "art / design"
    ],
-   "statement_en": "positive hongkong, redwhiteblue\nredwhiteblue is existence, participation,\ndedication and giving.\nredwhiteblue is perseverance, diligence and endurance\nredwhiteblue represents each and every hong kong people of the 1960s and 1970s\nafter the handover, 50 years unchanged....\npositive, motivated\nanothermountainman\nredwhiteblue  body  heart  soul\ntough and dependable, but flexible and adaptable.\nthe redwhiteblue series not only symbolise the perseverance,\nflexibility and diligence of the hong kong people,\nit also represents the hard work\nthat the rehabilitated patients of mental illness\ngave in making these fabric products,\nit is an important first step in achieving self-recovery\nand rebuilding the health of the “body  heart  soul”\nnew life association",
+   "statement_en": "positive hongkong, redwhiteblue\nredwhiteblue is existence, participation,\ndedication and giving.\nredwhiteblue is perseverance, diligence and endurance\nredwhiteblue represents each and every hong kong people of the 1960s and 1970s\nafter the handover, 50 years unchanged....\npositive, motivated\nanothermountainman\n\nredwhiteblue  body  heart  soul\ntough and dependable, but flexible and adaptable.\nthe redwhiteblue series not only symbolise the perseverance,\nflexibility and diligence of the hong kong people,\nit also represents the hard work\nthat the rehabilitated patients of mental illness\ngave in making these fabric products,\nit is an important first step in achieving self-recovery\nand rebuilding the health of the “body  heart  soul”\nnew life association",
    "statement_cn": "正面香港 紅白藍\n紅白藍是存在、參與、耕耘和付出\n紅白藍是堅持、拼博、和捱苦\n紅白藍是代表我們香港六、七十年代的\t每一份子\n這是我們香港回歸後\n應一直保持五十年不變的…\n正面積極\n又一山人\n紅白藍 身 心 靈\n堅韌可靠，卻又靈活多變的\n紅白藍系列不僅象徵着香港人堅毅不屈、\n靈活變通的拼博精神，它亦代表着\n精神病康復者為製作出\n精心布藝產品而付出的不懈努力，\n為自我復元、重建健康之「身 心 靈」\n踏出重要的一步\n新生會",
-   "credits": [],
+   "credits": [
+    {
+     "label": "client",
+     "value_en": "new life psychiatric rehabilitation association",
+     "value_cn": ""
+    },
+    {
+     "label": "creative collaboration",
+     "value_en": "new life marketing team /\nnew life sheltered workshop students /\ncarmen au ka-man /\nleung mei-lin [production supervision]",
+     "value_cn": ""
+    },
+    {
+     "label": "award",
+     "value_en": "2012 hkdc award / branding / bronze\n2012 design for asia hkdc awards / branding / bronze\n2013 hkda global design awards / silver / hk best",
+     "value_cn": ""
+    }
+   ],
    "cover": "00.jpg",
    "images": [
     "01.jpg",
@@ -3598,7 +3883,10 @@
     "22.jpg",
     "23.jpg",
     "24.jpg",
-    "25.jpg"
+    "25.jpg",
+    "26.jpg",
+    "27.jpg",
+    "28.jpg"
    ],
    "video": "",
    "video_poster": "",
@@ -3606,11 +3894,15 @@
     {
      "type": "row",
      "span": [
-      2.05,
-      3.85
+      2.06,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        2.06,
+        6.0
+       ],
        "imgs": [
         1
        ]
@@ -3620,217 +3912,308 @@
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        3.95
+       ],
        "imgs": [
         2
        ]
-      }
-     ]
-    },
-    {
-     "type": "row",
-     "span": [
-      0,
-      6
-     ],
-     "cells": [
-      {
-       "imgs": [
-        3
-       ],
-       "w": 0.5
       },
       {
-       "imgs": [
-        4
+       "span": [
+        4.11,
+        6.0
        ],
-       "w": 0.5
+       "blocks": [
+        {
+         "type": "row",
+         "span": [
+          4.11,
+          6.0
+         ],
+         "cells": [
+          {
+           "span": [
+            4.11,
+            6.0
+           ],
+           "imgs": [
+            3
+           ]
+          }
+         ]
+        },
+        {
+         "type": "row",
+         "span": [
+          4.11,
+          6.0
+         ],
+         "cells": [
+          {
+           "span": [
+            4.11,
+            6.0
+           ],
+           "imgs": [
+            4
+           ]
+          }
+         ],
+         "top": 0.15
+        }
+       ]
       }
-     ]
-    },
-    {
-     "type": "grid",
-     "span": [
-      0,
-      6
      ],
-     "imgs": [
-      5,
-      6,
-      7,
-      8
-     ],
-     "cols": 2
+     "top": 0.33
     },
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        0.87
+       ],
+       "imgs": [
+        5
+       ]
+      },
+      {
+       "span": [
+        1.03,
+        1.89
+       ],
+       "imgs": [
+        6
+       ]
+      },
+      {
+       "span": [
+        2.06,
+        2.92
+       ],
+       "imgs": [
+        7
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        3.95
+       ],
+       "imgs": [
+        8
+       ]
+      },
+      {
+       "span": [
+        4.1,
+        4.98
+       ],
        "imgs": [
         9
        ]
-      }
-     ]
-    },
-    {
-     "type": "row",
-     "span": [
-      0,
-      6
-     ],
-     "cells": [
-      {
-       "imgs": [
-        10
-       ],
-       "w": 0.5
       },
       {
-       "imgs": [
-        11
+       "span": [
+        5.13,
+        6.0
        ],
-       "w": 0.5
+       "imgs": [
+        10
+       ]
       }
-     ]
+     ],
+     "top": 0.93
     },
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        0.87
+       ],
+       "imgs": [
+        11
+       ]
+      },
+      {
+       "span": [
+        1.03,
+        1.89
+       ],
        "imgs": [
         12
        ]
-      }
-     ]
-    },
-    {
-     "type": "row",
-     "span": [
-      2.05,
-      6
-     ],
-     "cells": [
+      },
       {
+       "span": [
+        2.06,
+        2.92
+       ],
        "imgs": [
         13
        ]
       },
       {
+       "span": [
+        3.08,
+        3.95
+       ],
        "imgs": [
         14
        ]
-      }
-     ]
-    },
-    {
-     "type": "row",
-     "span": [
-      2.05,
-      6
-     ],
-     "cells": [
+      },
       {
+       "span": [
+        4.11,
+        4.97
+       ],
        "imgs": [
         15
        ]
-      }
-     ]
-    },
-    {
-     "type": "row",
-     "span": [
-      0,
-      6
-     ],
-     "cells": [
-      {
-       "imgs": [
-        16
-       ],
-       "w": 0.5
       },
       {
-       "imgs": [
-        17
+       "span": [
+        5.13,
+        6.0
        ],
-       "w": 0.5
+       "imgs": [
+        16
+       ]
       }
-     ]
-    },
-    {
-     "type": "grid",
-     "span": [
-      0,
-      6
      ],
-     "imgs": [
-      18,
-      19,
-      20,
-      21
-     ],
-     "cols": 2
+     "top": 0.2
     },
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      0.0,
+      4.25
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        1.89
+       ],
+       "imgs": [
+        17
+       ]
+      },
+      {
+       "span": [
+        2.06,
+        4.25
+       ],
+       "imgs": [
+        18
+       ]
+      }
+     ],
+     "top": 0.48
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        6.0
+       ],
+       "imgs": [
+        19
+       ]
+      }
+     ],
+     "top": 0.32
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        6.0
+       ],
+       "imgs": [
+        20
+       ]
+      }
+     ],
+     "top": 0.18
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.89
+       ],
+       "top": 1.19,
        "imgs": [
         22
        ]
-      }
-     ]
-    },
-    {
-     "type": "row",
-     "span": [
-      0,
-      6
-     ],
-     "cells": [
-      {
-       "imgs": [
-        23
-       ],
-       "w": 0.5
       },
       {
-       "imgs": [
-        24
+       "span": [
+        2.06,
+        6.0
        ],
-       "w": 0.5
+       "imgs": [
+        21
+       ]
       }
-     ]
+     ],
+     "top": 0.44
     },
     {
      "type": "row",
      "span": [
       2.05,
-      6
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        2.05,
+        6.0
+       ],
        "imgs": [
-        25
+        23
        ]
       }
-     ]
+     ],
+     "top": 0.17
     }
    ],
    "featured_home": false,
@@ -3839,110 +4222,123 @@
    "video_url": "",
    "sizes": {
     "00.jpg": [
-     1303,
-     2056
+     1871,
+     1053
     ],
     "01.jpg": [
-     734,
-     999
+     2400,
+     1600
     ],
     "02.jpg": [
-     944,
+     900,
      600
     ],
     "03.jpg": [
-     2400,
-     1874
+     944,
+     600
     ],
     "04.jpg": [
-     2400,
-     1800
+     900,
+     600
     ],
     "05.jpg": [
-     1067,
+     800,
      600
     ],
     "06.jpg": [
-     800,
-     600
+     2400,
+     1800
     ],
     "07.jpg": [
      800,
      600
     ],
     "08.jpg": [
-     1067,
-     600
-    ],
-    "09.jpg": [
      2400,
      1763
     ],
-    "10.jpg": [
-     800,
+    "09.jpg": [
+     821,
      600
+    ],
+    "10.jpg": [
+     2400,
+     1772
     ],
     "11.jpg": [
-     800,
-     600
-    ],
-    "12.jpg": [
-     800,
-     600
-    ],
-    "13.jpg": [
-     497,
-     600
-    ],
-    "14.jpg": [
-     555,
-     600
-    ],
-    "15.jpg": [
      765,
      600
     ],
-    "16.jpg": [
+    "12.jpg": [
      900,
+     600
+    ],
+    "13.jpg": [
+     555,
+     600
+    ],
+    "14.jpg": [
+     497,
+     600
+    ],
+    "15.jpg": [
+     800,
+     600
+    ],
+    "16.jpg": [
+     800,
      600
     ],
     "17.jpg": [
-     2400,
-     1600
+     1303,
+     2056
     ],
     "18.jpg": [
-     900,
-     600
+     734,
+     999
     ],
     "19.jpg": [
-     900,
-     600
-    ],
-    "20.jpg": [
-     2400,
-     1600
-    ],
-    "21.jpg": [
      2400,
      1350
     ],
+    "20.jpg": [
+     2400,
+     1350
+    ],
+    "21.jpg": [
+     2400,
+     1600
+    ],
     "22.jpg": [
-     2338,
-     1124
+     800,
+     600
     ],
     "23.jpg": [
-     1201,
-     1249
+     2400,
+     1319
     ],
     "24.jpg": [
      2400,
-     1307
+     1874
     ],
     "25.jpg": [
+     1067,
+     600
+    ],
+    "26.jpg": [
+     1067,
+     600
+    ],
+    "27.jpg": [
      2400,
-     1319
+     1350
+    ],
+    "28.jpg": [
+     2400,
+     1307
     ]
-   }
+   },
+   "videos": []
   },
   {
    "slug": "x004",
@@ -3952,14 +4348,20 @@
    "title_cn": "一碗生命",
    "year": 2011,
    "year_text": "",
-   "category_en": "photograph",
+   "category_en": "photography",
    "category_cn": "攝影",
    "categories": [
     "photography"
    ],
-   "statement_en": "to have a bowl of rice, life is nurtured.\nto take a bowl of tea, body and soul are enlivened.\nto inside from outside.\nfrom inside to outside.\nback and forth.\ngive and take.\nthose inside a bowl,\ncan be consumed,\ncan nurture a life.\na family of three is a family.\nthree generations under the same roof also form a family.\nheaven and earth, with all beings, are ultimately the same family.\ntogether we form a true family.\nconcept & photography by anothermountainman\ngreen bowl-scape by yu tek-li",
+   "statement_en": "to have a bowl of rice, life is nurtured.\nto take a bowl of tea, body and soul are enlivened.\n\nto inside from outside.\nfrom inside to outside.\nback and forth.\ngive and take.\n\nthose inside a bowl,\ncan be consumed,\ncan nurture a life.\n\na family of three is a family.\nthree generations under the same roof also form a family.\nheaven and earth, with all beings, are ultimately the same family.\n\ntogether we form a true family.",
    "statement_cn": "吃一碗飯 生命得以持續\n吃一碗茶 身心靈為之飛揚\n往內 從外\n從內 往外\n有來 有往\n有受 有施\n碗裡頭的\n可往肚裡吃\n可以栽出生命\n一家三口是家\n三代同堂是家\n大地眾生萬物正是家\n大家 才是家\n又一山人/ 概念/ 攝影\n暨\n餘德麗/ 綠色碗景",
-   "credits": [],
+   "credits": [
+    {
+     "label": "green bowl-scape",
+     "value_en": "yu tek-li",
+     "value_cn": ""
+    }
+   ],
    "cover": "00.jpg",
    "images": [
     "01.jpg",
@@ -3983,7 +4385,8 @@
     "19.jpg",
     "20.jpg",
     "21.jpg",
-    "22.jpg"
+    "22.jpg",
+    "23.jpg"
    ],
    "video": "",
    "video_poster": "",
@@ -3991,62 +4394,27 @@
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        2.93
+       ],
        "imgs": [
         1
        ]
-      }
-     ]
-    },
-    {
-     "type": "row",
-     "span": [
-      0,
-      6
-     ],
-     "cells": [
-      {
-       "imgs": [
-        2
-       ],
-       "w": 0.5
       },
       {
-       "imgs": [
-        3
+       "span": [
+        4.1,
+        6.0
        ],
-       "w": 0.5
-      }
-     ]
-    },
-    {
-     "type": "grid",
-     "span": [
-      0,
-      6
-     ],
-     "imgs": [
-      4,
-      5,
-      6,
-      7
-     ],
-     "cols": 2
-    },
-    {
-     "type": "row",
-     "span": [
-      2.05,
-      6
-     ],
-     "cells": [
-      {
+       "top": 1.65,
        "imgs": [
-        8
+        2
        ]
       }
      ]
@@ -4054,100 +4422,280 @@
     {
      "type": "row",
      "span": [
-      0,
-      6
+      4.1,
+      6.0
      ],
      "cells": [
       {
-       "imgs": [
-        9
+       "span": [
+        4.1,
+        6.0
        ],
-       "w": 0.5
-      },
-      {
        "imgs": [
-        10
-       ],
-       "w": 0.5
+        3
+       ]
       }
-     ]
+     ],
+     "top": 0.08
     },
     {
-     "type": "grid",
+     "type": "row",
      "span": [
-      0,
-      6
+      0.0,
+      6.0
      ],
-     "imgs": [
-      11,
-      12,
-      13,
-      14
+     "cells": [
+      {
+       "span": [
+        0.0,
+        1.9
+       ],
+       "top": 0.72,
+       "imgs": [
+        5
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        3.96
+       ],
+       "top": 0.72,
+       "imgs": [
+        6
+       ]
+      },
+      {
+       "span": [
+        4.1,
+        6.0
+       ],
+       "blocks": [
+        {
+         "type": "row",
+         "span": [
+          4.1,
+          6.0
+         ],
+         "cells": [
+          {
+           "span": [
+            4.1,
+            6.0
+           ],
+           "imgs": [
+            4
+           ]
+          }
+         ]
+        },
+        {
+         "type": "row",
+         "span": [
+          4.1,
+          6.0
+         ],
+         "cells": [
+          {
+           "span": [
+            4.1,
+            6.0
+           ],
+           "imgs": [
+            7
+           ]
+          }
+         ],
+         "top": 0.09
+        }
+       ]
+      }
      ],
-     "cols": 2
+     "top": 0.08
     },
     {
      "type": "row",
      "span": [
       2.05,
-      6
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        2.05,
+        3.96
+       ],
+       "imgs": [
+        8
+       ]
+      },
+      {
+       "span": [
+        4.1,
+        6.0
+       ],
+       "imgs": [
+        9
+       ]
+      }
+     ],
+     "top": 0.68
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      6.0
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        0.88
+       ],
+       "imgs": [
+        10
+       ]
+      },
+      {
+       "span": [
+        1.02,
+        1.9
+       ],
+       "imgs": [
+        11
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        2.93
+       ],
+       "imgs": [
+        12
+       ]
+      },
+      {
+       "span": [
+        3.07,
+        3.96
+       ],
+       "imgs": [
+        13
+       ]
+      },
+      {
+       "span": [
+        4.1,
+        4.98
+       ],
+       "imgs": [
+        14
+       ]
+      },
+      {
+       "span": [
+        5.13,
+        6.0
+       ],
        "imgs": [
         15
        ]
       }
-     ]
+     ],
+     "top": 0.89
     },
     {
      "type": "row",
      "span": [
-      0,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        0.87
+       ],
        "imgs": [
         16
-       ],
-       "w": 0.5
+       ]
       },
       {
+       "span": [
+        1.02,
+        1.9
+       ],
        "imgs": [
         17
+       ]
+      },
+      {
+       "span": [
+        2.05,
+        2.93
        ],
-       "w": 0.5
+       "imgs": [
+        18
+       ]
+      },
+      {
+       "span": [
+        3.07,
+        3.96
+       ],
+       "imgs": [
+        19
+       ]
+      },
+      {
+       "span": [
+        4.1,
+        4.98
+       ],
+       "imgs": [
+        20
+       ]
+      },
+      {
+       "span": [
+        5.13,
+        6.0
+       ],
+       "imgs": [
+        21
+       ]
       }
-     ]
-    },
-    {
-     "type": "grid",
-     "span": [
-      0,
-      6
      ],
-     "imgs": [
-      18,
-      19,
-      20,
-      21
-     ],
-     "cols": 2
+     "top": 0.22
     },
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        2.93
+       ],
        "imgs": [
         22
        ]
+      },
+      {
+       "span": [
+        3.07,
+        6.0
+       ],
+       "imgs": [
+        23
+       ]
       }
-     ]
+     ],
+     "top": 0.56
     }
    ],
    "featured_home": false,
@@ -4156,28 +4704,28 @@
    "video_url": "",
    "sizes": {
     "00.jpg": [
-     2000,
-     2000
+     1875,
+     1055
     ],
     "01.jpg": [
-     2400,
-     2400
+     2000,
+     2000
     ],
     "02.jpg": [
      2000,
-     2000
+     1333
     ],
     "03.jpg": [
-     2400,
-     2400
+     2000,
+     1332
     ],
     "04.jpg": [
-     2400,
-     2400
+     2000,
+     1333
     ],
     "05.jpg": [
-     2400,
-     2400
+     2000,
+     2000
     ],
     "06.jpg": [
      2000,
@@ -4185,19 +4733,19 @@
     ],
     "07.jpg": [
      2000,
-     1999
+     1333
     ],
     "08.jpg": [
-     2000,
-     1999
+     2400,
+     2400
     ],
     "09.jpg": [
      2000,
      2000
     ],
     "10.jpg": [
-     2000,
-     2000
+     2400,
+     2400
     ],
     "11.jpg": [
      2000,
@@ -4208,20 +4756,20 @@
      2000
     ],
     "13.jpg": [
-     2400,
-     2400
+     2000,
+     2000
     ],
     "14.jpg": [
-     2400,
-     2400
+     2000,
+     2000
     ],
     "15.jpg": [
      2000,
-     2000
+     1999
     ],
     "16.jpg": [
-     2000,
-     2000
+     2400,
+     2400
     ],
     "17.jpg": [
      2000,
@@ -4229,25 +4777,30 @@
     ],
     "18.jpg": [
      2000,
-     1333
+     2000
     ],
     "19.jpg": [
-     2000,
-     1333
+     2400,
+     2400
     ],
     "20.jpg": [
-     2000,
-     1333
+     2400,
+     2400
     ],
     "21.jpg": [
-     2000,
-     1332
+     2400,
+     2400
     ],
     "22.jpg": [
      2000,
+     1999
+    ],
+    "23.jpg": [
+     2000,
      2000
     ]
-   }
+   },
+   "videos": []
   },
   {
    "slug": "x005",
@@ -4256,7 +4809,7 @@
    "title_en": "fang suo commune",
    "title_cn": "定是常住。便成方所",
    "year": 2011,
-   "year_text": "",
+   "year_text": "2011-now",
    "category_en": "branding / consultant / interior design / exhibition / graphic",
    "category_cn": "品牌設計 / 顧問 / 室內設計 / 展覽 / 平面設計",
    "categories": [
@@ -4265,13 +4818,29 @@
     "exhibition",
     "art / design"
    ],
-   "statement_en": "fangsuo is not just a bookstore. nor is it an area.\nit is an attitude, an advocate.\nit is an attempt to boldly amplify aesthetics in everyday life.\nin the vast, boundless space of the universe,\nwe encounter the wisdom and knowledge of old and new,\nwe meet with designers from far and wide,\nwe connect with our own hearts and minds.\nfangsuo is a peaceful and quiet spot in the universe,\nit’s now.\nlet us all gather here.\nfangsuo, a community that began in china,\nis a platform for culture and aesthetics to meet,\na space where sensuality and intellect reside,\na conjugation of knowledge, aesthetics and living.\nin this wide expanse for nurturing and practice,\npeople pursue truth, feel beauty,\nexperience the power that peace and tranquillity bring.",
+   "statement_en": "fangsuo is not just a bookstore. nor is it an area.\nit is an attitude, an advocate.\nit is an attempt to boldly amplify aesthetics in everyday life.\n\nin the vast, boundless space of the universe,\nwe encounter the wisdom and knowledge of old and new,\nwe meet with designers from far and wide,\nwe connect with our own hearts and minds.\n\nfangsuo is a peaceful and quiet spot in the universe,\nit’s now.\nlet us all gather here.\nfangsuo, a community that began in china,\nis a platform for culture and aesthetics to meet,\na space where sensuality and intellect reside,\na conjugation of knowledge, aesthetics and living.\n\nin this wide expanse for nurturing and practice,\npeople pursue truth, feel beauty,\nexperience the power that peace and tranquillity bring.",
    "statement_cn": "方所不僅是書店  方所不僅是方所\n方所是一種態度  一個主張\n一個將美學在生活中放大化的嘗試\n十方世界廣闊無限的宇宙中\n我們與古往今來的知識相遇\n我們與設計師的作品相遇\n我們與所有遊方世界的旅人相遇\n我們與我們的心相遇\n方所是宇宙寧靜的一點  是當下\n讓我們在此相遇\n方所是一個源於中國的場所\n一個文化與美學匯聚的平台\n一個讓知性與感性得以寄託的空間\n一種知識  審美與生活的結合\n人們在這共修之地\n追求真  感受美\n體會當人心安放時  寧靜即力量",
-   "credits": [],
+   "credits": [
+    {
+     "label": "client",
+     "value_en": "fang suo commune",
+     "value_cn": ""
+    },
+    {
+     "label": "creative collaboration",
+     "value_en": "mao jihong [founder / co-space design] /\nliao meili [co-founder / project planning] /\nalan lam [lighting design] /\nanothermountainman [photography] /\nfang suo marketing and design team /\n84000 communications ltd.",
+     "value_cn": ""
+    },
+    {
+     "label": "award",
+     "value_en": "2013 hkda global design awards / spatial / gold / hk best\n2013 hkda global design awards / poster / bronze",
+     "value_cn": ""
+    }
+   ],
    "cover": "00.jpg",
    "images": [
     "01.jpg",
-    "02.jpg",
+    "02.png",
     "03.jpg",
     "04.jpg",
     "05.jpg",
@@ -4284,7 +4853,10 @@
     "12.jpg",
     "13.jpg",
     "14.jpg",
-    "15.jpg"
+    "15.jpg",
+    "16.jpg",
+    "17.jpg",
+    "18.jpg"
    ],
    "video": "",
    "video_poster": "",
@@ -4292,11 +4864,25 @@
     {
      "type": "row",
      "span": [
-      2.05,
-      6
+      2.06,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        2.06,
+        3.46
+       ],
+       "top": 0.69,
+       "imgs": [
+        2
+       ]
+      },
+      {
+       "span": [
+        4.11,
+        6.0
+       ],
        "imgs": [
         1
        ]
@@ -4306,124 +4892,181 @@
     {
      "type": "row",
      "span": [
-      0,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
-       "imgs": [
-        2
+       "span": [
+        0.0,
+        6.0
        ],
-       "w": 0.5
-      },
-      {
        "imgs": [
         3
-       ],
-       "w": 0.5
+       ]
       }
-     ]
-    },
-    {
-     "type": "grid",
-     "span": [
-      0,
-      6
      ],
-     "imgs": [
-      4,
-      5,
-      6,
-      7
-     ],
-     "cols": 2
+     "top": 0.37
     },
     {
      "type": "row",
      "span": [
       2.05,
-      6
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        2.05,
+        6.0
+       ],
        "imgs": [
-        8
+        4
        ]
       }
-     ]
+     ],
+     "top": 0.1
     },
     {
      "type": "row",
      "span": [
-      0,
-      6
+      0.0,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        0.0,
+        1.89
+       ],
+       "imgs": [
+        5
+       ]
+      },
+      {
+       "span": [
+        2.06,
+        6.0
+       ],
+       "imgs": [
+        6
+       ]
+      }
+     ],
+     "top": 0.19
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      3.95
+     ],
+     "cells": [
+      {
+       "span": [
+        0.0,
+        0.87
+       ],
+       "imgs": [
+        8
+       ]
+      },
+      {
+       "span": [
+        1.02,
+        2.92
+       ],
+       "imgs": [
+        7
+       ]
+      },
+      {
+       "span": [
+        3.08,
+        3.95
+       ],
        "imgs": [
         9
        ]
-      },
+      }
+     ],
+     "top": 0.63
+    },
+    {
+     "type": "row",
+     "span": [
+      3.08,
+      6.0
+     ],
+     "cells": [
       {
+       "span": [
+        3.08,
+        6.0
+       ],
        "imgs": [
         10
        ]
-      },
+      }
+     ],
+     "top": 0.05
+    },
+    {
+     "type": "row",
+     "span": [
+      0.0,
+      2.92
+     ],
+     "cells": [
       {
+       "span": [
+        0.0,
+        2.92
+       ],
        "imgs": [
         11
        ]
       }
-     ]
+     ],
+     "top": -0.0
     },
     {
      "type": "row",
      "span": [
-      2.05,
-      3.85
+      1.03,
+      6.0
      ],
      "cells": [
       {
+       "span": [
+        1.03,
+        6.0
+       ],
        "imgs": [
         12
        ]
       }
-     ]
+     ],
+     "top": 0.31
     },
     {
      "type": "row",
      "span": [
-      0,
-      6
+      1.03,
+      4.98
      ],
      "cells": [
       {
+       "span": [
+        1.03,
+        4.98
+       ],
        "imgs": [
         13
-       ],
-       "w": 0.5
-      },
-      {
-       "imgs": [
-        14
-       ],
-       "w": 0.5
-      }
-     ]
-    },
-    {
-     "type": "row",
-     "span": [
-      2.05,
-      3.85
-     ],
-     "cells": [
-      {
-       "imgs": [
-        15
        ]
       }
-     ]
+     ],
+     "top": 0.21
     }
    ],
    "featured_home": false,
@@ -4432,70 +5075,83 @@
    "video_url": "",
    "sizes": {
     "00.jpg": [
-     2400,
-     1600
+     2000,
+     1125
     ],
     "01.jpg": [
-     2400,
-     1331
+     1595,
+     2400
     ],
-    "02.jpg": [
+    "02.png": [
      2400,
-     1315
+     1559
     ],
     "03.jpg": [
      2400,
-     1329
+     774
     ],
     "04.jpg": [
-     2354,
-     1652
-    ],
-    "05.jpg": [
      2400,
      1326
     ],
-    "06.jpg": [
-     2400,
-     774
-    ],
-    "07.jpg": [
+    "05.jpg": [
      2400,
      1603
     ],
+    "06.jpg": [
+     2400,
+     1315
+    ],
+    "07.jpg": [
+     835,
+     727
+    ],
     "08.jpg": [
-     2354,
-     1652
+     640,
+     960
     ],
     "09.jpg": [
      1680,
      2400
     ],
     "10.jpg": [
-     640,
-     960
+     2400,
+     1321
     ],
     "11.jpg": [
-     1595,
-     2400
+     2400,
+     1696
     ],
     "12.jpg": [
-     779,
-     1256
+     2400,
+     1329
     ],
     "13.jpg": [
      2400,
-     1321
+     1356
     ],
     "14.jpg": [
      2400,
-     1321
+     1696
     ],
     "15.jpg": [
+     2400,
+     1600
+    ],
+    "16.jpg": [
+     779,
+     1256
+    ],
+    "17.jpg": [
+     2400,
+     1321
+    ],
+    "18.jpg": [
      835,
      1265
     ]
-   }
+   },
+   "videos": []
   }
  ],
  "home": [

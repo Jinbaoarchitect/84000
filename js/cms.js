@@ -33,6 +33,8 @@ const STATIC = {
         video: w.video ? `${STATIC.base}video/${w.video}` : "",
         videoUrl: w.video_url || "",
         poster: w.video_poster ? `${STATIC.base}video/${w.video_poster}` : "",
+        /* extra films named by layout blocks (`file`): content/video/<name>, poster = <name minus .mp4>-poster.jpg */
+        videos: (w.videos || []).map((f) => ({ name: f, src: `${STATIC.base}video/${f}`, poster: `${STATIC.base}video/${f.replace(/\.mp4$/, "")}-poster.jpg` })),
         credits: Array.isArray(w.credits) ? w.credits : [],
         layout: Array.isArray(w.layout) && w.layout.length ? w.layout : null,
         featured: !!w.featured_home, sort: w.sort || 0,
@@ -143,6 +145,12 @@ const CMS = {
       video: rec.video ? CMS.fileUrl(rec, rec.video) : "",
       videoUrl: rec.video_url || "",          /* vimeo link — preferred over the file */
       poster: rec.video_poster ? CMS.fileUrl(rec, rec.video_poster, "1600x0") : "",
+      /* extra films (`videos`, several) + their poster frames (`video_posters`, matched by name prefix) */
+      videos: (Array.isArray(rec.videos) ? rec.videos : rec.videos ? [rec.videos] : []).map((f) => {
+        const stem = f.replace(/_[a-z0-9]{10}\.mp4$/i, "").replace(/\.mp4$/i, "");
+        const p = (Array.isArray(rec.video_posters) ? rec.video_posters : []).find((x) => x.startsWith(stem));
+        return { name: f, src: CMS.fileUrl(rec, f), poster: p ? CMS.fileUrl(rec, p, "1600x0") : "" };
+      }),
       credits: Array.isArray(rec.credits) ? rec.credits : [],
       layout: Array.isArray(rec.layout) && rec.layout.length ? rec.layout : null,
       featured: !!rec.featured_home,

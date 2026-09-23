@@ -45,6 +45,7 @@ To refresh: re-run the export in the main project (copies `cms/import/*` into `c
 - Pictures in this folder are compressed for the web (long edge 1920 for covers, 1600 for other work pictures, 1000 for canvas tiles; progressive jpeg ≈ q72–78). The full-size originals stay in the main project (`cms/import/`, `assets/`); `export-review.sh` re-copies and re-compresses them on every sync (`tools/compress-review.py`).
 
 - `js/config.js`: `PB_URL = ""` (no CMS) and `CONTENT_URL = "content/"`; with a PocketBase address in `PB_URL` the same files read from the CMS instead.
+- The two hong kong palace museum films (`content/video/x001-*.mp4`) are kept out of git (`.gitignore`) — they play only when this folder is served locally; the published site shows their poster frames.
 - Videos play from Vimeo (`video_url` in `content/manifest.json`); only the poster frames live in `content/video/`.
 - `.nojekyll` keeps GitHub Pages from processing the folder.
 # 84000

@@ -25,7 +25,7 @@ const UI_CN = {
   "exhibition": "展覽", "curation": "策展", "photography": "攝影", "video": "影片", "product": "產品", "installation": "裝置",
   "fashion": "時裝", "packaging": "包裝", "painting": "繪畫", "object": "物件", "education": "教育",
   "client": "客戶", "collaboration": "合作", "agency": "廣告公司", "award": "獎項", "collection": "收藏", "material": "物料",
-  "producer": "監製", "special thanks": "特別鳴謝",
+  "producer": "監製", "special thanks": "特別鳴謝", "creative collaboration": "創作合作", "production": "製作",
   "solo exhibition": "個展", "group exhibition": "聯展", "talk": "講座",
 };
 const t = (label) => (LANG === "cn" && UI_CN[String(label).trim().toLowerCase()]) || label;
@@ -700,6 +700,10 @@ function overEl(el, pad, x, y) {
   const r = el.getBoundingClientRect();
   return x > r.left - pad && x < r.right + pad && y > r.top - pad && y < r.bottom + pad;
 }
+/* pictures and films: hovering them never opens the menu (they are clicked / played) */
+const MENU_HOVER_IGNORE = ".l-img, .l-video-box, .l-video-el, .l-video-frame, .l-block.l-video, .d-img, .work-thumb, .cv-item, .j-img, .b-portrait, .m-thumb";
+const MENU_HOVER_DELAY = 250;
+let menuHoverTimer = null;
 addEventListener("mousemove", (e) => {
   if (isMobile()) return;                            /* touch: the name / page word toggles the menu (bindMobile) */
   const third = innerWidth / 3;
@@ -717,10 +721,18 @@ addEventListener("mousemove", (e) => {
       !overEl($("#menu-bottom"), 24, x, y)
     ) closeMenu();
   } else {
-    if (inZone && !menuOpen && !dragging) openMenu();
-    else if (!inZone && menuOpen) closeMenu();
+    /* A: over a picture or a film the pointer is looking, not asking for the menu — only the
+       bare ground (or the name on the centre line) opens it. C: and only after a short dwell
+       (MENU_HOVER_DELAY), so a pointer crossing the left third on its way elsewhere does nothing */
+    const nameEl = sectionVisible() ? $("#section-name") : detailVisible() ? $("#detail-name") : null;
+    const wants = inZone && !dragging && (overEl(nameEl, 8, x, y) || !(e.target.closest && e.target.closest(MENU_HOVER_IGNORE)));
+    if (menuOpen) { clearTimeout(menuHoverTimer); menuHoverTimer = null; if (!inZone) closeMenu(); }
+    else if (!wants) { clearTimeout(menuHoverTimer); menuHoverTimer = null; }
+    else if (!menuHoverTimer) menuHoverTimer = setTimeout(() => { menuHoverTimer = null; if (!menuOpen) openMenu(); }, MENU_HOVER_DELAY);
   }
 });
+/* leaving the window (or entering a vimeo iframe, which swallows mouse events) cancels a pending open */
+document.addEventListener("mouseleave", () => { clearTimeout(menuHoverTimer); menuHoverTimer = null; });
 
 /* menu clicks — delegated (menu is rebuilt on every open) */
 function handleMenuClick(e) {
@@ -1207,12 +1219,17 @@ function renderLayout(body, blocks, imgs, w) {
       el.style.gridTemplateColumns = `repeat(${b.cols || 2}, 1fr)`;
       (b.imgs || []).forEach((i) => { const p = pic(i); if (p) el.appendChild(p); });
     } else if (b.type === "video") {
-      const vimeo = vimeoId(w.videoUrl);
-      if (!vimeo && !w.video) return;
-      el.innerHTML = `<div class="l-video-box"${w.poster ? ` style="background-image:url('${w.poster}')"` : ""}><span class="play"></span></div>`;
+      /* a block may name its own file (`file`, one of the work's `videos`, with its `poster`);
+         otherwise it is the work's video: the vimeo link, else the single mp4 */
+      const own = b.file ? (w.videos || []).find((v) => v.name === b.file || v.name.startsWith(String(b.file).replace(/\.[^.]+$/, ""))) : null;
+      const vimeo = own ? "" : vimeoId(w.videoUrl);
+      const src = own ? own.src : w.video;
+      const poster = own ? own.poster || "" : w.poster;
+      if (!vimeo && !src) return;
+      el.innerHTML = `<div class="l-video-box"${poster ? ` style="background-image:url('${poster}')"` : ""}><span class="play"></span></div>`;
       el.querySelector(".l-video-box").addEventListener("click", function () {
         if (vimeo) this.innerHTML = `<iframe class="l-video-frame" src="https://player.vimeo.com/video/${vimeo}?autoplay=1&title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
-        else this.outerHTML = `<video class="l-video-el" src="${w.video}" controls autoplay playsinline></video>`;
+        else this.outerHTML = `<video class="l-video-el" src="${src}" controls autoplay playsinline></video>`;
       });
     } else if (b.type === "caption" || b.type === "par") {
       el.innerHTML = textEl(b.type === "par" ? "l-par" : "l-caption", btxt(b)).innerHTML;

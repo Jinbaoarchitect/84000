@@ -2,3 +2,4 @@
 ._*
 .claude-tmp/
 node_modules/
+content/video/*.mp4
