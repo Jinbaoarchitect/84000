@@ -12,7 +12,8 @@ const STATIC = {
   base: (typeof CONTENT_URL !== "undefined" && CONTENT_URL) || "",
   on() { return !PB_URL && !!STATIC.base; },
   async json(name) {
-    try { const r = await fetch(STATIC.base + name); return r.ok ? await r.json() : null; } catch (e) { return null; }
+    /* no-cache = revalidate every load (a cheap 304 when unchanged), so an updated manifest never shows stale */
+    try { const r = await fetch(STATIC.base + name, { cache: "no-cache" }); return r.ok ? await r.json() : null; } catch (e) { return null; }
   },
   async works() {
     const m = await STATIC.json("manifest.json");

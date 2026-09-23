@@ -604,11 +604,13 @@ body.menu-open #page-bar { opacity: 0; }
   transform: translateY(calc(var(--lh-label) * -0.5em));   /* first line (year) on the centre line */
   display: flex; flex-direction: column;
 }
-#detail-hero .sub { color: var(--sub); transition: color 0.4s ease; }
-/* per-element tone from the image behind (JS): the secondary line keeps a
-   step below the primary but stays legible over the scrimmed picture */
-#detail-hero [data-tone="white"] { color: var(--white); --sub: #d2d2d2; }
-#detail-hero [data-tone="black"] { color: var(--black); --sub: #3c3c3c; }
+/* year / category are the same colour as the title — the layout pdfs set the whole centre-line
+   row (name · title · year · category · clock) in one colour (white / black / grey pdfs: #000 or #fff).
+   only the colophon labels (client, award …) and list captions use the dimmer sub tone */
+#detail-hero .sub { color: inherit; transition: color 0.4s ease; }
+/* per-element tone from the image behind (JS) */
+#detail-hero [data-tone="white"] { color: var(--white); }
+#detail-hero [data-tone="black"] { color: var(--black); }
 
 /* scroll content blocks */
 #detail-body {
