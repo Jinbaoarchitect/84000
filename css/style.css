@@ -770,8 +770,8 @@ body.menu-open #page-bar { opacity: 0; }
 /* colophon: title (column 2, bold) and the credits (column 3, regular, labels in the sub
    tone) — both at the label size. it sits a fixed distance under the last picture: a
    quarter of the viewport height (270 @1080; client, 2026-10-03 #11 — it used to be a
-   full-screen block, which left a variable, often huge gap); at the end of the scroll the
-   title still sits on the centre line, as drawn. --bgap is subtracted because the
+   full-screen block with the title on the centre line, which left a variable, often huge
+   gap), and the page ends a quarter screen below it. --bgap is subtracted because the
    body already spaces its blocks by that much */
 :root { --colophon-gap: 25vh; }
 .d-colophon {

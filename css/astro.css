@@ -1,0 +1,47 @@
+/* ————————————————————————————————————————————
+   astro build — what differs from the single-page build:
+   real pages (links instead of view switches), both languages in the markup,
+   the phone layout tree rendered beside the desktop one
+   ———————————————————————————————————————————— */
+
+/* en · cn: both are in the html, the <html data-lang> shows one */
+html:not([data-lang="cn"]) .cn, html[data-lang="cn"] .en { display: none !important; }
+#menu-lang .lang-en, #menu-lang .lang-cn { color: var(--menu-sub); }
+html:not([data-lang="cn"]) #menu-lang .lang-en, html[data-lang="cn"] #menu-lang .lang-cn { color: var(--menu-fg); }
+
+/* page cross-fade (astro view transitions) — the same 0.55 s dissolve as the one-page build */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.55s; animation-timing-function: ease; }
+
+/* links carry no decoration anywhere: the type is the design */
+a { color: inherit; text-decoration: none; }
+a.work-thumb { display: block; }
+a.close-btn { display: block; }
+.menu-item.lang { cursor: pointer; }
+
+/* a work's layout: desktop tree and phone tree are both in the page; one shows */
+.layout { display: flex; flex-direction: column; gap: var(--bgap); }
+.layout-m { display: none; }
+@media (max-aspect-ratio: 1/1) {
+  .layout-d { display: none; }
+  .layout-m { display: flex; }
+}
+
+/* home → zone: the zone colour comes up over the panels for 2 s before the list page loads */
+#zone-in {
+  position: fixed; inset: 0; z-index: 60;
+  opacity: 0; animation: section-in 2s ease both;
+  pointer-events: none;
+}
+
+/* list rows arrive top → bottom on every zone page */
+#section.rows-in .work-row { animation: row-in 0.7s ease both; animation-delay: calc(var(--i, 0) * 110ms); }
+
+/* journey: the desktop stage is built by the script; phones get the list */
+#journey-list { display: none; }
+@media (max-aspect-ratio: 1/1) {
+  #journey-list { display: block; }
+  #page[data-page="journey"] #page-stage { display: none !important; }
+  #page[data-page="journey"] #page-scroll { display: block !important; }
+}
+/* the layout engine's statement inside the phone tree keeps the page margins */
+@media (max-aspect-ratio: 1/1) { .layout-m .d-text { margin-left: var(--inset); margin-right: var(--inset); width: auto; } }
