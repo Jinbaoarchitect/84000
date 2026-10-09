@@ -266,6 +266,166 @@
       "title_cn": "示範條目——待替換",
       "venue_en": "demo venue",
       "venue_cn": "示範地點"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "london",
+      "type_cn": "london",
+      "title_en": "d&ad awards",
+      "title_cn": "d&ad awards",
+      "venue_en": "yellow pencil",
+      "venue_cn": "yellow pencil"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "new york",
+      "type_cn": "new york",
+      "title_en": "one show",
+      "title_cn": "one show",
+      "venue_en": "2 gold pencil",
+      "venue_cn": "2 gold pencil"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "tokyo",
+      "type_cn": "tokyo",
+      "title_en": "tdc design international awards",
+      "title_cn": "tdc design international awards",
+      "venue_en": "tdc award \\ 4 nomination award",
+      "venue_cn": "tdc award \\ 4 nomination award"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "shenzhen",
+      "type_cn": "shenzhen",
+      "title_en": "graphics design in china",
+      "title_cn": "graphics design in china",
+      "venue_en": "4 gold \\ 2 silver \\ 1 bronze",
+      "venue_cn": "4 gold \\ 2 silver \\ 1 bronze"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "hong kong",
+      "type_cn": "hong kong",
+      "title_en": "hong kong global design awards",
+      "title_cn": "hong kong global design awards",
+      "venue_en": "8 judges awards \\ 11 gold \\ 11 hong kong best",
+      "venue_cn": "8 judges awards \\ 11 gold \\ 11 hong kong best"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "hong kong",
+      "type_cn": "hong kong",
+      "title_en": "design for asia awards",
+      "title_cn": "design for asia awards",
+      "venue_en": "2 gold \\ 4 silver \\ 4 bonze",
+      "venue_cn": "2 gold \\ 4 silver \\ 4 bonze"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "hong kong",
+      "type_cn": "hong kong",
+      "title_en": "hong kong 4a advertising creative awards",
+      "title_cn": "hong kong 4a advertising creative awards",
+      "venue_en": "best single tv of the year \\\\ best chinese tv of the year \\\\ best film direction \\ gold",
+      "venue_cn": "best single tv of the year \\\\ best chinese tv of the year \\\\ best film direction \\ gold"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "hong kong",
+      "type_cn": "hong kong",
+      "title_en": "media asian advertising awards",
+      "title_cn": "media asian advertising awards",
+      "venue_en": "4 spikes",
+      "venue_cn": "4 spikes"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "hong kong",
+      "type_cn": "hong kong",
+      "title_en": "hong kong poster triennial",
+      "title_cn": "hong kong poster triennial",
+      "venue_en": "2 gold \\ 1 judges award",
+      "venue_cn": "2 gold \\ 1 judges award"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "hong kong",
+      "type_cn": "hong kong",
+      "title_en": "hkipp photography awards",
+      "title_cn": "hkipp photography awards",
+      "venue_en": "2 gold",
+      "venue_cn": "2 gold"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "hong kong",
+      "type_cn": "hong kong",
+      "title_en": "hong kong art biennial",
+      "title_cn": "hong kong art biennial",
+      "venue_en": "award winner \\ 3 selected",
+      "venue_cn": "award winner \\ 3 selected"
+    },
+    {
+      "section": "award",
+      "date": "",
+      "type_en": "hong kong",
+      "type_cn": "hong kong",
+      "title_en": "hong kong perspective awards",
+      "title_cn": "hong kong perspective awards",
+      "venue_en": "2 gold",
+      "venue_cn": "2 gold"
+    },
+    {
+      "section": "award",
+      "date": "2016",
+      "type_en": "",
+      "type_cn": "",
+      "title_en": "culture and creative award",
+      "title_cn": "culture and creative award",
+      "venue_en": "winner [design] / hong kong association of cultural industries",
+      "venue_cn": "winner [design] / hong kong association of cultural industries"
+    },
+    {
+      "section": "award",
+      "date": "2012",
+      "type_en": "",
+      "type_cn": "",
+      "title_en": "creative lifestyle award",
+      "title_cn": "creative lifestyle award",
+      "venue_en": "best designer of the year / china modern media \\ city magazine",
+      "venue_cn": "best designer of the year / china modern media \\ city magazine"
+    },
+    {
+      "section": "award",
+      "date": "2011",
+      "type_en": "",
+      "type_cn": "",
+      "title_en": "hong kong arts development awards",
+      "title_cn": "hong kong arts development awards",
+      "venue_en": "award for best artist of the year [visual arts] / hong kong art development council",
+      "venue_cn": "award for best artist of the year [visual arts] / hong kong art development council"
+    },
+    {
+      "section": "award",
+      "date": "2008",
+      "type_en": "",
+      "type_cn": "",
+      "title_en": "hong kong print awards",
+      "title_cn": "hong kong print awards",
+      "venue_en": "the outstanding achievements award / graphic arts association of hong kong, hong kong publishing professionals society, hong kong trade development council, hong kong leisure and cultural services department",
+      "venue_cn": "the outstanding achievements award / graphic arts association of hong kong, hong kong publishing professionals society, hong kong trade development council, hong kong leisure and cultural services department"
     }
   ]
 }

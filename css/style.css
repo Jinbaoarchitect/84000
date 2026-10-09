@@ -33,6 +33,10 @@
 html, body {
   width: 100%; height: 100%;
   overflow: hidden;
+  /* a two-finger swipe on a trackpad must never become the browser's back / forward gesture
+     (client note 2026-10-03, the canvas): chrome honours this on the root, safari needs the
+     wheel guard in main.js as well */
+  overscroll-behavior: none;
   background: var(--black);
   font-family: "HN", "Helvetica Neue", Helvetica, "PingFang HK", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
   font-size: var(--fs);
@@ -232,6 +236,54 @@ body.theme-page { background: var(--page-grey); }
   z-index: 5;
 }
 
+/* the menu groups at the top of the panels (client, 2026-10-03 #2): the same words, size and
+   line box as the banner menu, set solid, top-left of each panel; colour follows the picture
+   like the label (data-menu-tone, sampled under the group) */
+.panel-menu {
+  position: absolute;
+  top: var(--inset); left: var(--inset);
+  display: flex; flex-direction: column;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  font-weight: 700;
+  z-index: 6;
+  transition: color 0.6s ease;
+}
+.panel-menu a { cursor: pointer; white-space: nowrap; transition: opacity 0.25s ease; }
+.panel-menu a:hover { opacity: 0.55; }
+.panel[data-who="sw"]  .panel-menu { color: var(--black); }
+.panel[data-who="amm"] .panel-menu { color: var(--white); }
+.panel[data-who="xsw"] .panel-menu { color: var(--black); }
+.panel.lit .panel-menu { color: var(--white); }
+.panel.lit[data-menu-tone="black"] .panel-menu { color: var(--black); }
+.panel.lit[data-menu-tone="grey"]  .panel-menu { color: var(--grey);  }
+
+/* under the name, while the pointer is in the middle band (#3): the period and one line about
+   the zone, regular weight, same colour as the name; the name itself does not move */
+.panel-desc {
+  position: absolute;
+  left: var(--inset); right: var(--inset);
+  top: 50%;
+  transform: translateY(calc(var(--lh-label) * 0.5em));   /* first line right under the name's line box */
+  display: flex; flex-direction: column;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  font-weight: 400;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, color 0.6s ease;
+}
+.panel.desc-on .panel-desc { opacity: 1; }
+.panel[data-who="sw"]  .panel-desc { color: var(--black); }
+.panel[data-who="amm"] .panel-desc { color: var(--white); }
+.panel[data-who="xsw"] .panel-desc { color: var(--black); }
+.panel.lit .panel-desc { color: var(--white); }
+.panel.lit[data-tone="black"] .panel-desc { color: var(--black); }
+.panel.lit[data-tone="grey"]  .panel-desc { color: var(--grey);  }
+
 /* ————————————————————————————————————————————
    section — work list
    ———————————————————————————————————————————— */
@@ -311,18 +363,29 @@ body.menu-open #page-content {
   pointer-events: none;
 }
 .work-thumb.scrubbing .scrub-line { opacity: 1; }
+/* work information — one size for everything (client, 2026-10-03 #5/#6): the list caption,
+   the hero row and the colophon credits are all set at the label size (--fs-lg, the size of
+   the name, the clock and the menu), in the shared line box. hierarchy is weight and tone,
+   not size: title in the page colour, year / category / client in the sub tone; the hero
+   and colophon titles bold. the client block (label "client /", then the names) follows
+   one blank line below the category on stanley wong and × works; anothermountainman's
+   personal works carry none */
 .work-caption {
   position: absolute;
   top: 0;
   left: calc(var(--col) * 4 + clamp(10px, 1vw, 26px));
-  width: calc(var(--col) * 1.6);
+  width: calc(var(--col) * 1.75);
   display: flex;
   flex-direction: column;
-  gap: 0.15em;
-  line-height: 1.5;
+  gap: 0;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
 }
 .work-caption .w-title { font-weight: 400; white-space: pre-line; }   /* a line break in the title (a002) stays a line break */
 .work-caption .w-sub   { color: var(--sub); font-weight: 400; }
+.work-caption .w-client { color: var(--sub); font-weight: 400; margin-top: calc(var(--lh-label) * 1em); white-space: pre-line; }
+.work-caption .w-client .label { display: block; }
 
 /* ————————————————————————————————————————————
    infinite canvas
@@ -553,6 +616,7 @@ body.menu-open #page-bar { opacity: 0; }
 #detail-hero {
   position: relative;
   height: 200vh;
+  cursor: pointer;                     /* a click scrolls the page on by a screen (client, 2026-10-03 #8) */
 }
 #detail-hero-pin {
   position: sticky;
@@ -580,33 +644,33 @@ body.menu-open #page-bar { opacity: 0; }
   z-index: 2;
   pointer-events: none;
 }
-/* hero row: same size / line box / tracking as the name and the clock,
-   so the whole centre line reads as one row */
-#detail-hero .d-title,
-#detail-hero .d-meta {
+/* hero row: same size / line box / tracking as the name and the clock, so the whole centre
+   line reads as one row. three columns (client, 2026-10-03 #7): the name (fixed side label)
+   · title, year and category together in column 2 (title bold, the rest regular) · the
+   client in column 3 (label "client /", then the names, regular) · the clock (fixed).
+   every block's first line sits on the centre line; a second title line flows down */
+#detail-hero .d-main,
+#detail-hero .d-client {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(calc(var(--lh-label) * -0.5em));
   color: inherit;
   font-size: var(--fs-lg);
   line-height: var(--lh-label);
   letter-spacing: var(--ls-label);
-  font-weight: 700;
+  font-weight: 400;
+  display: flex; flex-direction: column;
   transition: color 0.4s ease;
 }
-#detail-hero .d-title {
-  left: calc(var(--col) * 2 + clamp(10px, 1vw, 26px));
-  transform: translateY(calc(var(--lh-label) * -0.5em));   /* first line on the centre line; a 2nd title line flows down */
-  white-space: pre-line;
-}
-#detail-hero .d-meta {
-  left: calc(var(--col) * 4 + clamp(10px, 1vw, 26px));
-  transform: translateY(calc(var(--lh-label) * -0.5em));   /* first line (year) on the centre line */
-  display: flex; flex-direction: column;
-}
-/* year / category are the same colour as the title — the layout pdfs set the whole centre-line
-   row (name · title · year · category · clock) in one colour (white / black / grey pdfs: #000 or #fff).
-   only the colophon labels (client, award …) and list captions use the dimmer sub tone */
+#detail-hero .d-main   { left: calc(var(--col) * 2 + clamp(10px, 1vw, 26px)); width: calc(var(--col) * 1.9); }
+#detail-hero .d-client { left: calc(var(--col) * 4 + clamp(10px, 1vw, 26px)); width: calc(var(--col) * 1.75); white-space: pre-line; }
+#detail-hero .d-client:empty { display: none; }
+#detail-hero .d-client .label { display: block; }
+#detail-hero .d-title { font-weight: 700; white-space: pre-line; transition: color 0.4s ease; }
+#detail-hero .d-meta  { display: flex; flex-direction: column; transition: color 0.4s ease; }
+/* year / category / client are the same colour as the title — the layout pdfs set the whole
+   centre-line row in one colour (white / black / grey pdfs: #000 or #fff); only the colophon
+   labels (client, award …) and list captions use the dimmer sub tone */
 #detail-hero .sub { color: inherit; transition: color 0.4s ease; }
 /* per-element tone from the image behind (JS) */
 #detail-hero [data-tone="white"] { color: var(--white); }
@@ -614,8 +678,7 @@ body.menu-open #page-bar { opacity: 0; }
 
 /* scroll content blocks */
 #detail-body {
-  /* no bottom padding: the 100vh colophon ends flush with the scroll,
-     so its centre line meets the fixed name / clock exactly */
+  /* no bottom padding of its own: the colophon carries the page's end (--colophon-gap) */
   --bgap: clamp(40px, 6vh, 90px);      /* gap between page blocks; a block's `top` is measured against it */
   padding: clamp(60px, 9vh, 140px) 0 0;
   display: flex;
@@ -672,8 +735,24 @@ body.menu-open #page-bar { opacity: 0; }
 .l-row { display: flex; gap: var(--lgap); align-items: flex-start; }
 .l-cell { display: flex; flex-direction: column; gap: var(--lgap); min-width: 0; }
 .l-grid { display: grid; gap: var(--lgap); }
-.l-img { cursor: pointer; }
+.l-img { cursor: pointer; position: relative; }
 .l-img img { width: 100%; height: auto; display: block; }
+/* the picture's description, under its bottom-left corner (client, 2026-10-03 #9): it sits in
+   the gap below the picture without taking space, and comes up while the pointer is over the
+   picture; phones show it always (mobile block) */
+.l-cap {
+  position: absolute;
+  left: 0; top: 100%;
+  margin-top: 0.35em;
+  max-width: 100%;
+  font-weight: 400;
+  line-height: 1.25;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.l-img:hover .l-cap { opacity: 1; }
 .l-video-box {
   position: relative; aspect-ratio: 16 / 9; background: var(--black) center / cover; cursor: pointer;
 }
@@ -688,34 +767,35 @@ body.menu-open #page-bar { opacity: 0; }
 .l-par { font-weight: 400; line-height: 1.6; }              /* body paragraph inside the layout (par block / text cell) */
 #detail-body .d-text { margin-bottom: 0; }
 
-/* colophon: material / collection / exhibition
-   full-viewport end block — every column's FIRST line sits on the
-   centre line (aligned with the fixed name / clock), rest flows down */
+/* colophon: title (column 2, bold) and the credits (column 3, regular, labels in the sub
+   tone) — both at the label size. it sits a fixed distance under the last picture: a
+   quarter of the viewport height (270 @1080; client, 2026-10-03 #11 — it used to be a
+   full-screen block, which left a variable, often huge gap); at the end of the scroll the
+   title still sits on the centre line, as drawn. --bgap is subtracted because the
+   body already spaces its blocks by that much */
+:root { --colophon-gap: 25vh; }
 .d-colophon {
   position: relative;
-  height: 100vh;
-}
-/* colophon row = first-level size, same line box / tracking as the name and clock */
-.d-colophon .c-title {
-  position: absolute;
-  left: calc(var(--col) * 2 + clamp(10px, 1vw, 26px));
-  top: 50%;
-  transform: translateY(calc(var(--lh-label) * -0.5em));   /* first line on the centre line, like the hero title */
-  white-space: pre-line;
+  margin-top: max(0px, calc(var(--colophon-gap) - var(--bgap)));
+  /* the page ends with the title on the centre line (mock p.11, scrolled to the end): the block
+     is at least half a screen + half a line tall; a longer credits column just makes it taller */
+  min-height: calc(50vh + var(--lh-label) * 0.5em);
+  padding-bottom: 0;
+  display: grid;
+  grid-template-columns: calc(var(--col) * 2 + clamp(10px, 1vw, 26px)) calc(var(--col) * 2) calc(var(--col) * 1.75);
+  align-items: start;
   font-size: var(--fs-lg);
   line-height: var(--lh-label);
   letter-spacing: var(--ls-label);
+}
+.d-colophon .c-title {
+  grid-column: 2;
+  padding-right: clamp(10px, 1vw, 26px);
+  white-space: pre-line;
   font-weight: 700;
 }
 .d-colophon .c-meta {
-  position: absolute;
-  left: calc(var(--col) * 4 + clamp(10px, 1vw, 26px));
-  top: 50%;
-  font-size: var(--fs);                  /* credits one size smaller than the title (client note 2026-09-22) */
-  line-height: var(--lh-label);
-  letter-spacing: var(--ls-label);
-  transform: translateY(calc(var(--lh-label) * -0.5em));   /* first line (label) on the centre line */
-  width: calc(var(--col) * 1.9);
+  grid-column: 3;
   display: flex;
   flex-direction: column;
   gap: calc(var(--lh-label) * 1em);   /* one blank line between entries, like the menu */
@@ -740,6 +820,15 @@ body.menu-open #page-bar { opacity: 0; }
   max-width: 86vw;
   max-height: 86vh;
   display: block;
+}
+/* anchored (a picture from a work page, desktop): the box is set by js — full height or
+   full width, placed where the thumbnail was; the FLIP transform is measured from the top-left */
+#lightbox.anchored { display: block; }
+#lightbox.anchored img {
+  position: absolute;
+  max-width: none; max-height: none;
+  transform-origin: 0 0;
+  will-change: transform;
 }
 /* one line of description under the image — bottom edge, same row as ×;
    colour follows the zone (black on white / white on black / black on grey) */
@@ -1001,6 +1090,21 @@ a.m-item:hover .m-title { text-decoration: underline; text-underline-offset: 0.1
 .ct-body p:last-child { margin-bottom: 0; }
 .ct-body a, .ak-body a { color: inherit; text-decoration: none; }
 .ct-body a:hover, .ak-body a:hover { text-decoration: underline; text-underline-offset: 0.12em; text-decoration-thickness: 1px; }
+/* instagram / facebook (2026-10-03 #13): one blank line under the details, as words in the
+   page's type until the brand marks are supplied */
+.ct-links {
+  margin-top: calc(var(--lh-label) * 1em + var(--mc-gap));
+  display: flex; gap: clamp(16px, 1.6vw, 36px);
+  font-size: var(--fs-lg); line-height: var(--lh-label); letter-spacing: var(--ls-label); font-weight: 700;
+}
+.ct-links a { color: inherit; text-decoration: none; }
+.ct-links a:hover { opacity: 0.55; }
+
+/* exhibition page (2026-10-03 #4): the cv grid alone, the first group's rule on the centre line */
+#bio.cv-only { padding-top: 50vh; }
+#bio.cv-only .b-cv { margin-top: 0; }
+/* education page: a text page set like acknowledgments (placeholder until the content arrives) */
+#edu { margin-left: var(--b-left); width: calc(var(--col) * 3 - 2 * var(--mc-gutter)); padding: 50vh 0 40vh; }
 
 /* acknowledgments — statement in bold with its first line on the centre line (same rule
    as the label), two blank lines, then the credit groups one blank line apart */
@@ -1069,6 +1173,10 @@ a.m-item:hover .m-title { text-decoration: underline; text-underline-offset: 0.1
   .panel { width: 100%; height: calc(100% / 3); }
   .panel-label { top: var(--inset-top); right: var(--inset); transform: none; white-space: normal; }
   .home-clock { top: auto; right: auto; left: var(--inset); bottom: var(--inset-bottom); transform: none; }
+  /* the menu groups sit bottom-right of each band, caption size, right-aligned (no mock for
+     phones — the top-left belongs to the name); the hover description has no phone form */
+  .panel-menu { top: auto; left: auto; right: var(--inset); bottom: var(--inset-bottom); align-items: flex-end; font-size: var(--fs); line-height: var(--lh-body); }
+  .panel-desc { display: none; }
 
   /* ————— section: one column of rows ————— */
   #worklist, #canvas-mode, #detail, #page-scroll { overscroll-behavior: none; }
@@ -1081,8 +1189,10 @@ a.m-item:hover .m-title { text-decoration: underline; text-underline-offset: 0.1
     margin: 1.8vw 0 0 var(--m-left);
     width: var(--m-width);
     gap: 0;
+    font-size: var(--fs);                            /* 36 @1080 as drawn in Mobile.pdf (the desktop rule says --fs-lg) */
     line-height: var(--lh-body);
   }
+  .work-caption .w-client { margin-top: calc(var(--lh-body) * 1em); }
   #mode-toggle {
     --tg-w: 5.5vw; --tg-h: 4vw;                      /* a touch larger than the desktop glyph */
     right: var(--inset);
@@ -1119,20 +1229,28 @@ a.m-item:hover .m-title { text-decoration: underline; text-underline-offset: 0.1
   #detail-hero { height: 100vh; height: 100dvh; }
   #detail-hero-pin { position: relative; height: 100%; }
   #detail-hero-text { height: 100%; }
-  #detail-hero .d-title { left: var(--inset); right: var(--inset); top: 35.3%; transform: none; }
-  #detail-hero .d-meta  { left: var(--inset); right: var(--inset); top: 68.6%; transform: none; }
+  #detail-hero .d-main, #detail-hero .d-client { position: static; transform: none; width: auto; display: contents; }
+  #detail-hero .d-title, #detail-hero .d-meta, #detail-hero .d-client {
+    position: absolute; left: var(--inset); right: var(--inset); transform: none;
+    font-size: var(--fs-lg); line-height: var(--lh-label); letter-spacing: var(--ls-label);
+  }
+  #detail-hero .d-title { top: 35.3%; }
+  #detail-hero .d-meta  { top: 68.6%; }
+  #detail-hero .d-client { top: calc(68.6% + var(--fs-lg) * var(--lh-label) * 3); font-weight: 400; display: flex; flex-direction: column; }
+  #detail-hero .d-client:empty { display: none; }
   #detail-body { --bgap: 6vw; padding: 11.7vw 0 0; }
   .d-text, .d-par, .d-img, .d-pair, .d-head { margin-left: var(--inset); margin-right: var(--inset); width: auto; }
   .d-text { font-size: var(--fs-body); line-height: var(--lh-body); }
   .d-par, .l-par, .l-caption { line-height: var(--lh-body); }
+  .l-cap { position: static; display: block; opacity: 1; margin-top: 1.2vw; white-space: normal; line-height: var(--lh-body); }   /* no hover on a phone: the description stays under the picture */
   .d-head, .d-pair { flex-direction: column; gap: var(--bgap); }
   .d-head .d-text { margin-left: 0 !important; margin-right: 0; }
   .d-pair .d-img, .d-pair .d-par { width: auto; margin: 0; }
   .d-grid { grid-template-columns: repeat(2, 1fr); }
   .l-video-box .play { border-left-width: 5vw; border-top-width: 3vw; border-bottom-width: 3vw; }
   /* colophon in the flow: title, two blank lines, then the credits one blank line apart */
-  .d-colophon { height: auto; padding: 4vw var(--inset) 30vh; }
-  .d-colophon .c-title, .d-colophon .c-meta { position: static; transform: none; width: auto; }
+  .d-colophon { display: block; margin-top: 0; min-height: 0; padding: 4vw var(--inset) 30vh; }
+  .d-colophon .c-title { padding-right: 0; }
   .d-colophon .c-meta { margin-top: calc(var(--lh-label) * 2em); font-size: var(--fs); line-height: var(--lh-body); gap: 1em; }
 
   /* ————— lightbox ————— */
@@ -1173,7 +1291,9 @@ a.m-item:hover .m-title { text-decoration: underline; text-underline-offset: 0.1
   #contact { margin: 0; width: auto; padding: var(--m-top) var(--inset) 40vw; --ct-logo-h: 6.2vw; }
   .ct-body { margin-top: 8vw; font-size: var(--fs-body); line-height: var(--lh-body); }
   .ct-body p { margin-bottom: calc(var(--lh-body) * 1em); }
-  #ack { margin: 0; width: auto; padding: var(--m-top) var(--inset) 40vw; }
+  #ack, #edu { margin: 0; width: auto; padding: var(--m-top) var(--inset) 40vw; }
+  #bio.cv-only { padding-top: var(--m-top); }
+  .ct-links { margin-top: 8vw; font-size: var(--fs-body); }
   .ak-body { margin-top: 0; font-size: var(--fs-body); line-height: var(--lh-body); }
   .ak-body p { margin-bottom: calc(var(--lh-body) * 1em); }
   .ak-body .ak-lead { margin-bottom: calc(var(--lh-body) * 2em); }

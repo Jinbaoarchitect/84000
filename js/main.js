@@ -4,10 +4,12 @@
    ———————————————————————————————————————————— */
 
 /* ————— demo data ————— */
+/* the three zones: name, period and the one line shown under the name when it is hovered on
+   the home page (client copy, 2026-10-03 #3; chinese below in UI_CN) */
 const WHO = {
-  sw:  { name: "stanley wong",                       period: "1980 - present" },
-  amm: { name: "anothermountainman",                 period: "2000 - present" },
-  xsw: { name: "anothermountainman × stanley wong",  period: "2000 - present" },
+  sw:  { name: "stanley wong",                       period: "1980 - present", desc: "client-commissioned commercial projects" },
+  amm: { name: "anothermountainman",                 period: "2000 - present", desc: "non-commercial personal works" },
+  xsw: { name: "anothermountainman × stanley wong",  period: "2000 - present", desc: "socially engaged commercial projects with the personal perspective" },
 };
 
 /* ————— en · cn — the site's own words —————
@@ -18,7 +20,11 @@ const WHO = {
 const UI_CN = {
   "stanley wong": "黃炳培", "anothermountainman": "又一山人", "anothermountainman × stanley wong": "又一山人 × 黃炳培",
   "1980 - present": "1980 - 至今", "2000 - present": "2000 - 至今",
+  "client-commissioned commercial projects": "客戶委約的商業項目",
+  "non-commercial personal works": "非商業的個人創作",
+  "socially engaged commercial projects with the personal perspective": "具個人視角的社會參與式商業項目",
   "search": "搜尋", "filter": "篩選", "journey": "歷程", "biography": "簡歷", "media": "媒體",
+  "exhibition": "展覽", "education": "教育",
   "contact": "聯絡", "shop": "商店", "acknowledgments": "鳴謝",
   "year": "年份", "category": "類別", "all": "全部", "not found": "找不到結果",
   "advertising": "廣告", "tv commercial": "電視廣告", "branding": "品牌", "book": "書籍", "poster": "海報", "space": "空間",
@@ -185,7 +191,7 @@ function preloadIntro() {
 /* phones: heavy content (works, canvas pool, journey …) waits until the intro has played,
    so decoding a few hundred pictures never competes with the flap animation.
    desktop: unchanged — everything loads in parallel with the intro */
-const INTRO_TOTAL_MS = 3300;
+const INTRO_TOTAL_MS = 5300;              /* = playIntro T.end + a beat */
 function afterIntro(fn) { if (isMobile()) setTimeout(fn, INTRO_TOTAL_MS); else fn(); }
 
 /* paint one card (or blank) into a set of .img windows */
@@ -243,17 +249,26 @@ function playIntro(done) {
   const CARDS = introCards();
   restCard(flip, CARDS[1]);
 
-  /* whole opening ≤ 3 s: still 1 (1.1 s) → flap (0.56 s) → still 2 → 1 s dissolve */
+  /* the opening is five seconds, one beat per second (client, 2026-10-03 — back to the first version):
+       0 – 1  black → :NOW comes up (still 1 fades in)
+       1 – 2  still
+       2 – 3  the board flaps to still 2
+       3 – 4  still
+       4 – 5  the home page comes up through it (1 s dissolve) */
   const T = {
-    flip2:  1100,    /* still 1 → still 2                        */
-    reveal: 2000,    /* home appears beneath, intro dissolves    */
-    end:    3000     /* intro layer removed                      */
+    fadein: 1000,    /* still 1 fades in from black over this long  */
+    flip2:  2000,    /* still 1 → still 2                            */
+    reveal: 4000,    /* home appears beneath, intro dissolves        */
+    end:    5000     /* intro layer removed                          */
   };
 
   const run = ++introRun;
   preloadIntro().then(() => {
     if (run !== introRun) return;        /* a newer intro has taken over */
-    restCard(flip, CARDS[1]);            /* open directly on still 1 — no blank card first */
+    restCard(flip, CARDS[1]);
+    /* 0 – 1 s: the board rises out of the black (the letterbox stays black throughout) */
+    flip.style.transition = "none"; flip.style.opacity = 0; void flip.offsetWidth;
+    flip.style.transition = `opacity ${T.fadein}ms ease`; flip.style.opacity = 1;
     introTimers.push(setTimeout(() => flipTo(flip, CARDS[1], CARDS[2]), T.flip2));
     introTimers.push(setTimeout(() => {
       done();                              /* home becomes visible underneath */
@@ -387,12 +402,13 @@ function startHome() {
   $("#home").classList.remove("hidden");
   setBodyTheme("home");                    /* three bands: the ground goes back to black */
   stopHome();
+  fillHomeText();
 
   const panels = document.querySelectorAll(".panel");
   panels.forEach((p) => {
     p.querySelectorAll(".panel-img").forEach((l) => { l.classList.remove("on"); l.style.zIndex = ""; });
-    p.classList.remove("lit");
-    delete p.dataset.tone; delete p.dataset.clockTone;
+    p.classList.remove("lit", "desc-on");
+    delete p.dataset.tone; delete p.dataset.clockTone; delete p.dataset.menuTone;
     p._front = null;
   });
 
@@ -440,9 +456,10 @@ function startHome() {
         back.classList.add("on");
         p.classList.add("lit");
         /* recolour label (and clock) for this image — per panel, per switch */
-        const label = p.querySelector(".panel-label"), clock = p.querySelector(".home-clock");
+        const label = p.querySelector(".panel-label"), clock = p.querySelector(".home-clock"), menu = p.querySelector(".panel-menu");
         toneFor(pick, p, label, { prefer: TONE_NATIVE[who] }).then((tn) => { if (p._front === back && tn) p.dataset.tone = tn; });
         if (clock) toneFor(pick, p, clock, { prefer: TONE_NATIVE[who] }).then((tn) => { if (p._front === back && tn) p.dataset.clockTone = tn; });
+        if (menu) toneFor(pick, p, menu, { prefer: TONE_NATIVE[who] }).then((tn) => { if (p._front === back && tn) p.dataset.menuTone = tn; });
         if (front) {
           front.style.transitionDuration = "0.6s";
           homeTimers.push(setTimeout(() => front.classList.remove("on"), 650));
@@ -464,26 +481,33 @@ function stopHome() {
   homeTimers = [];
 }
 
-/* hover → period text
-   only the middle band of each panel (HOME_HOVER_BAND of its height,
-   centred on the label line) swaps the name for the period;
-   the areas above and below leave the name untouched */
+/* hover → the period and a line about the zone come up under the name (client, 2026-10-03 #3:
+   the name itself stays). only the middle band of each panel (HOME_HOVER_BAND of its height,
+   centred on the label line) reacts; the areas above and below leave it alone.
+   the menu words at the top of each panel open their pages (#2) */
 const HOME_HOVER_BAND = 0.35;
+function fillHomeText() {
+  document.querySelectorAll(".panel").forEach((p) => {
+    const who = p.dataset.who;
+    p.querySelector(".panel-label").textContent = t(WHO[who].name);
+    p.querySelector(".panel-desc").innerHTML = `<span>${t(WHO[who].period)}</span><span>${t(WHO[who].desc)}</span>`;
+    p.querySelectorAll(".panel-menu a").forEach((a) => { a.textContent = t(a.dataset.page); });
+  });
+}
 document.querySelectorAll(".panel").forEach((p) => {
-  const label = p.querySelector(".panel-label");
-  const setPeriod = (on) => {
-    const s = t(on ? label.dataset.period : label.dataset.name);
-    if (label.textContent !== s) label.textContent = s;
-  };
   p.addEventListener("mousemove", (e) => {
-    if (isMobile()) return;                          /* a tap opens the zone; no period swap */
+    if (isMobile()) return;                          /* a tap opens the zone; nothing comes up */
     const r = p.getBoundingClientRect();
     const y = (e.clientY - r.top) / r.height;          /* 0 = top, 1 = bottom */
     const half = HOME_HOVER_BAND / 2;
-    setPeriod(y >= 0.5 - half && y <= 0.5 + half);
+    p.classList.toggle("desc-on", y >= 0.5 - half && y <= 0.5 + half && !e.target.closest(".panel-menu"));
   });
-  p.addEventListener("mouseleave", () => setPeriod(false));
-  p.addEventListener("click", () => openSection(p.dataset.who));
+  p.addEventListener("mouseleave", () => p.classList.remove("desc-on"));
+  p.addEventListener("click", (e) => {
+    const a = e.target.closest(".panel-menu a");
+    if (a) { e.stopPropagation(); openPage(a.dataset.page); return; }
+    openSection(p.dataset.who);
+  });
 });
 
 /* ————————————————————————————————————————————
@@ -497,6 +521,7 @@ let sectionInTimer = null;
 
 function openSection(who) {
   const fromHome = !$("#home").classList.contains("hidden");
+  if (fromHome || who !== currentWho) pushView({ v: "section", who });
   currentWho = who;
   canvasOn = false;
   stopHome();
@@ -564,6 +589,22 @@ function attachThumbCycle(el, w) {
   });
 }
 
+/* the work's client, as shown in the list caption and the hero's third column (client,
+   2026-10-03 #5–#7): the `client` credit of the work, in the current language.
+   anothermountainman's works are personal — no client is shown there even if one is
+   recorded; demo works (no cms) show a placeholder. "" = nothing to show */
+function clientOf(w) {
+  if (w.who === "amm") return "";
+  if (!w.rec) return "demo client";
+  const c = (w.credits || []).find((x) => String(x.label || "").trim().toLowerCase() === "client");
+  if (!c) return "";
+  return (LANG === "cn" && c.value_cn ? c.value_cn : c.value_en) || "";
+}
+const clientHtml = (w, cls) => {
+  const v = clientOf(w);
+  return v ? `<span class="${cls}"><span class="label">${t("client")} /</span>${v.replace(/\n/g, "<br>")}</span>` : "";
+};
+
 function renderRows(container, works) {
   container.innerHTML = "";
   works.forEach((w, i) => {
@@ -576,6 +617,7 @@ function renderRows(container, works) {
         <span class="w-title">${txt(w, "title")}</span>
         <span class="w-sub">${w.yearText || w.year}</span>
         <span class="w-sub">${txt(w, "category") || w.cat}</span>
+        ${clientHtml(w, "w-client")}
       </div>`;
     row._work = w;
     const thumb = row.querySelector(".work-thumb");
@@ -625,9 +667,11 @@ const MENU_GROUPS = [
     { key: "filter", label: "filter", page: "filter" },
   ],
   [
-    { key: "journey",   label: "journey",   page: "journey" },
-    { key: "biography", label: "biography", page: "biography" },
-    { key: "media",     label: "media",     page: "media" },
+    { key: "journey",    label: "journey",    page: "journey" },
+    { key: "biography",  label: "biography",  page: "biography" },
+    { key: "media",      label: "media",      page: "media" },
+    { key: "exhibition", label: "exhibition", page: "exhibition" },     /* 2026-10-03 #4: the cv's exhibition rows, on their own page */
+    { key: "education",  label: "education",  page: "education" },      /* 2026-10-03 #4: text page, content to come */
   ],
 ];
 
@@ -749,7 +793,7 @@ function handleMenuClick(e) {
 function applyLang() {
   document.documentElement.lang = LANG === "cn" ? "zh-Hant-HK" : "en";
   renderMenu();
-  document.querySelectorAll(".panel-label").forEach((l) => { l.textContent = t(l.dataset.name); });
+  fillHomeText();
   $("#section-name").textContent = t(WHO[currentWho].name);
   $("#detail-name").textContent = t(WHO[currentWho].name);
   if (sectionVisible()) renderRows($("#worklist-scroll"), WORKS[currentWho]);
@@ -901,6 +945,56 @@ function startDrag(e) {
 $("#canvas-mode").addEventListener("pointerdown", startDrag);
 $("#canvas-mode").addEventListener("wheel", (e) => panBy(e.deltaX, e.deltaY), { passive: true });
 
+/* ————— the browser's swipe-to-go-back —————
+   a two-finger swipe left on a trackpad (the canvas pans that way) is also the browser's
+   history gesture; the client kept landing on the previous site (2026-10-03, #14).
+   three layers: (1) css overscroll-behavior: none on the root (chrome, edge, firefox);
+   (2) a horizontal wheel event is consumed before the browser can read it as a gesture —
+   safari ignores overscroll-behavior for its swipe, but will not start one from a
+   wheel sequence whose first event was cancelled. nothing on the site scrolls sideways,
+   so a horizontal wheel has no other job (the canvas reads deltaX from its own listener);
+   (3) every step into the site pushes a history entry (below), so even a gesture that
+   gets through only steps back inside the site, never out of it */
+addEventListener("wheel", (e) => {
+  if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) e.preventDefault();
+}, { passive: false });
+
+/* history: home → zone → work / page / picture, one entry per step (pushView). back —
+   button, key or gesture — pops entries and closes the layer each one opened, if it is
+   still open (a layer closed with × leaves its entry behind; popping it then does
+   nothing). forward is not reconstructed. the url never changes */
+let historyDepth = 0, historyMute = false;         /* mute: a view opened by popView must not push again */
+const viewStack = [];                               /* viewStack[d - 1] = what entry d opened */
+function pushView(state) {
+  if (historyMute) return;
+  viewStack.length = historyDepth;
+  viewStack.push(state);
+  historyDepth++;
+  try { history.pushState({ depth: historyDepth }, ""); } catch (e) {}
+}
+function popView(s) {
+  const below = viewStack.slice(0, historyDepth).reverse();
+  if (s.v === "lightbox") { if (lightboxVisible()) closeLightbox(); }
+  else if (s.v === "detail") { if (detailVisible()) show("#section"); }
+  else if (s.v === "page") {
+    if (!pageVisible()) return;
+    const prev = below.find((x) => x.v === "page" || x.v === "section");
+    if (prev && prev.v === "page") openPage(prev.name); else closePage();
+  } else if (s.v === "section") {
+    if (!sectionVisible() || detailVisible() || pageVisible()) return;
+    const prev = below.find((x) => x.v === "section");
+    closeMenu();
+    if (prev) { if (prev.who !== currentWho) openSection(prev.who); } else startHome();
+  }
+}
+addEventListener("popstate", (e) => {
+  const depth = (e.state && e.state.depth) || 0;
+  if (depth >= historyDepth) { historyDepth = Math.min(depth, viewStack.length); return; }   /* forward: nothing to rebuild */
+  historyMute = true;
+  try { while (historyDepth > depth) { const s = viewStack[historyDepth - 1]; historyDepth--; if (s) popView(s); } }
+  finally { historyMute = false; }
+});
+
 let rsTimer = null;
 addEventListener("resize", () => {
   clearTimeout(rsTimer);
@@ -939,7 +1033,11 @@ function workMatches(w, q) {
   return hay.includes(q);
 }
 
+let pageFromHome = false;                /* a page opened from the home menu closes back to home */
 function openPage(name) {
+  if (!(pageVisible() && currentPage === name)) pushView({ v: "page", name });
+  const fromHome = !$("#home").classList.contains("hidden");
+  if (fromHome) { stopHome(); pageFromHome = true; } else if (!pageVisible()) pageFromHome = false;
   currentPage = name;
   setBodyTheme("page");
   const bar = $("#page-bar");
@@ -1024,6 +1122,7 @@ function openPage(name) {
 
 function closePage() {
   currentPage = null;
+  if (pageFromHome) { pageFromHome = false; closeMenu(); startHome(); $("#page").classList.add("hidden"); return; }
   setBodyTheme(currentWho);
   show("#section");
 }
@@ -1156,12 +1255,17 @@ function vimeoId(url) {
 function renderLayout(body, blocks, imgs, w) {
   if (isMobile()) blocks = mobileBlocks(blocks, imgs);
   const full = (im) => im.full || im.src;
+  /* a picture, with its one-line description (cms image caption) under its bottom-left
+     corner: shown while the pointer is over the picture on desktop, always on phones
+     (client, 2026-10-03 #9). a click enlarges it from where it is (openLightbox) */
+  const capOf = (im) => (LANG === "cn" && im.cap_cn ? im.cap_cn : im.cap_en || "");
   const pic = (i) => {
     const im = imgs[i - 1]; if (!im) return null;
     const el = document.createElement("div");
     el.className = "l-img";
-    el.innerHTML = `<img src="${im.src}" alt="" loading="lazy">`;
-    el.addEventListener("click", () => openLightbox(full(im), im));
+    const cap = capOf(im);
+    el.innerHTML = `<img src="${im.src}" alt="" loading="lazy">` + (cap ? `<span class="l-cap">${cap}</span>` : "");
+    el.addEventListener("click", () => openLightbox(full(im), im, el));
     return el;
   };
   /* text of a caption / par block or a text cell: text_en / text_cn (en · cn switch), else text */
@@ -1266,6 +1370,7 @@ function openDetail(w) {
     }
   }
   const reopen = detailVisible();                  /* re-render while the page is up (language switch) */
+  if (!reopen) pushView({ v: "detail" });
   currentWork = w;
   currentPage = null;
   setBodyTheme(currentWho);
@@ -1275,6 +1380,8 @@ function openDetail(w) {
   $("#detail-hero .d-title").textContent = txt(w, "title");
   $("#detail-hero .d-year").textContent = w.yearText || w.year;
   $("#detail-hero .d-cat").textContent = txt(w, "category") || w.cat;
+  const cl = clientOf(w);
+  $("#detail-hero .d-client").innerHTML = cl ? `<span class="label">${t("client")} /</span>${cl.replace(/\n/g, "<br>")}` : "";
 
   const body = $("#detail-body");
   body.innerHTML = "";
@@ -1316,11 +1423,12 @@ function openDetail(w) {
     <div class="c-meta">${credits.map((c) => `<span><span class="label">${t(c.label)}</span>${html(c.value)}</span>`).join("")}</div>`;
   body.appendChild(colo);
 
-  d.scrollTop = 0;
   $("#detail-hero-scrim").style.opacity = 0.7;
   /* dissolve in once the hero picture is decoded (capped, so a slow file never stalls the click);
-     a language switch re-renders while the page is up — no wait, no fade */
-  if (reopen) show("#detail");
+     a language switch re-renders while the page is up — no wait, no fade.
+     scrollTop is reset AFTER show(): while the view is display:none it has no scroll box and the
+     assignment is lost, so a work opened after another came up at the previous scroll position */
+  if (reopen) { show("#detail"); d.scrollTop = 0; }
   else Promise.race([warmImage(w.img.src), new Promise((r) => setTimeout(r, 700))]).then(() => {
     if (currentWork !== w) return;
     /* the page dissolves in, and inside it the hero picture and the text rise out of the zone
@@ -1330,6 +1438,7 @@ function openDetail(w) {
     clearTimeout(d._heroInTimer);
     d._heroInTimer = setTimeout(() => d.classList.remove("hero-in"), 1600);
     show("#detail");
+    d.scrollTop = 0;
   });
 
   /* hero row colour: title and year / category are read against the image
@@ -1338,9 +1447,10 @@ function openDetail(w) {
   const heroTones = () => {
     const pin = $("#detail-hero-pin");
     const overlay = { lum: { sw: 1, amm: 0, xsw: 0.44 }[currentWho], alpha: 0.7 };
-    [".d-title", ".d-meta"].forEach((sel) => {
+    [".d-title", ".d-meta", ".d-client"].forEach((sel) => {
       const el = $("#detail-hero " + sel);
       delete el.dataset.tone;
+      if (!el.textContent) return;
       toneFor(w.img.src, pin, el, { overlay, tones: ["white", "black"], prefer: TONE_NATIVE[currentWho] })
         .then((tn) => { if (tn && $("#detail-hero .d-title").textContent === txt(w, "title")) el.dataset.tone = tn; });
     });
@@ -1348,6 +1458,14 @@ function openDetail(w) {
   requestAnimationFrame(heroTones);
 }
 $("[data-close-detail]").addEventListener("click", () => show("#section"));
+
+/* a click on the hero scrolls the page on by one screen — a second way in, beside the wheel,
+   for a visitor who does not know the picture scrolls (client, 2026-10-03 #8). the text layer
+   does not take pointer events, so the whole first screen is the target */
+$("#detail-hero").addEventListener("click", () => {
+  const d = $("#detail");
+  d.scrollTo({ top: Math.min(d.scrollTop + innerHeight, $("#detail-body").offsetTop), behavior: "smooth" });
+});
 
 /* hero scrim: 70 % section colour → 0 over the first viewport of scroll
    (text scrolls away meanwhile; the pinned image then follows) */
@@ -1357,19 +1475,73 @@ $("#detail").addEventListener("scroll", () => {
   $("#detail-hero-scrim").style.opacity = (0.7 * (1 - p)).toFixed(3);
 }, { passive: true });
 
-/* ————— lightbox ————— */
-function openLightbox(src, im) {
-  const lb = $("#lightbox");
+/* ————— lightbox —————
+   a picture clicked on a work page enlarges FROM WHERE IT IS (client, 2026-10-03 #10): it grows
+   out of its own place on the page to the full height of the screen (or the full width, if it
+   is wider than that), and its horizontal position follows the thumbnail's — the centre of the
+   thumbnail is kept as far as the screen allows, so a picture on the right of the grid ends up
+   flush with the right edge, one on the left with the left edge, a centred one centred. the
+   description stays bottom-left of the screen, in the margin the picture leaves.
+   openLightbox(src, im, fromEl): fromEl = the .l-img on the page. without it (journey, biography,
+   canvas) and on phones (unchanged for now) the picture is simply centred, as before */
+const LIGHTBOX_MS = 480;
+function openLightbox(src, im, fromEl) {
+  const lb = $("#lightbox"), img = $("#lightbox-img");
   lb.className = `theme-${currentWho}`;            /* single image view follows the section colour */
-  $("#lightbox-img").src = src;
   /* one-line description from the CMS (per image); empty → nothing shown */
   const cap = im ? (LANG === "cn" && im.cap_cn ? im.cap_cn : im.cap_en || "") : "";
   $("#lightbox-cap").textContent = cap;
+  img.getAnimations().forEach((a) => a.cancel());
+  lb.getAnimations().forEach((a) => a.cancel());    /* a close still fading out is overridden */
+  img.style.cssText = "";
+  lb._src = src; lb._from = null;
+  const thumb = fromEl && fromEl.querySelector("img");
+  const ratio = thumb && thumb.naturalWidth && thumb.naturalHeight ? thumb.naturalWidth / thumb.naturalHeight
+              : im && im.w && im.h ? im.w / im.h : 0;
+  if (thumb && ratio && !isMobile()) {
+    lb.classList.add("anchored");
+    const r = thumb.getBoundingClientRect(), vw = innerWidth, vh = innerHeight;
+    let H = vh, W = H * ratio;
+    if (W > vw) { W = vw; H = W / ratio; }
+    const left = Math.min(Math.max(r.left + r.width / 2 - W / 2, 0), vw - W), top = (vh - H) / 2;
+    img.style.cssText = `left:${left}px;top:${top}px;width:${W}px;height:${H}px`;
+    /* the thumbnail's own file is already decoded, so it shows at once; the full-size file replaces it when loaded */
+    img.src = thumb.currentSrc || thumb.src;
+    if (src !== img.src) warmImage(src).then(() => { if (lightboxVisible() && lb._src === src) img.src = src; });
+    lb._from = fromEl;
+    /* FLIP: from the thumbnail's box to its enlarged box */
+    img.animate(
+      [{ transform: `translate(${r.left - left}px, ${r.top - top}px) scale(${r.width / W}, ${r.height / H})` }, { transform: "none" }],
+      { duration: LIGHTBOX_MS, easing: "cubic-bezier(0.2, 0.7, 0.2, 1)" });
+    lb.animate([{ opacity: 0 }, { opacity: 1 }], { duration: LIGHTBOX_MS * 0.8, easing: "ease" });
+  } else {
+    img.src = src;
+  }
   closeMenu();
+  pushView({ v: "lightbox" });
 }
-$("[data-close-lightbox]").addEventListener("click", () =>
-  $("#lightbox").classList.add("hidden")
-);
+function closeLightbox() {
+  const lb = $("#lightbox"), img = $("#lightbox-img");
+  if (lb.classList.contains("hidden")) return;
+  const from = lb._from && lb._from.isConnected ? lb._from.querySelector("img") : null;
+  if (lb.classList.contains("anchored") && from && !isMobile()) {
+    /* back into its place on the page (if that place is still on screen; otherwise it just fades) */
+    const r = from.getBoundingClientRect(), b = img.getBoundingClientRect();
+    const onScreen = r.bottom > 0 && r.top < innerHeight;
+    const frames = onScreen
+      ? [{ transform: "none" }, { transform: `translate(${r.left - b.left}px, ${r.top - b.top}px) scale(${r.width / b.width}, ${r.height / b.height})` }]
+      : [{ opacity: 1 }, { opacity: 0 }];
+    const a = img.animate(frames, { duration: LIGHTBOX_MS * 0.8, easing: "cubic-bezier(0.4, 0, 0.6, 1)", fill: "forwards" });
+    lb.animate([{ opacity: 1 }, { opacity: 0 }], { duration: LIGHTBOX_MS * 0.8, easing: "ease", fill: "forwards" }).onfinish = () => {
+      a.cancel(); lb.getAnimations().forEach((x) => x.cancel());
+      lb.classList.add("hidden"); lb.classList.remove("anchored");
+    };
+    lb._from = null;
+    return;
+  }
+  lb.classList.add("hidden"); lb.classList.remove("anchored");
+}
+$("[data-close-lightbox]").addEventListener("click", closeLightbox);
 
 /* ————————————————————————————————————————————
    restart (click on the clock)
@@ -1378,13 +1550,13 @@ function restart() {
   t0 = Date.now();
   stopHome();
   closeMenu();
-  $("#lightbox").classList.add("hidden");
+  closeLightbox();
   playIntro(startHome);
 }
 
 addEventListener("keydown", (e) => {
   if (e.key !== "Escape") return;
-  if (lightboxVisible()) $("#lightbox").classList.add("hidden");
+  if (lightboxVisible()) closeLightbox();
   else if (detailVisible()) show("#section");
   else if (pageVisible()) closePage();
 });

@@ -28,21 +28,30 @@
 </div>
 
 <!-- ══════════ home / three panels ══════════ -->
+<!-- every menu group is on the home page (client 2026-10-03 #2): search / filter on the white panel,
+     the personal pages on the black, contact / shop / acknowledgments on the grey — top of each panel.
+     hovering a name shows its period and a line about the zone under it (#3); text filled by JS (WHO) -->
 <div id="home" class="view hidden">
   <section class="panel" data-who="sw">
     <div class="panel-img a"></div>
     <div class="panel-img b"></div>
+    <nav class="panel-menu"><a data-page="search">search</a><a data-page="filter">filter</a></nav>
     <span class="panel-label" data-name="stanley wong" data-period="1980 - present">stanley wong</span>
+    <span class="panel-desc"></span>
   </section>
   <section class="panel" data-who="amm">
     <div class="panel-img a"></div>
     <div class="panel-img b"></div>
+    <nav class="panel-menu"><a data-page="journey">journey</a><a data-page="biography">biography</a><a data-page="media">media</a><a data-page="exhibition">exhibition</a><a data-page="education">education</a></nav>
     <span class="panel-label" data-name="anothermountainman" data-period="2000 - present">anothermountainman</span>
+    <span class="panel-desc"></span>
   </section>
   <section class="panel" data-who="xsw">
     <div class="panel-img a"></div>
     <div class="panel-img b"></div>
+    <nav class="panel-menu"><a data-page="contact">contact</a><a data-page="shop">shop</a><a data-page="acknowledgments">acknowledgments</a></nav>
     <span class="panel-label" data-name="anothermountainman × stanley wong" data-period="2000 - present">anothermountainman × stanley wong</span>
+    <span class="panel-desc"></span>
     <span class="clock home-clock" data-clock>00 : 00 : 00</span>
   </section>
 </div>
@@ -91,11 +100,15 @@
         <div id="detail-hero-scrim"></div>
       </div>
       <div id="detail-hero-text">
-        <span class="d-title"></span>
-        <div class="d-meta">
-          <span class="d-year sub"></span>
-          <span class="d-cat sub"></span>
+        <!-- centre line, left → right: name (fixed) · title / year / category · client · clock (fixed) -->
+        <div class="d-main">
+          <span class="d-title"></span>
+          <div class="d-meta">
+            <span class="d-year sub"></span>
+            <span class="d-cat sub"></span>
+          </div>
         </div>
+        <div class="d-client"></div>
       </div>
     </header>
     <div id="detail-body"></div>

@@ -474,8 +474,13 @@ const DEMO_MEDIA = [
 /* the 84000 communications logo is part of the site (vector from the pdf), not cms content */
 const CONTACT_LOGO = "assets/contact/84000-communications.svg";
 
-/* body text as the admin stores it: lines joined with <br>, a blank line between groups */
-const DEMO_CONTACT = { rec: { body_en: "84000 communications<br><br>tel /<br>+852 2887 1321<br><br>email /<br>0002@84000.com.hk<br>0001@84000.com.hk<br><br>address /<br>room i, eaton house, 4/f, 380 nathan road, kowloon, hong kong", body_cn: "八萬四千溝通事務所<br><br>電話 /<br>+852 2887 1321<br><br>電郵 /<br>0002@84000.com.hk<br>0001@84000.com.hk<br><br>地址 /<br>香港九龍彌敦道 380 號 eaton house 4 樓 i 室" }, images: [] };
+/* body text as the admin stores it: lines joined with <br>, a blank line between groups
+   (copy replaced per the client's 2026-10-03 feedback, #13: one phone, one e-mail, 1/f) */
+const DEMO_CONTACT = { rec: { body_en: "84000 communications limited<br><br>tel /<br>+852 9462 0701<br><br>email /<br>0002@84000.com.hk<br><br>address /<br>room i, eaton house, 1/f, 380 nathan road, kowloon, hong kong", body_cn: "八萬四千溝通事務所有限公司<br><br>電話 /<br>+852 9462 0701<br><br>電郵 /<br>0002@84000.com.hk<br><br>地址 /<br>香港九龍彌敦道 380 號 eaton house 1 樓 i 室" }, images: [] };
+/* instagram / facebook links under the details (#13) — addresses to be supplied; "" hides the link.
+   set as words in the site's own type for now (the client may send the official brand marks) */
+const CONTACT_SOCIAL = { instagram: "https://www.instagram.com/", facebook: "https://www.facebook.com/" };
+const SOCIAL_ICONS = { instagram: "instagram", facebook: "facebook" };
 
 /* first paragraph = the statement (bold, first line on the centre line), then the credit groups.
    "yongran zhang" corrected from the pdf's "rongran zhang" (client, 2026-09-22) */
@@ -486,8 +491,16 @@ let MEDIA = DEMO_MEDIA;
 let CONTACT = DEMO_CONTACT;
 let ACK = DEMO_ACK;
 
-/* group order of the CV = order of the CMS select */
-const BIO_SECTIONS = ["solo exhibition", "group exhibition", "award", "collection", "talk"];
+/* group order of the CV = order of the CMS select. since 2026-10-03 (#4 / #12) the exhibition
+   groups are a page of their own and the biography keeps the rest — awards first */
+const BIO_SECTIONS = ["award", "collection", "talk"];
+const EXHIBITION_SECTIONS = ["solo exhibition", "group exhibition"];
+/* shown while the award list has not been supplied (client, 2026-10-03: placeholder) */
+const AWARD_PLACEHOLDER = { section: "award", date: "", rec: { type_en: "", type_cn: "", title_en: "demo entry — the award list will be supplied", title_cn: "示範條目——獎項清單待補", venue_en: "", venue_cn: "" } };
+
+/* education page — a text page like contact / acknowledgments; content to come (placeholder) */
+const DEMO_EDU = { rec: { body_en: "education<br><br>demo — the content of this page will be supplied.", body_cn: "教育<br><br>示範——本頁內容待補。" }, images: [] };
+let EDU = DEMO_EDU;
 
 /* live content — replaced by the CMS when it answers */
 let JOURNEY_EVENTS = DEMO_JOURNEY;
@@ -753,23 +766,14 @@ function renderJourneyList(body) {
    (columns 3–5), then the cv: one group per section, the section label
    holding the centre line while its rows scroll past
    ———————————————————————————————————————————— */
-function renderBiography(body) {
-  const bio = BIO;
+/* the cv grid (date · type · title · venue), one group per section — shared by the biography
+   (awards, collection, talks) and the exhibition page (solo / group exhibitions) */
+function cvHtml(entries, sections) {
   const esc = (s) => String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
-  /* statement: html as is (cms editor / demo); plain text → paragraphs */
-  const raw = bio.rec ? (txt(bio, "body") || "") : bio.body;
-  const statement = /^\s*</.test(raw) ? raw
-    : esc(raw).split(/\n\s*\n/).map((p) => `<p>${p.replace(/\n/g, "<br>")}</p>`).join("");
-
-  const groups = BIO_SECTIONS
-    .map((section) => ({ section, rows: bio.entries.filter((e) => e.section === section) }))
+  const groups = sections
+    .map((section) => ({ section, rows: entries.filter((e) => e.section === section) }))
     .filter((g) => g.rows.length);
-
-  body.innerHTML = `
-    <div id="bio">
-      <div class="b-head">${bio.portrait ? `<img class="b-portrait" src="${bio.portrait}" alt="">` : ""}</div>
-      <div class="b-statement">${statement}</div>
-      <div class="b-cv">
+  return `<div class="b-cv">
         ${groups.map((g) => `
           <section class="b-group">
             <div class="b-label"><span>${t(g.section)}</span></div>
@@ -782,10 +786,33 @@ function renderBiography(body) {
               </div>`).join("")}
             </div>
           </section>`).join("")}
-      </div>
+      </div>`;
+}
+
+function renderBiography(body) {
+  const bio = BIO;
+  const esc = (s) => String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  /* statement: html as is (cms editor / demo); plain text → paragraphs */
+  const raw = bio.rec ? (txt(bio, "body") || "") : bio.body;
+  const statement = /^\s*</.test(raw) ? raw
+    : esc(raw).split(/\n\s*\n/).map((p) => `<p>${p.replace(/\n/g, "<br>")}</p>`).join("");
+  /* no exhibitions here any more (#12); until the award list arrives a placeholder row stands in */
+  const entries = bio.entries.some((e) => e.section === "award") ? bio.entries : bio.entries.concat([AWARD_PLACEHOLDER]);
+
+  body.innerHTML = `
+    <div id="bio">
+      <div class="b-head">${bio.portrait ? `<img class="b-portrait" src="${bio.portrait}" alt="">` : ""}</div>
+      <div class="b-statement">${statement}</div>
+      ${cvHtml(entries, BIO_SECTIONS)}
     </div>`;
   const portrait = body.querySelector(".b-portrait");
   if (portrait) portrait.addEventListener("click", () => openLightbox(bio.portraitFull || bio.portrait));
+}
+
+/* exhibition — the biography's exhibition groups on a page of their own (#4): the same cv grid,
+   starting with the first group's rule on the centre line */
+function renderExhibition(body) {
+  body.innerHTML = `<div id="bio" class="cv-only">${cvHtml(BIO.entries, EXHIBITION_SECTIONS)}</div>`;
 }
 
 /* ————————————————————————————————————————————
@@ -840,10 +867,21 @@ function renderMedia(body) {
    ———————————————————————————————————————————— */
 function renderContact(body) {
   const c = CONTACT;
+  /* instagram / facebook under the details (client, 2026-10-03 #13); the addresses are
+     placeholders until supplied (CONTACT_SOCIAL — or the cms page's `instagram` / `facebook`) */
+  const social = [["instagram", (c.rec && c.rec.instagram) || CONTACT_SOCIAL.instagram], ["facebook", (c.rec && c.rec.facebook) || CONTACT_SOCIAL.facebook]]
+    .filter(([, url]) => url)
+    .map(([k, url]) => `<a class="ct-social ${k}" href="${escHtml(url)}" target="_blank" rel="noopener" aria-label="${k}">${SOCIAL_ICONS[k]}</a>`).join("");
   body.innerHTML = `<div id="contact">
       <div class="ct-logo"><img src="${CONTACT_LOGO}" alt="84000 communications" draggable="false"></div>
       <div class="ct-body">${richText(txt(c, "body"))}</div>
+      ${social ? `<div class="ct-links">${social}</div>` : ""}
     </div>`;
+}
+
+/* education — a text page (placeholder until the content arrives), set like acknowledgments */
+function renderEducation(body) {
+  body.innerHTML = `<div id="edu" class="text-page"><div class="ak-body">${richText(txt(EDU, "body"))}</div></div>`;
 }
 
 /* ————————————————————————————————————————————
@@ -895,6 +933,18 @@ const PAGES = {
       renderAcknowledgments($("#page-body"));
     },
   },
+  exhibition: {
+    open(bar) {
+      bar.innerHTML = `<span class="bar-label">${t("exhibition")}</span>`;
+      renderExhibition($("#page-body"));
+    },
+  },
+  education: {
+    open(bar) {
+      bar.innerHTML = `<span class="bar-label">${t("education")}</span>`;
+      renderEducation($("#page-body"));
+    },
+  },
   /* language switch while a page is open */
   refresh() {
     if (!pageVisible() || !PAGES[currentPage]) return;
@@ -932,5 +982,10 @@ CMS.loadTextPage("acknowledgments").then((page) => {
   if (!page) return;
   ACK = page;
   if (pageVisible() && currentPage === "acknowledgments") PAGES.refresh();
+});
+CMS.loadTextPage("education").then((page) => {
+  if (!page) return;
+  EDU = page;
+  if (pageVisible() && currentPage === "education") PAGES.refresh();
 });
 });

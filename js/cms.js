@@ -23,7 +23,8 @@ const STATIC = {
       const dir = `${STATIC.base}works/${w.slug}/`;
       const cover = await CMS.measure(dir + w.cover);
       const sz = w.sizes || {};                                   /* pixel sizes from the manifest (mobile layout needs the orientation) */
-      const extras = (w.images || []).map((f) => ({ src: dir + f, full: dir + f, w: (sz[f] || [])[0] || 4, h: (sz[f] || [])[1] || 3, known: !!sz[f], cap_en: "", cap_cn: "", canvas: false }));
+      const caps = w.captions || {};                              /* optional { "<file>": { en, cn } } — the picture's one-line description (hover / lightbox) */
+      const extras = (w.images || []).map((f) => ({ src: dir + f, full: dir + f, w: (sz[f] || [])[0] || 4, h: (sz[f] || [])[1] || 3, known: !!sz[f], cap_en: (caps[f] || {}).en || "", cap_cn: (caps[f] || {}).cn || "", canvas: false }));
       const rec = Object.assign({}, w, { statement_en: br(w.statement_en), statement_cn: br(w.statement_cn) });
       return {
         id: w.slug, who: w.who, rec,
@@ -85,7 +86,7 @@ const STATIC = {
     const p = await STATIC.json(`${key}.json`);
     if (!p) return null;
     const br = (t) => String(t || "").replace(/\n/g, "<br>");
-    return { rec: { key, title_en: p.title_en || key, title_cn: p.title_cn || "", body_en: br(p.body_en), body_cn: br(p.body_cn) }, images: [] };
+    return { rec: { key, title_en: p.title_en || key, title_cn: p.title_cn || "", body_en: br(p.body_en), body_cn: br(p.body_cn), instagram: p.instagram || "", facebook: p.facebook || "" }, images: [] };
   },
 };
 
