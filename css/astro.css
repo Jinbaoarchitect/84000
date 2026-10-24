@@ -47,17 +47,30 @@ a.close-btn { display: block; }
 @media (max-aspect-ratio: 1/1) { .layout-m .d-text { margin-left: var(--inset); margin-right: var(--inset); width: auto; } }
 
 /* ————— phones: the home menu behind three lines top-right ————— */
-#home-burger, #home-menu { display: none; }
+#home-burger, #site-burger, #home-menu { display: none; }
 @media (max-aspect-ratio: 1/1) {
   .panel-menu { display: none; }                               /* the burger replaces the groups on the bands */
-  #home-burger {
+  #home-burger, #site-burger {
     display: block; position: fixed; z-index: 70;
     top: var(--inset-top); right: var(--inset);
     width: calc(var(--fs-lg) * 1.6); height: calc(var(--fs-lg) * var(--lh-label));   /* three lines as wide as the name is tall and a half */
     background: none; border: 0; padding: 0; cursor: pointer;
   }
-  #home-burger span { position: absolute; left: 0; right: 0; height: var(--m-line); background: var(--white); mix-blend-mode: difference; transition: transform 0.25s ease, top 0.25s ease, opacity 0.2s ease; }   /* reads against any picture: white on dark, black on light */
-  #home-burger span:nth-child(1) { top: 22%; } #home-burger span:nth-child(2) { top: 50%; } #home-burger span:nth-child(3) { top: 78%; }
+  #home-burger span, #site-burger span { position: absolute; left: 0; right: 0; height: var(--m-line); background: var(--black); transition: transform 0.25s ease, top 0.25s ease, opacity 0.2s ease, background 0.6s ease; }
+  #home-burger span:nth-child(1), #site-burger span:nth-child(1) { top: 22%; }
+  #home-burger span:nth-child(2), #site-burger span:nth-child(2) { top: 50%; }
+  #home-burger span:nth-child(3), #site-burger span:nth-child(3) { top: 78%; }
+  /* the lines take the colour the name takes: on the home page sampled from the white band's picture
+     under them (body[data-burger-tone], like the label); on a work page sampled from the cover while
+     the hero is on screen, then the zone's own colour; on list / text pages the zone's colour */
+  body[data-burger-tone="white"] #home-burger span { background: var(--white); }
+  body[data-burger-tone="grey"]  #home-burger span { background: var(--grey);  }
+  body.theme-amm #site-burger span { background: var(--white); }
+  #site-burger[data-tone="white"]:not(.off-hero) span { background: var(--white); }
+  #site-burger[data-tone="black"]:not(.off-hero) span { background: var(--black); }
+  body.menu-open #site-burger span:nth-child(1) { top: 50%; transform: rotate(45deg); }
+  body.menu-open #site-burger span:nth-child(2) { opacity: 0; }
+  body.menu-open #site-burger span:nth-child(3) { top: 50%; transform: rotate(-45deg); }
   #home-menu {
     display: flex; flex-direction: column; gap: calc(var(--lh-label) * 1em);
     position: fixed; inset: 0; z-index: 65;

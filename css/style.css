@@ -1225,18 +1225,18 @@ a.m-item:hover .m-title { text-decoration: underline; text-underline-offset: 0.1
   .dd.wide .dd-title, .dd.wide .dd-value { width: 44vw; }
   .dd .dd-options { min-width: 44vw; }
 
-  /* ————— detail: hero one screen high, title at a third, year at two thirds ————— */
+  /* ————— detail: hero one screen high; title at a third, year / category on the next line, the
+     client one blank line below (client, 2026-10-24 — was: year at two thirds) ————— */
   #detail-hero { height: 100vh; height: 100dvh; }
   #detail-hero-pin { position: relative; height: 100%; }
-  #detail-hero-text { height: 100%; }
-  #detail-hero .d-main, #detail-hero .d-client { position: static; transform: none; width: auto; display: contents; }
-  #detail-hero .d-title, #detail-hero .d-meta, #detail-hero .d-client {
-    position: absolute; left: var(--inset); right: var(--inset); transform: none;
+  #detail-hero-text { height: 100%; display: flex; flex-direction: column; align-items: stretch; padding: 0 var(--inset); box-sizing: border-box; }
+  #detail-hero-text::before { content: ""; flex: 0 0 35.3%; }
+  #detail-hero .d-main, #detail-hero .d-client {
+    position: static; transform: none; width: auto; display: flex; flex-direction: column;
     font-size: var(--fs-lg); line-height: var(--lh-label); letter-spacing: var(--ls-label);
   }
-  #detail-hero .d-title { top: 35.3%; }
-  #detail-hero .d-meta  { top: 68.6%; }
-  #detail-hero .d-client { top: calc(68.6% + var(--fs-lg) * var(--lh-label) * 3); font-weight: 400; display: flex; flex-direction: column; }
+  #detail-hero .d-title, #detail-hero .d-meta { position: static; }
+  #detail-hero .d-client { font-weight: 400; margin-top: calc(var(--fs-lg) * var(--lh-label)); }
   #detail-hero .d-client:empty { display: none; }
   #detail-body { --bgap: 6vw; padding: 11.7vw 0 0; }
   .d-text, .d-par, .d-img, .d-pair, .d-head { margin-left: var(--inset); margin-right: var(--inset); width: auto; }
