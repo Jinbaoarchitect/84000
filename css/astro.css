@@ -111,7 +111,7 @@ a.close-btn { display: block; }
 
 /* the two pages that are tables only start at the top of the page (v9 p.6–7) */
 #bio.cv-only { padding-top: 1.3vw; }
-#bio.cv-only .b-label { position: static; }      /* as drawn: the label stays beside its first row (the biography tables keep the centre-line hold) */
+.b-label { position: static; }                   /* as drawn on all three pages: the label stays beside its first row (it no longer holds the centre line) */
 
 /* featured exhibitions / programmes */
 .f-group { margin-bottom: 5.9vw; }
@@ -157,9 +157,13 @@ a.close-btn { display: block; }
   #bio.cv-only { padding-top: var(--m-top); }
   #bio.cv-only .b-cv { margin-top: 0; }
   .b-group { margin-bottom: 14vw; }
-  .b-label { margin: 0 0 1em; padding-top: 0.6em; }
-  .b-rows .b-row { display: block; margin-bottom: 1em; }
+  .b-label { margin: 0 0 0.8em; }
+  /* a table row folds into a short block — the lead cell (date / year / city) at the left where there is
+     one, the other cells stacked, the secondary ones in the sub tone — and keeps the hairline under it */
+  .b-rows .b-row { display: block; margin-bottom: 0; padding: 0.5em 0 0.55em; border-bottom: 1px solid var(--black); }
   .b-rows .b-row > span { display: block; border-bottom: 0; line-height: inherit; padding-right: 0; }
+  .b-label { border-top: 0; padding-top: 0; }
+  .b-rows { border-top: 1px solid var(--black); }
   .b-rows.cols-exh .b-row, .b-rows.cols-bio3 .b-row, .b-rows.cols-bio4 .b-row { display: grid; grid-template-columns: 24vw 1fr; column-gap: 2vw; }
   .b-rows.cols-exh .c1, .b-rows.cols-bio3 .c1, .b-rows.cols-bio4 .c1 { grid-row: 1 / span 4; }
   .b-rows .c3, .b-rows .c4, .b-rows.cols-edu .c2, .b-rows.cols-bio2 .c2 { color: var(--sub); }
@@ -170,7 +174,8 @@ a.close-btn { display: block; }
   .f-head .f-date, .f-head .f-type, .f-head .f-venue { color: var(--sub); }
   .f-head .f-nav { display: none !important; }
   .f-strip { height: 46vw; margin-top: 3vw; gap: 1.5vw; margin-right: calc(var(--inset) * -1); }
-  .q { font-size: var(--fs-body); line-height: var(--lh-body); padding: 0.6em 0 8vw; }
+  .q { font-size: var(--fs-body); line-height: var(--lh-body); padding: 0.55em 0 8vw; }
+  .q-list { border-top: 0; }
   .b-statement { font-size: var(--fs-body); }
   .b-block + .b-block { margin-top: 14vw; }
   .b-lead { display: block; margin-bottom: 0; }
